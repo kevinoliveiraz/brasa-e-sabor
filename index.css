@@ -1,0 +1,127 @@
+*{font-family: Arial, Helvetica, sans-serif;}
+header {
+    background-color: #FEFAFA; /* Define a cor de fundo do header */
+    display: flex; /* Coloca os elementos do header lado a lado */
+    align-items: center; /* Centraliza os elementos verticalmente */
+    height: 72px; /* Define a altura do header */
+    padding: 0 80px; /* Adiciona 80px de espaço nas laterais */
+    box-sizing: border-box; /* Mantém o padding dentro da altura e largura do header */
+    gap: 20px; /* Adiciona espaço entre logo, nav, pesquisa e botão */
+
+}
+
+    header a button{
+        cursor: pointer;
+    }
+
+body {
+    margin: 0; /* Remove a margem padrão do navegador */
+}
+
+nav ul {
+    display: flex; /* Coloca os itens da lista lado a lado */
+    gap: 24px; /* Define 24px de espaço entre os itens */
+    list-style-type: none; /* Remove as bolinhas da lista */
+    padding: 0; /* Remove o espaçamento interno padrão da lista */
+    margin: 0; /* Remove a margem padrão da lista */
+}
+
+a{
+    color: black;
+    text-decoration: none;/* remove o sublinhado do nav */
+    cursor: pointer;
+}
+input{
+    background-color: #FFF8F0; /* cor de fundo */
+    width: 166px; /* largura */
+    height: 39px;/* altura */
+    border-radius: 20px;/* borda */
+    border: 1px solid #EADBD0; /* TRAÇADO */
+    padding-left: 11px; /* espaçamento a esquerda */
+     outline: none; /* remove o contorno ao selecionar */
+    box-sizing: border-box; /* mater o pedding e borda dentro do tamanho selecionado */
+    padding-right: 35px; /* Cria espaço para o texto não ficar embaixo da lupa */
+
+}
+
+form{
+      position: relative; /* Faz o form virar a referência para posicionar a lupa */
+    
+}
+.lupa{ /* (.) e para uma class */
+    position: absolute; /* Permite posicionar a lupa dentro do form */
+    right: 12px; /* Afasta a lupa da borda direita */
+    top: 50%; /* Posiciona a lupa no meio vertical */
+    transform: translateY(-50%); /* Corrige a centralização vertical */
+    width: 18px; /* Define o tamanho da lupa */
+}
+
+#meu-pedido {
+    background: #AD281B; /* cor de fundo */
+    width: 167px; /* largura */
+    height: 43px; /* altura */
+    border-radius: 12px; /* borda arredondada */
+    border: none; /* remove a borda padrão do botão */
+    outline: none; /* remove o contorno ao selecionar */
+    color: white;
+    font-weight: bold; /* bordar do texto */
+    font-size: 15px;
+    
+}
+
+#banner-principal{
+    width: 1440px;/* largura */
+    height: 550px;/* altura */
+}
+
+.hero {
+    background-image: url("assets/banner-burguer.png"); /* Coloca a imagem no fundo */
+    width: 100%; /* Ocupa toda a largura disponível */
+    height: 550px; /* Define a altura */
+    background-size: cover; /* Faz a imagem preencher a seção */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede repetição da imagem */
+    color: white;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    padding: 80px;
+}
+
+#h2-section{
+    color: #FFB72B;
+    font-size: 15px;
+    margin: 0;
+    
+}
+#h1{
+    font-size: 65px;
+    margin: 0;
+}
+
+#botoes-hero{
+    display: flex;
+}
+
+
+#fazer-pedido{
+    width: 255px;
+    height: 55px;
+    border-radius: 12px;
+    background: #AD281B;
+    color: white;
+     border: none; /* remove a borda padrão do botão */
+    
+}
+
+#explorar-cardapio{
+     width: 255px;
+    height: 55px;
+    border-radius: 12px;
+    background: white;
+    color: #AD281B;
+     border: none; /* remove a borda padrão do botão */
+    
+}
