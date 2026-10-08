@@ -1,127 +1,184 @@
-*{font-family: Arial, Helvetica, sans-serif;}
-header {
-    background-color: #FEFAFA; /* Define a cor de fundo do header */
-    display: flex; /* Coloca os elementos do header lado a lado */
-    align-items: center; /* Centraliza os elementos verticalmente */
-    height: 72px; /* Define a altura do header */
-    padding: 0 80px; /* Adiciona 80px de espaço nas laterais */
-    box-sizing: border-box; /* Mantém o padding dentro da altura e largura do header */
-    gap: 20px; /* Adiciona espaço entre logo, nav, pesquisa e botão */
-
+* {
+    font-family: Arial, Helvetica, sans-serif; /* Define Arial como fonte principal de todos os elementos da página */
 }
 
-    header a button{
-        cursor: pointer;
-    }
-
 body {
-    margin: 0; /* Remove a margem padrão do navegador */
+    margin: 0; /* Remove a margem padrão que o navegador coloca no body */
+}
+
+header {
+    background-color: #FEFAFA; /* Define a cor de fundo do cabeçalho */
+    display: flex; /* Coloca os elementos filhos do header lado a lado */
+    align-items: center; /* Centraliza os elementos verticalmente dentro do header */
+    height: 72px; /* Define a altura do header */
+    padding: 0 80px; /* Adiciona 80px de espaço na esquerda e direita */
+    box-sizing: border-box; /* Faz o padding contar dentro da altura e largura do elemento */
+    gap: 20px; /* Cria 20px de espaço entre os elementos do header */
+}
+
+header a button {
+    cursor: pointer; /* Faz o cursor virar uma mão ao passar sobre o botão */
 }
 
 nav ul {
-    display: flex; /* Coloca os itens da lista lado a lado */
-    gap: 24px; /* Define 24px de espaço entre os itens */
-    list-style-type: none; /* Remove as bolinhas da lista */
+    display: flex; /* Coloca os itens da lista do menu lado a lado */
+    gap: 24px; /* Cria 24px de espaço entre os itens do menu */
+    list-style-type: none; /* Remove as bolinhas padrão da lista */
     padding: 0; /* Remove o espaçamento interno padrão da lista */
     margin: 0; /* Remove a margem padrão da lista */
 }
 
-a{
-    color: black;
-    text-decoration: none;/* remove o sublinhado do nav */
-    cursor: pointer;
+a {
+    color: black; /* Define a cor dos links como preta */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    cursor: pointer; /* Faz o cursor virar uma mão ao passar sobre o link */
 }
-input{
-    background-color: #FFF8F0; /* cor de fundo */
-    width: 166px; /* largura */
-    height: 39px;/* altura */
-    border-radius: 20px;/* borda */
-    border: 1px solid #EADBD0; /* TRAÇADO */
-    padding-left: 11px; /* espaçamento a esquerda */
-     outline: none; /* remove o contorno ao selecionar */
-    box-sizing: border-box; /* mater o pedding e borda dentro do tamanho selecionado */
+
+input {
+    background-color: #FFF8F0; /* Define a cor de fundo do campo de pesquisa */
+    width: 166px; /* Define a largura do input */
+    height: 39px; /* Define a altura do input */
+    border-radius: 20px; /* Deixa as bordas arredondadas */
+    border: 1px solid #EADBD0; /* Cria uma borda ao redor do input */
+    padding-left: 11px; /* Afasta o texto da borda esquerda */
     padding-right: 35px; /* Cria espaço para o texto não ficar embaixo da lupa */
-
+    outline: none; /* Remove o contorno padrão ao clicar no input */
+    box-sizing: border-box; /* Mantém padding e borda dentro do tamanho definido */
 }
 
-form{
-      position: relative; /* Faz o form virar a referência para posicionar a lupa */
-    
+form {
+    position: relative; /* Faz o form servir de referência para elementos absolutos dentro dele */
 }
-.lupa{ /* (.) e para uma class */
-    position: absolute; /* Permite posicionar a lupa dentro do form */
+
+.lupa {
+    position: absolute; /* Permite posicionar a lupa livremente dentro do form */
     right: 12px; /* Afasta a lupa da borda direita */
-    top: 50%; /* Posiciona a lupa no meio vertical */
-    transform: translateY(-50%); /* Corrige a centralização vertical */
-    width: 18px; /* Define o tamanho da lupa */
+    top: 50%; /* Coloca a lupa no meio vertical do form */
+    transform: translateY(-50%); /* Corrige a posição para centralizar verticalmente */
+    width: 18px; /* Define a largura do ícone da lupa */
 }
 
 #meu-pedido {
-    background: #AD281B; /* cor de fundo */
-    width: 167px; /* largura */
-    height: 43px; /* altura */
-    border-radius: 12px; /* borda arredondada */
-    border: none; /* remove a borda padrão do botão */
-    outline: none; /* remove o contorno ao selecionar */
-    color: white;
-    font-weight: bold; /* bordar do texto */
-    font-size: 15px;
-    
+    background: #AD281B; /* Define a cor de fundo do botão */
+    width: 167px; /* Define a largura do botão */
+    height: 43px; /* Define a altura do botão */
+    border-radius: 12px; /* Deixa as bordas arredondadas */
+    border: none; /* Remove a borda padrão */
+    outline: none; /* Remove o contorno padrão ao clicar */
+    color: white; /* Define a cor do texto como branca */
+    font-weight: bold; /* Deixa o texto em negrito */
+    font-size: 15px; /* Define o tamanho do texto */
 }
 
-#banner-principal{
-    width: 1440px;/* largura */
-    height: 550px;/* altura */
+#banner-principal {
+    width: 1440px; /* Define a largura do banner */
+    height: 550px; /* Define a altura do banner */
 }
 
 .hero {
-    background-image: url("assets/banner-burguer.png"); /* Coloca a imagem no fundo */
-    width: 100%; /* Ocupa toda a largura disponível */
-    height: 550px; /* Define a altura */
-    background-size: cover; /* Faz a imagem preencher a seção */
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Impede repetição da imagem */
-    color: white;
-}
-section{
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    padding: 80px;
+    background-image: url("assets/banner-burguer.png"); /* Usa a imagem do hambúrguer como fundo da seção */
+    width: 100%; /* Faz a hero ocupar toda a largura disponível */
+    height: 550px; /* Define a altura da hero */
+    background-size: cover; /* Faz a imagem preencher toda a área da hero */
+    background-position: center; /* Centraliza a imagem dentro da seção */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    color: white; /* Define branco como cor padrão dos textos da hero */
+    display: flex; /* Ativa o Flexbox dentro da hero */
+    flex-direction: column; /* Coloca os elementos da hero um embaixo do outro */
+    padding: 80px; /* Cria espaço interno de 80px em todos os lados */
+    box-sizing: border-box; /* Faz o padding ficar dentro dos 550px de altura */
 }
 
-#h2-section{
-    color: #FFB72B;
-    font-size: 15px;
-    margin: 0;
-    
-}
-#h1{
-    font-size: 65px;
-    margin: 0;
+#oq-vai-ser-hj {
+    color: #261B17; /* Define a cor escura do título */
+    font-size: 36px; /* Define o tamanho do texto */
+    margin: 0; /* Remove a margem padrão do h2 */
+    font-weight: bolder; /* Deixa o título com peso maior */
 }
 
-#botoes-hero{
-    display: flex;
+#h1 {
+    font-size: 65px; /* Define o tamanho do título principal */
+    margin: 0; /* Remove a margem padrão do h1 */
 }
 
-
-#fazer-pedido{
-    width: 255px;
-    height: 55px;
-    border-radius: 12px;
-    background: #AD281B;
-    color: white;
-     border: none; /* remove a borda padrão do botão */
-    
+.botoes-hero {
+    display: flex; /* Coloca os dois botões da hero lado a lado */
+    gap: 22px; /* Cria espaço entre os dois botões */
 }
 
-#explorar-cardapio{
-     width: 255px;
-    height: 55px;
-    border-radius: 12px;
-    background: white;
-    color: #AD281B;
-     border: none; /* remove a borda padrão do botão */
-    
+#fazer-pedido {
+    width: 255px; /* Define a largura do botão */
+    height: 55px; /* Define a altura do botão */
+    border-radius: 12px; /* Deixa as bordas arredondadas */
+    background: #AD281B; /* Define a cor de fundo vermelha */
+    color: white; /* Define a cor do texto como branca */
+    border: none; /* Remove a borda padrão */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+#explorar-cardapio {
+    width: 255px; /* Define a largura do botão */
+    height: 55px; /* Define a altura do botão */
+    border-radius: 12px; /* Deixa as bordas arredondadas */
+    background: white; /* Define o fundo como branco */
+    color: #AD281B; /* Define o texto como vermelho */
+    border: none; /* Remove a borda padrão */
+    font-weight: bolder; /* Deixa o texto com peso maior */
+}
+
+.texto-favorito {
+    display: flex; /* Ativa o Flexbox nessa seção */
+    flex-direction: column; /* Coloca os textos um embaixo do outro */
+    padding: 57px 80px; /* Cria 57px em cima/baixo e 80px nas laterais */
+    box-sizing: border-box; /* Mantém o padding dentro do tamanho da seção */
+}
+
+#escolha-seu-favorito {
+    color: #AD281B; /* Define a cor vermelha do texto pequeno */
+    font-weight: bold; /* Deixa o texto em negrito */
+    margin: 0; /* Remove a margem padrão do parágrafo */
+}
+
+#paragrafo-texto-favorito {
+    color: #76665F; /* Define a cor do parágrafo */
+    font-size: 16px; /* Define o tamanho do texto */
+}
+
+.favoritos {
+    display: flex; /* Coloca todos os cards lado a lado */
+    width: 100%; /* Faz a seção ocupar toda a largura disponível */
+    padding: 0 80px; /* Mantém 80px de espaço nas laterais igual ao restante do site */
+    box-sizing: border-box; /* Faz o padding contar dentro dos 100% de largura */
+    justify-content: center; /* Distribui os cards pela largura disponível */
+    gap: 67px;
+
+    & h2 {
+        font-size: 13px; /* Define o tamanho dos títulos dos cards */
+        font-weight: bolder; /* Deixa os títulos dos cards em negrito */
+        text-align: center; /* Centraliza o texto dos títulos */
+    }
+
+    & .card {
+        display: flex; /* Ativa o Flexbox dentro de cada card */
+        width: 197px; /* Define a largura de cada card */
+        height: 299px; /* Define a altura de cada card */
+        flex-shrink: 0; /* Impede que os cards diminuam de tamanho */
+        flex-direction: column; /* Coloca imagem e texto um abaixo do outro */
+        align-items: center; /* Centraliza os elementos horizontalmente dentro do card */
+        border-radius: 15px; /* Arredonda as bordas dos cards */
+        border: 1px solid #FF9A50; /* Cria a borda laranja dos cards */
+        box-sizing: border-box; /* Mantém a borda dentro dos 197px por 299px */
+    }
+
+    & img {
+        width: 181px; /* Define a largura das imagens */
+        height: 153px; /* Define a altura das imagens */
+        border-radius: 11px; /* Arredonda as bordas das imagens */
+        object-fit: cover; /* Faz a imagem preencher o espaço sem deformar */
+        margin-top: 5px;
+    }
+}
+
+#pizza{
+    margin-top: 20px;
 }
