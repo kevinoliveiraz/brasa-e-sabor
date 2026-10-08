@@ -1,81 +1,162 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
+<!DOCTYPE html><!-- Informa ao navegador que este documento usa HTML5 -->
+
+<html lang="pt-br"><!-- Inicia o documento HTML e define o idioma como português do Brasil -->
+
+<head> <!-- Área de configurações da página, não aparece diretamente no conteúdo -->
+    <meta charset="UTF-8"><!-- Permite o uso correto de acentos e caracteres especiais -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brasa & Sabor</title>
-    <link rel="stylesheet" href="index.css">
+    <!-- Faz a página se adaptar corretamente a diferentes tamanhos de tela -->
+    <title>Brasa & Sabor</title> <!-- Define o nome que aparece na aba do navegador -->
+    <link rel="stylesheet" href="index.css"> <!-- Conecta este HTML ao arquivo CSS -->
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <!-- Define o ícone que aparece na aba do navegador -->
 </head>
-<body>
 
-    <header>
-        <img src="logo.png" alt="">
-<nav> <!-- Área de navegação do site -->
+<body> <!-- Inicia todo o conteúdo visível da página -->
 
-    <ul> <!-- Lista não ordenada dos links do menu -->
+    <header> <!-- Cabeçalho principal do site -->
 
-        <li> <!-- Item da lista -->
-            <a href="#">Início</a> <!-- Link para a página inicial -->
-        </li>
+        <img src="logo.png" alt="Logo Brasa & Sabor"> <!-- Exibe a logo do site -->
 
-        <li> <!-- Item da lista -->
-            <a href="#">Cardápio</a> <!-- Link para a página de cardápio -->
-        </li>
+        <nav> <!-- Área de navegação principal -->
 
-        <li> <!-- Item da lista -->
-            <a href="#">Combos</a> <!-- Link para a seção ou página de combos -->
-        </li>
+            <ul><!-- Lista dos links do menu -->
 
-        <li> <!-- Item da lista -->
-            <a href="#">Promoções</a> <!-- Link para a seção ou página de promoções -->
-        </li>
+                <li> <!-- Item da lista -->
+                    <a href="#">Início</a><!-- Link para a página inicial -->
+                </li>
 
-        <li> <!-- Item da lista -->
-            <a href="#">Sobre</a> <!-- Link para a seção ou página sobre a marca -->
-        </li>
+                <li>
+                    <a href="#">Cardápio</a><!-- Link para o cardápio -->
+                </li>
 
-        <li> <!-- Item da lista -->
-            <a href="#">Contato</a> <!-- Link para a seção ou página de contato -->
-        </li>
+                <li>
+                    <a href="#">Combos</a> <!-- Link para os combos -->
+                </li>
 
-    </ul>
+                <li>
+                    <a href="#">Promoções</a> <!-- Link para as promoções -->
+                </li>
 
-</nav>
-             <form action="">
-                      <input type="search" placeholder="Pesquisar">
-                     <img class="lupa" src="assets/Search.png" alt="Pesquisar">
-                     
-             </form>
-        <a href="https://youtu.be/Tk9TM7-eTmw?si=E-C-ctOI5o2lWUD2">
+                <li>
+                    <a href="#">Sobre</a> <!-- Link para a área sobre a empresa -->
+                </li>
 
-             <button id="meu-pedido" >Meu pedido</button>
+                <li>
+                    <a href="#">Contato</a> <!-- Link para a área de contato -->
+                </li>
+
+            </ul>
+        </nav>
+
+        <form> <!-- Cria o formulário da barra de pesquisa -->
+
+            <input type="search" placeholder="Pesquisar"><!-- Cria o campo onde o usuário pode digitar uma pesquisa -->
+
+            <img class="lupa" src="assets/Search.png" alt="Ícone de pesquisa">
+            <!-- Exibe o ícone da lupa dentro da área de pesquisa -->
+        </form>
+
+        <a href="https://youtu.be/Tk9TM7-eTmw?si=E-C-ctOI5o2lWUD2"> <!-- Cria um link ao redor do botão Meu pedido -->
+
+            <button id="meu-pedido" type="button">
+                Meu pedido
+            </button><!-- Cria o botão Meu pedido -->
         </a>
 
-            
     </header>
-    
-    <section class="hero">
 
-            <h2 id="h2-section">FEITO PARA MATAR SUA FOME</h2>
-            <h1 id="h1">
-                    SABOR QUE <br>
-                    ACENDE A <br>
-                    SUA FOME.</h1>
+    <section class="hero"> <!-- Cria a seção principal do site, conhecida como hero -->
 
-            <P>Hambúrgueres, pizzas, açaís e muito mais. <br> 
-                Seu próximo pedido começa aqui.</P>
-                
-            <div class="botoes-hero">
-                 <button id="fazer-pedido">FAZER MEU PEDIDO</button>
-                 <button id="explorar-cardapio">EXPLORAR CARDÁPIO</button>
-            </div>
+        <h2 id="h2-section">
+            FEITO PARA MATAR SUA FOME
+        </h2> <!-- Texto menor que aparece acima do título principal -->
 
-            
+        <h1 id="h1">
+            SABOR QUE <br> <!-- br força uma quebra de linha -->
+
+            ACENDE A <br> <!-- Segunda quebra de linha -->
+
+            SUA FOME.
+        </h1>
+
+        <p>
+            Hambúrgueres, pizzas, açaís e muito mais. <br>
+            Seu próximo pedido começa aqui.
+        </p>
+
+
+        <div class="botoes-hero"> <!-- Agrupa os dois botões para poder organizá-los juntos no CSS -->
+
+            <button id="fazer-pedido" type="button"> <!-- Primeiro botão da hero -->
+                FAZER MEU PEDIDO
+            </button>
+
+
+            <button id="explorar-cardapio" type="button"> <!-- Segundo botão da hero -->
+                EXPLORAR CARDÁPIO
+            </button>
+
+
+        </div>
 
     </section>
 
-    <p>ESCOLHA SEU FAVORITO</p>
-    
+    <section class="texto-favorito"><!-- Inicia a segunda seção do site -->
+
+        <p id="escolha-seu-favorito">
+            ESCOLHA SEU FAVORITO
+        </p>
+
+
+        <h2 id="oq-vai-ser-hj">
+            O que vai ser hoje?
+        </h2>
+
+
+        <p id="paragrafo-texto-favorito">
+            Encontre o sabor certo para cada momento.
+        </p>
+
+
+    </section>
+
+<section class="favoritos">
+
+    <div class="card" id="sprite">
+        <img src="assets/favoritos/SPRITE.png" alt="">
+        <h2>Sprite</h2>
+
+    </div>
+
+    <div class="card" id="acai">
+        <img src="assets/favoritos/AÇAI.png" alt="">
+        <h2>Açai</h2>
+
+    </div>
+
+    <div class="card" id="bolo-de-chocolate">
+        <img src="assets/favoritos/BOLO-DE-CHOCOLATE+MORANGO.png" alt="">
+        <h2>Bolo de Chocolate e Morango</h2>
+    </div>
+
+    <div class="card" id="pizza">
+        <img src="assets/favoritos/SEXTA-COMBINA-COM-PIZZA.png" alt="">
+        <h2>Pizza</h2>
+
+    </div>
+
+    <div class="card" id="hamburguer">
+        <img src="assets/favoritos/Cópia de O-MAIS-COMPLETO-PARA-VOCÈ.png" alt="">
+        <h2>hamburguer</h2>
+
+    </div>
+
+</section>
+
+<img id="banner pizza" src="assets/banner/pizza-banner.png" alt="">
+
 </body>
+
+
 </html>
