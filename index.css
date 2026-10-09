@@ -151,6 +151,7 @@ form {
     box-sizing: border-box; /* Faz o padding contar dentro dos 100% de largura */
     justify-content: center; /* Distribui os cards pela largura disponível */
     gap: 67px;
+    margin-bottom: 20px;
 
     & h2 {
         font-size: 13px; /* Define o tamanho dos títulos dos cards */
@@ -179,6 +180,3 @@ form {
     }
 }
 
-#pizza{
-    margin-top: 20px;
-}
