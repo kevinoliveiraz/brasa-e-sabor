@@ -1,142 +1,186 @@
 * {
-    font-family: Arial, Helvetica, sans-serif; /* Define Arial como fonte principal de todos os elementos da página */
+    font-family: Arial, Helvetica, sans-serif; /* Define a fonte de todos os elementos */
+    margin: 0; /* Remove as margens padrão */
+    padding: 0; /* Remove os espaçamentos internos padrão */
 }
 
 body {
-    margin: 0; /* Remove a margem padrão que o navegador coloca no body */
+    margin: 0; /* Remove a margem padrão do body */
 }
 
 header {
     background-color: #FEFAFA; /* Define a cor de fundo do cabeçalho */
-    display: flex; /* Coloca os elementos filhos do header lado a lado */
-    align-items: center; /* Centraliza os elementos verticalmente dentro do header */
-    height: 72px; /* Define a altura do header */
-    padding: 0 80px; /* Adiciona 80px de espaço na esquerda e direita */
-    box-sizing: border-box; /* Faz o padding contar dentro da altura e largura do elemento */
-    gap: 20px; /* Cria 20px de espaço entre os elementos do header */
+    display: flex; /* Coloca os elementos do cabeçalho lado a lado */
+    align-items: center; /* Centraliza os elementos verticalmente */
+    justify-content: space-between; /* Distribui o espaço livre entre os elementos */
+    height: 72px; /* Define a altura do cabeçalho */
+    padding: 0 80px; /* Adiciona espaço nas laterais */
+    box-sizing: border-box; /* Inclui o padding no tamanho do cabeçalho */
+    gap: 20px; /* Define o espaço mínimo entre os elementos */
+    flex-wrap: wrap; /* Permite que os elementos passem para outra linha quando faltar espaço */
+
+    & #logo {
+        cursor: pointer; /* Mostra uma mão ao passar o mouse sobre a logo */
+    }
+
+    & #meu-pedido {
+        &:hover {
+            background-color: #630e06; /* Escurece o botão ao passar o mouse */
+        }
+    }
 }
 
-header a button {
-    cursor: pointer; /* Faz o cursor virar uma mão ao passar sobre o botão */
+button {
+    cursor: pointer; /* Mostra uma mão ao passar o mouse sobre os botões */
 }
 
 nav ul {
-    display: flex; /* Coloca os itens da lista do menu lado a lado */
-    gap: 24px; /* Cria 24px de espaço entre os itens do menu */
-    list-style-type: none; /* Remove as bolinhas padrão da lista */
-    padding: 0; /* Remove o espaçamento interno padrão da lista */
-    margin: 0; /* Remove a margem padrão da lista */
+    display: flex; /* Coloca os itens do menu lado a lado */
+    flex-wrap: wrap; /* Permite que os itens passem para outra linha */
+    gap: 24px; /* Define o espaço entre os itens */
+    list-style-type: none; /* Remove as bolinhas da lista */
+    padding: 0; /* Remove o espaçamento interno padrão */
+    margin: 0; /* Remove a margem padrão */
+
+    & a {
+        display: inline-block; /* Permite aumentar o link com scale */
+        transition: transform 0.2s ease, color 0.2s ease; /* Suaviza o crescimento e a mudança de cor */
+
+        &:hover {
+            cursor: pointer; /* Mostra uma mão sobre o link */
+            color: #AD281B; /* Deixa o texto vermelho */
+            transform: scale(1.1); /* Aumenta o texto em 10% */
+        }
+    }
 }
 
 a {
-    color: black; /* Define a cor dos links como preta */
-    text-decoration: none; /* Remove o sublinhado padrão dos links */
-    cursor: pointer; /* Faz o cursor virar uma mão ao passar sobre o link */
+    color: black; /* Define a cor dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    cursor: pointer; /* Mostra uma mão ao passar o mouse sobre os links */
 }
 
 input {
-    background-color: #FFF8F0; /* Define a cor de fundo do campo de pesquisa */
-    width: 166px; /* Define a largura do input */
-    height: 39px; /* Define a altura do input */
-    border-radius: 20px; /* Deixa as bordas arredondadas */
-    border: 1px solid #EADBD0; /* Cria uma borda ao redor do input */
+    background-color: #FFF8F0; /* Define o fundo do campo de pesquisa */
+    width: 166px; /* Define a largura do campo */
+    height: 39px; /* Define a altura do campo */
+    border-radius: 20px; /* Arredonda as bordas */
+    border: 1px solid #EADBD0; /* Adiciona uma borda ao campo */
     padding-left: 11px; /* Afasta o texto da borda esquerda */
-    padding-right: 35px; /* Cria espaço para o texto não ficar embaixo da lupa */
-    outline: none; /* Remove o contorno padrão ao clicar no input */
-    box-sizing: border-box; /* Mantém padding e borda dentro do tamanho definido */
+    padding-right: 35px; /* Reserva espaço para a lupa */
+    outline: none; /* Remove o contorno padrão ao clicar */
+    box-sizing: border-box; /* Inclui padding e borda no tamanho do campo */
 }
 
 form {
-    position: relative; /* Faz o form servir de referência para elementos absolutos dentro dele */
+    position: relative; /* Serve de referência para posicionar a lupa */
+    margin-left: auto; /* Coloca o espaço livre antes da pesquisa, aproximando ela do botão */
 }
 
 .lupa {
-    position: absolute; /* Permite posicionar a lupa livremente dentro do form */
+    position: absolute; /* Permite posicionar a lupa dentro do formulário */
     right: 12px; /* Afasta a lupa da borda direita */
-    top: 50%; /* Coloca a lupa no meio vertical do form */
-    transform: translateY(-50%); /* Corrige a posição para centralizar verticalmente */
-    width: 18px; /* Define a largura do ícone da lupa */
+    top: 50%; /* Posiciona a lupa no meio vertical */
+    transform: translateY(-50%); /* Ajusta a centralização vertical da lupa */
+    width: 18px; /* Define a largura da lupa */
 }
 
 #meu-pedido {
-    background: #AD281B; /* Define a cor de fundo do botão */
+    background: #AD281B; /* Define o fundo vermelho */
     width: 167px; /* Define a largura do botão */
     height: 43px; /* Define a altura do botão */
-    border-radius: 12px; /* Deixa as bordas arredondadas */
+    border-radius: 12px; /* Arredonda as bordas */
     border: none; /* Remove a borda padrão */
     outline: none; /* Remove o contorno padrão ao clicar */
-    color: white; /* Define a cor do texto como branca */
+    color: white; /* Define o texto branco */
     font-weight: bold; /* Deixa o texto em negrito */
     font-size: 15px; /* Define o tamanho do texto */
 }
 
-#banner-principal {
-    width: 1440px; /* Define a largura do banner */
-    height: 550px; /* Define a altura do banner */
-}
-
 .hero {
-    background-image: url("assets/banner-burguer.png"); /* Usa a imagem do hambúrguer como fundo da seção */
-    width: 100%; /* Faz a hero ocupar toda a largura disponível */
-    height: 550px; /* Define a altura da hero */
-    background-size: cover; /* Faz a imagem preencher toda a área da hero */
-    background-position: center; /* Centraliza a imagem dentro da seção */
-    background-repeat: no-repeat; /* Impede que a imagem se repita */
-    color: white; /* Define branco como cor padrão dos textos da hero */
-    display: flex; /* Ativa o Flexbox dentro da hero */
-    flex-direction: column; /* Coloca os elementos da hero um embaixo do outro */
-    padding: 80px; /* Cria espaço interno de 80px em todos os lados */
-    box-sizing: border-box; /* Faz o padding ficar dentro dos 550px de altura */
+    background-image: url("assets/banner-burguer.png"); /* Define a imagem de fundo */
+    width: 100%; /* Ocupa toda a largura disponível */
+    height: 550px; /* Define a altura da seção */
+    background-size: cover; /* Preenche a seção com a imagem */
+    background-position: center; /* Centraliza a imagem de fundo */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    color: white; /* Define a cor padrão dos textos */
+    display: flex; /* Ativa o Flexbox */
+    flex-direction: column; /* Organiza os elementos um abaixo do outro */
+    padding: 80px; /* Define o espaço interno da seção */
+    box-sizing: border-box; /* Inclui o padding no tamanho da seção */
+
+    & #h2-section {
+        color: #FFB72B; /* Define a cor amarela do texto */
+        font-size: 15px; /* Define o tamanho do texto */
+        font-weight: 100; /* Solicita um peso fino para a fonte */
+    }
 }
 
 #oq-vai-ser-hj {
     color: #261B17; /* Define a cor escura do título */
-    font-size: 36px; /* Define o tamanho do texto */
-    margin: 0; /* Remove a margem padrão do h2 */
+    font-size: 36px; /* Define o tamanho do título */
+    margin: 0; /* Remove a margem padrão */
     font-weight: bolder; /* Deixa o título com peso maior */
 }
 
 #h1 {
     font-size: 65px; /* Define o tamanho do título principal */
-    margin: 0; /* Remove a margem padrão do h1 */
+    margin: 0; /* Remove a margem padrão */
 }
 
 .botoes-hero {
-    display: flex; /* Coloca os dois botões da hero lado a lado */
-    gap: 22px; /* Cria espaço entre os dois botões */
+    display: flex; /* Coloca os botões lado a lado */
+    gap: 22px; /* Define o espaço entre os botões */
+    flex-wrap: wrap; /* Permite que os botões passem para outra linha */
+    margin-top: 20px; /* Afasta os botões do texto acima */
 }
 
 #fazer-pedido {
     width: 255px; /* Define a largura do botão */
     height: 55px; /* Define a altura do botão */
-    border-radius: 12px; /* Deixa as bordas arredondadas */
-    background: #AD281B; /* Define a cor de fundo vermelha */
-    color: white; /* Define a cor do texto como branca */
+    border-radius: 12px; /* Arredonda as bordas */
+    background: #AD281B; /* Define o fundo vermelho */
+    color: white; /* Define o texto branco */
     border: none; /* Remove a borda padrão */
     font-weight: bold; /* Deixa o texto em negrito */
+    box-shadow: inset 0 0 0 0 white; /* Prepara o preenchimento branco sem mostrá-lo */
+    transition: box-shadow 0.35s ease, color 0.35s ease; /* Suaviza a animação na entrada e na saída do mouse */
+
+    &:hover {
+        box-shadow: inset 255px 0 0 0 white; /* Preenche o botão de branco da esquerda para a direita */
+        color: #AD281B; /* Muda o texto para vermelho */
+    }
 }
 
 #explorar-cardapio {
     width: 255px; /* Define a largura do botão */
     height: 55px; /* Define a altura do botão */
-    border-radius: 12px; /* Deixa as bordas arredondadas */
-    background: white; /* Define o fundo como branco */
-    color: #AD281B; /* Define o texto como vermelho */
+    border-radius: 12px; /* Arredonda as bordas */
+    background: white; /* Define o fundo branco */
+    color: #AD281B; /* Define o texto vermelho */
     border: none; /* Remove a borda padrão */
     font-weight: bolder; /* Deixa o texto com peso maior */
+    box-shadow: inset 0 0 0 0 #AD281B; /* Prepara o preenchimento vermelho sem mostrá-lo */
+    transition: box-shadow 0.35s ease, color 0.35s ease; /* Suaviza a animação na entrada e na saída do mouse */
+
+    &:hover {
+        box-shadow: inset 255px 0 0 0 #AD281B; /* Preenche o botão de vermelho da esquerda para a direita */
+        color: white; /* Muda o texto para branco */
+    }
 }
 
 .texto-favorito {
-    display: flex; /* Ativa o Flexbox nessa seção */
-    flex-direction: column; /* Coloca os textos um embaixo do outro */
-    padding: 57px 80px; /* Cria 57px em cima/baixo e 80px nas laterais */
-    box-sizing: border-box; /* Mantém o padding dentro do tamanho da seção */
+    display: flex; /* Ativa o Flexbox na seção */
+    flex-direction: column; /* Organiza os textos um abaixo do outro */
+    padding: 57px 80px; /* Define o espaço vertical e lateral */
+    box-sizing: border-box; /* Inclui o padding no tamanho da seção */
 }
 
 #escolha-seu-favorito {
-    color: #AD281B; /* Define a cor vermelha do texto pequeno */
+    color: #AD281B; /* Define a cor vermelha do texto */
     font-weight: bold; /* Deixa o texto em negrito */
-    margin: 0; /* Remove a margem padrão do parágrafo */
+    margin: 0; /* Remove a margem padrão */
 }
 
 #paragrafo-texto-favorito {
@@ -145,38 +189,54 @@ form {
 }
 
 .favoritos {
-    display: flex; /* Coloca todos os cards lado a lado */
-    width: 100%; /* Faz a seção ocupar toda a largura disponível */
-    padding: 0 80px; /* Mantém 80px de espaço nas laterais igual ao restante do site */
-    box-sizing: border-box; /* Faz o padding contar dentro dos 100% de largura */
-    justify-content: center; /* Distribui os cards pela largura disponível */
-    gap: 67px;
-    margin-bottom: 20px;
-
-    & h2 {
-        font-size: 13px; /* Define o tamanho dos títulos dos cards */
-        font-weight: bolder; /* Deixa os títulos dos cards em negrito */
-        text-align: center; /* Centraliza o texto dos títulos */
-    }
+    display: flex; /* Coloca os cards lado a lado */
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 0 80px; /* Define o espaço nas laterais */
+    box-sizing: border-box; /* Inclui o padding na largura da seção */
+    justify-content: center; /* Centraliza os cards na horizontal */
+    gap: 67px; /* Define o espaço entre os cards */
+    margin-bottom: 20px; /* Adiciona espaço abaixo da seção */
+    flex-wrap: wrap; /* Permite que os cards passem para outra linha */
 
     & .card {
-        display: flex; /* Ativa o Flexbox dentro de cada card */
-        width: 197px; /* Define a largura de cada card */
-        height: 299px; /* Define a altura de cada card */
-        flex-shrink: 0; /* Impede que os cards diminuam de tamanho */
-        flex-direction: column; /* Coloca imagem e texto um abaixo do outro */
-        align-items: center; /* Centraliza os elementos horizontalmente dentro do card */
-        border-radius: 15px; /* Arredonda as bordas dos cards */
-        border: 1px solid #FF9A50; /* Cria a borda laranja dos cards */
-        box-sizing: border-box; /* Mantém a borda dentro dos 197px por 299px */
+        display: flex; /* Ativa o Flexbox dentro do card */
+        width: 197px; /* Define a largura do card */
+        height: auto; /* Ajusta a altura ao conteúdo */
+        padding-bottom: 15px; /* Cria espaço abaixo do preço */
+        flex-shrink: 0; /* Impede que o card diminua de largura */
+        flex-direction: column; /* Organiza imagem, nome e preço em coluna */
+        align-items: center; /* Centraliza os elementos horizontalmente */
+        gap: 8px; /* Cria espaço entre imagem, nome e preço */
+        border-radius: 15px; /* Arredonda as bordas */
+        border: 1px solid #FF9A50; /* Adiciona uma borda laranja */
+        box-sizing: border-box; /* Inclui padding e borda no tamanho do card */
+    }
+
+    & h2 {
+        font-size: 17px; /* Aumenta o tamanho do nome do produto */
+        font-weight: bold; /* Deixa o nome em negrito */
+        text-align: center; /* Centraliza o nome */
+        padding: 0 8px; /* Afasta o nome das bordas laterais */
+    }
+
+    & .preco {
+        color: #AD281B; /* Define a cor vermelha do preço */
+        font-size: 18px; /* Define o tamanho do preço */
+        font-weight: bold; /* Deixa o preço em negrito */
+        text-align: center; /* Centraliza o preço */
+        margin-top: auto; /* Alinha os preços na parte inferior dos cards da mesma linha */
     }
 
     & img {
         width: 181px; /* Define a largura das imagens */
         height: 153px; /* Define a altura das imagens */
         border-radius: 11px; /* Arredonda as bordas das imagens */
-        object-fit: cover; /* Faz a imagem preencher o espaço sem deformar */
-        margin-top: 5px;
+        object-fit: cover; /* Preenche o espaço sem deformar a imagem */
+        margin-top: 5px; /* Afasta a imagem do topo do card */
     }
 }
 
+#banner-pizza {
+    width: 100%; /* Faz o banner acompanhar a largura disponível */
+    height: auto; /* Mantém a proporção da imagem */
+}
