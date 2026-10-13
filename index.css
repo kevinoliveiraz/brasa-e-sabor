@@ -325,6 +325,7 @@ input {
 }
 
 .combos {
+    
     & .NOSSAS-ESCOLHAS {
         margin-top: 20px; /* Adiciona espaço acima do texto */
         font-size: 14px; /* Define o tamanho do texto */
@@ -335,5 +336,85 @@ input {
     & .COMBO-PARA-QUALQUER-FOME {
         font-size: 38px; /* Define o tamanho do título dos combos */
         color: #261B17; /* Define a cor escura do título */
+    }
+
+    & .ESCOLHA{
+        font-size: 17px;
+        color: #76665F;
+
+    }
+
+
+}
+
+.combos-produtos {
+    display: flex; /* Coloca os cards lado a lado */
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 0 80px; /* Define o espaço nas laterais */
+    box-sizing: border-box; /* Inclui o padding na largura da seção */
+    justify-content: center; /* Centraliza os cards na horizontal */
+    gap: 67px; /* Define o espaço entre os cards */
+    margin-bottom: 20px; /* Adiciona espaço abaixo da seção */
+    flex-wrap: wrap; /* Permite que os cards passem para outra linha */
+
+    & .card {
+        display: flex; /* Ativa o Flexbox dentro do card */
+        width: 197px; /* Define a largura do card */
+        height: auto; /* Ajusta a altura ao conteúdo */
+        padding-bottom: 15px; /* Cria espaço abaixo do preço */
+        flex-shrink: 0; /* Impede que o card diminua de largura */
+        flex-direction: column; /* Organiza imagem, nome e preço em coluna */
+        align-items: center; /* Centraliza os elementos horizontalmente */
+        gap: 8px; /* Cria espaço entre imagem, nome e preço */
+        border-radius: 15px; /* Arredonda as bordas */
+        border: 1px solid #FF9A50; /* Adiciona uma borda laranja */
+        box-sizing: border-box; /* Inclui padding e borda no tamanho do card */
+        position: relative; /* Serve de referência para o reflexo */
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); /* Suaviza a inclinação e a volta do card */
+
+        &:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(-10deg) scale(1.02); /* Inclina e aumenta apenas o card sob o mouse */
+        }
+
+        &::after {
+            content: ""; /* Cria uma camada para o reflexo */
+            position: absolute; /* Posiciona o reflexo sobre o card */
+            inset: 0; /* Faz a camada ocupar todo o card */
+            border-radius: inherit; /* Mantém o arredondamento original */
+            pointer-events: none; /* Impede que o reflexo bloqueie o mouse */
+            background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1) 55%, transparent 60%); /* Cria uma faixa diagonal de luz */
+            background-size: 250% 250%; /* Permite movimentar o reflexo */
+            background-position: 100% 100%; /* Define a posição inicial do reflexo */
+            opacity: 0; /* Esconde o reflexo enquanto o card está parado */
+            transition: background-position 0.6s ease, opacity 0.6s ease; /* Suaviza o movimento e a aparição do reflexo */
+        }
+
+        &:hover::after {
+            background-position: 0% 0%; /* Faz o reflexo atravessar o card */
+            opacity: 1; /* Mostra o reflexo durante o hover */
+        }
+
+        & img {
+            width: 181px; /* Define a largura das imagens */
+            height: 153px; /* Define a altura das imagens */
+            border-radius: 11px; /* Arredonda as bordas das imagens */
+            object-fit: cover; /* Preenche o espaço sem deformar a imagem */
+            margin-top: 5px; /* Afasta a imagem do topo do card */
+        }
+
+        & h2 {
+            font-size: 17px; /* Aumenta o tamanho do nome do produto */
+            font-weight: bold; /* Deixa o nome em negrito */
+            text-align: center; /* Centraliza o nome */
+            padding: 0 8px; /* Afasta o nome das bordas laterais */
+        }
+
+        & .preco {
+            color: #AD281B; /* Define a cor vermelha do preço */
+            font-size: 18px; /* Define o tamanho do preço */
+            font-weight: bold; /* Deixa o preço em negrito */
+            text-align: center; /* Centraliza o preço */
+            margin-top: auto; /* Alinha os preços na parte inferior dos cards da mesma linha */
+        }
     }
 }
