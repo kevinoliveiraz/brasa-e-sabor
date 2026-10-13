@@ -23,10 +23,11 @@ header {
     display: flex; /* Coloca os elementos do cabeçalho lado a lado */
     align-items: center; /* Centraliza os elementos verticalmente */
     justify-content: space-between; /* Distribui o espaço livre entre os elementos */
-    height: 72px; /* Define a altura do cabeçalho */
-    padding: 0 80px; /* Adiciona espaço nas laterais */
+    min-height: 72px; /* Mantém a altura mínima e permite crescer se houver quebra de linha */
+    height: auto; /* Evita que o botão fique encoberto em telas menores */
+    padding: 12px clamp(20px, 3vw, 80px); /* Ajusta o espaço lateral à largura da tela */
     box-sizing: border-box; /* Inclui o padding no tamanho do cabeçalho */
-    gap: 20px; /* Define o espaço mínimo entre os elementos */
+    gap: 16px; /* Mantém os elementos próximos sem apertar o cabeçalho */
     flex-wrap: wrap; /* Permite que os elementos passem para outra linha quando faltar espaço */
 
     & #logo {
@@ -37,7 +38,7 @@ header {
 nav ul {
     display: flex; /* Coloca os itens do menu lado a lado */
     flex-wrap: wrap; /* Permite quebrar a linha quando faltar espaço */
-    gap: 20px; /* Compensa o espaço interno dos links */
+    gap: 12px; /* Faz o menu caber também com o navegador em 100% */
     list-style-type: none; /* Remove as bolinhas da lista */
     padding: 0; /* Remove o espaçamento interno padrão */
     margin: 0; /* Remove a margem padrão */
