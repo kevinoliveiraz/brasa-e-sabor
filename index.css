@@ -106,7 +106,7 @@ input {
     }
 }
 
-@keyframes entrada-hero { /* Cria a animação de entrada da hero */
+@keyframes hero { /* Cria a animação de entrada da hero */
     from { /* Define o começo da animação */
         opacity: 0; /* Começa invisível */
         transform: translateY(15px); /* Começa 15px abaixo da posição original */
