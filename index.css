@@ -8,6 +8,16 @@ body {
     margin: 0; /* Remove a margem padrão do body */
 }
 
+a {
+    color: black; /* Define a cor dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    cursor: pointer; /* Mostra uma mão ao passar o mouse sobre os links */
+}
+
+button {
+    cursor: pointer; /* Mostra uma mão ao passar o mouse sobre os botões */
+}
+
 header {
     background-color: #FEFAFA; /* Define a cor de fundo do cabeçalho */
     display: flex; /* Coloca os elementos do cabeçalho lado a lado */
@@ -22,42 +32,41 @@ header {
     & #logo {
         cursor: pointer; /* Mostra uma mão ao passar o mouse sobre a logo */
     }
-
-    & #meu-pedido {
-        &:hover {
-            background-color: #630e06; /* Escurece o botão ao passar o mouse */
-        }
-    }
-}
-
-button {
-    cursor: pointer; /* Mostra uma mão ao passar o mouse sobre os botões */
 }
 
 nav ul {
     display: flex; /* Coloca os itens do menu lado a lado */
-    flex-wrap: wrap; /* Permite que os itens passem para outra linha */
-    gap: 24px; /* Define o espaço entre os itens */
+    flex-wrap: wrap; /* Permite quebrar a linha quando faltar espaço */
+    gap: 20px; /* Compensa o espaço interno dos links */
     list-style-type: none; /* Remove as bolinhas da lista */
     padding: 0; /* Remove o espaçamento interno padrão */
     margin: 0; /* Remove a margem padrão */
 
     & a {
-        display: inline-block; /* Permite aumentar o link com scale */
-        transition: transform 0.2s ease, color 0.2s ease; /* Suaviza o crescimento e a mudança de cor */
+        display: inline-block; /* Permite aumentar cada link individualmente */
+        padding: 10px; /* Mantém o tamanho do link igual antes e durante o hover */
+        border: none; /* Remove qualquer borda do link */
+        outline: none; /* Remove o contorno preto de foco */
+        border-radius: 10px; /* Arredonda o fundo do hover */
+        transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease; /* Suaviza o efeito */
 
         &:hover {
             cursor: pointer; /* Mostra uma mão sobre o link */
-            color: #AD281B; /* Deixa o texto vermelho */
-            transform: scale(1.1); /* Aumenta o texto em 10% */
+            color: white; /* Deixa o texto branco */
+            background-color: #AD281B; /* Deixa o fundo vermelho */
+            transform: scale(1.1); /* Aumenta apenas o link sem empurrar os outros */
+        }
+
+        &:focus-visible {
+            outline: 2px solid #AD281B; /* Destaca o link em vermelho ao navegar pelo teclado */
+            outline-offset: 2px; /* Afasta o contorno do texto */
         }
     }
 }
 
-a {
-    color: black; /* Define a cor dos links */
-    text-decoration: none; /* Remove o sublinhado dos links */
-    cursor: pointer; /* Mostra uma mão ao passar o mouse sobre os links */
+form {
+    position: relative; /* Serve de referência para posicionar a lupa */
+    margin-left: auto; /* Coloca o espaço livre antes da pesquisa, aproximando ela do botão */
 }
 
 input {
@@ -70,11 +79,6 @@ input {
     padding-right: 35px; /* Reserva espaço para a lupa */
     outline: none; /* Remove o contorno padrão ao clicar */
     box-sizing: border-box; /* Inclui padding e borda no tamanho do campo */
-}
-
-form {
-    position: relative; /* Serve de referência para posicionar a lupa */
-    margin-left: auto; /* Coloca o espaço livre antes da pesquisa, aproximando ela do botão */
 }
 
 .lupa {
@@ -95,9 +99,28 @@ form {
     color: white; /* Define o texto branco */
     font-weight: bold; /* Deixa o texto em negrito */
     font-size: 15px; /* Define o tamanho do texto */
+
+    &:hover {
+        background-color: #630e06; /* Escurece o botão ao passar o mouse */
+    }
 }
 
+@keyframes entrada-hero { /* Cria a animação de entrada da hero */
+    from { /* Define o começo da animação */
+        opacity: 0; /* Começa invisível */
+        transform: translateY(15px); /* Começa 15px abaixo da posição original */
+    } /* Fecha o começo */
+
+    to { /* Define o final da animação */
+        opacity: 1; /* Deixa o elemento visível */
+        transform: translateY(0); /* Retorna à posição original */
+    } /* Fecha o final */
+} /* Fecha a animação */
+
 .hero {
+    position: relative; /* Serve de referência para posicionar o vídeo */
+    isolation: isolate; /* Mantém as camadas do vídeo dentro da hero */
+    overflow: hidden; /* Esconde as partes do vídeo que ultrapassam a seção */
     background-image: url("assets/banner-burguer.png"); /* Define a imagem de fundo */
     width: 100%; /* Ocupa toda a largura disponível */
     height: 550px; /* Define a altura da seção */
@@ -110,63 +133,92 @@ form {
     padding: 80px; /* Define o espaço interno da seção */
     box-sizing: border-box; /* Inclui o padding no tamanho da seção */
 
+    & .video-hero {
+        position: absolute; /* Coloca o vídeo no fundo sem ocupar espaço entre os textos */
+        inset: 0; /* Posiciona o vídeo junto às bordas da seção */
+        width: 100%; /* Faz o vídeo ocupar toda a largura da hero */
+        height: 100%; /* Faz o vídeo ocupar toda a altura da hero */
+        object-fit: cover; /* Preenche a seção sem deformar o vídeo */
+        object-position: center; /* Centraliza o vídeo */
+        z-index: -1; /* Coloca o vídeo atrás dos textos e botões */
+        pointer-events: none; /* Impede que o vídeo bloqueie os cliques nos botões */
+    }
+
     & #h2-section {
         color: #FFB72B; /* Define a cor amarela do texto */
         font-size: 15px; /* Define o tamanho do texto */
         font-weight: 100; /* Solicita um peso fino para a fonte */
+        animation: entrada-hero 0.6s ease-out both; /* Faz o texto pequeno entrar primeiro */
+        transition: scale 0.25s ease; /* Suaviza o crescimento e a volta ao tamanho normal */
+        transform-origin: left center; /* Faz o crescimento partir do lado esquerdo */
+
+        &:hover {
+            scale: 1.02; /* Aumenta apenas este texto em 2% */
+        }
     }
-}
 
-#oq-vai-ser-hj {
-    color: #261B17; /* Define a cor escura do título */
-    font-size: 36px; /* Define o tamanho do título */
-    margin: 0; /* Remove a margem padrão */
-    font-weight: bolder; /* Deixa o título com peso maior */
-}
+    & #h1 {
+        font-size: 65px; /* Define o tamanho do título principal */
+        margin: 0; /* Remove a margem padrão */
+        animation: entrada-hero 0.6s ease-out 0.12s both; /* Faz o título entrar depois */
+        transition: scale 0.25s ease; /* Suaviza o crescimento e a volta ao tamanho normal */
+        transform-origin: left center; /* Faz o crescimento partir do lado esquerdo */
 
-#h1 {
-    font-size: 65px; /* Define o tamanho do título principal */
-    margin: 0; /* Remove a margem padrão */
-}
-
-.botoes-hero {
-    display: flex; /* Coloca os botões lado a lado */
-    gap: 22px; /* Define o espaço entre os botões */
-    flex-wrap: wrap; /* Permite que os botões passem para outra linha */
-    margin-top: 20px; /* Afasta os botões do texto acima */
-}
-
-#fazer-pedido {
-    width: 255px; /* Define a largura do botão */
-    height: 55px; /* Define a altura do botão */
-    border-radius: 12px; /* Arredonda as bordas */
-    background: #AD281B; /* Define o fundo vermelho */
-    color: white; /* Define o texto branco */
-    border: none; /* Remove a borda padrão */
-    font-weight: bold; /* Deixa o texto em negrito */
-    box-shadow: inset 0 0 0 0 white; /* Prepara o preenchimento branco sem mostrá-lo */
-    transition: box-shadow 0.35s ease, color 0.35s ease; /* Suaviza a animação na entrada e na saída do mouse */
-
-    &:hover {
-        box-shadow: inset 255px 0 0 0 white; /* Preenche o botão de branco da esquerda para a direita */
-        color: #AD281B; /* Muda o texto para vermelho */
+        &:hover {
+            scale: 1.02; /* Aumenta apenas o título em 2% */
+        }
     }
-}
 
-#explorar-cardapio {
-    width: 255px; /* Define a largura do botão */
-    height: 55px; /* Define a altura do botão */
-    border-radius: 12px; /* Arredonda as bordas */
-    background: white; /* Define o fundo branco */
-    color: #AD281B; /* Define o texto vermelho */
-    border: none; /* Remove a borda padrão */
-    font-weight: bolder; /* Deixa o texto com peso maior */
-    box-shadow: inset 0 0 0 0 #AD281B; /* Prepara o preenchimento vermelho sem mostrá-lo */
-    transition: box-shadow 0.35s ease, color 0.35s ease; /* Suaviza a animação na entrada e na saída do mouse */
+    & > p {
+        animation: entrada-hero 0.6s ease-out 0.24s both; /* Faz o parágrafo entrar depois do título */
+        transition: scale 0.25s ease; /* Suaviza o crescimento e a volta ao tamanho normal */
+        transform-origin: left center; /* Faz o crescimento partir do lado esquerdo */
 
-    &:hover {
-        box-shadow: inset 255px 0 0 0 #AD281B; /* Preenche o botão de vermelho da esquerda para a direita */
-        color: white; /* Muda o texto para branco */
+        &:hover {
+            scale: 1.02; /* Aumenta apenas o parágrafo em 2% */
+        }
+    }
+
+    & .botoes-hero {
+        display: flex; /* Coloca os botões lado a lado */
+        gap: 22px; /* Define o espaço entre os botões */
+        flex-wrap: wrap; /* Permite que os botões passem para outra linha */
+        margin-top: 20px; /* Afasta os botões do texto acima */
+        animation: entrada-hero 0.6s ease-out 0.36s both; /* Faz os botões entrarem por último */
+
+        & #fazer-pedido {
+            width: 255px; /* Define a largura do botão */
+            height: 55px; /* Define a altura do botão */
+            border-radius: 12px; /* Arredonda as bordas */
+            background: #AD281B; /* Define o fundo vermelho */
+            color: white; /* Define o texto branco */
+            border: none; /* Remove a borda padrão */
+            font-weight: bold; /* Deixa o texto em negrito */
+            box-shadow: inset 0 0 0 0 white; /* Prepara o preenchimento branco sem mostrá-lo */
+            transition: box-shadow 0.35s ease, color 0.35s ease; /* Suaviza a animação na entrada e na saída do mouse */
+
+            &:hover {
+                box-shadow: inset 255px 0 0 0 white; /* Preenche o botão de branco da esquerda para a direita */
+                color: #AD281B; /* Muda o texto para vermelho */
+            }
+        }
+
+        & #explorar-cardapio {
+            width: 255px; /* Define a largura do botão */
+            height: 55px; /* Define a altura do botão */
+            border-radius: 12px; /* Arredonda as bordas */
+            background: white; /* Define o fundo branco */
+            color: #AD281B; /* Define o texto vermelho */
+            border: none; /* Remove a borda padrão */
+            font-weight: bolder; /* Deixa o texto com peso maior */
+            box-shadow: inset 0 0 0 0 #AD281B; /* Prepara o preenchimento vermelho sem mostrá-lo */
+            transition: box-shadow 0.35s ease, color 0.35s ease; /* Suaviza a animação na entrada e na saída do mouse */
+
+            &:hover {
+                box-shadow: inset 255px 0 0 0 #AD281B; /* Preenche o botão de vermelho da esquerda para a direita */
+                color: white; /* Muda o texto para branco */
+            }
+        }
     }
 }
 
@@ -175,17 +227,24 @@ form {
     flex-direction: column; /* Organiza os textos um abaixo do outro */
     padding: 57px 80px; /* Define o espaço vertical e lateral */
     box-sizing: border-box; /* Inclui o padding no tamanho da seção */
-}
 
-#escolha-seu-favorito {
-    color: #AD281B; /* Define a cor vermelha do texto */
-    font-weight: bold; /* Deixa o texto em negrito */
-    margin: 0; /* Remove a margem padrão */
-}
+    & #escolha-seu-favorito {
+        color: #AD281B; /* Define a cor vermelha do texto */
+        font-weight: bold; /* Deixa o texto em negrito */
+        margin: 0; /* Remove a margem padrão */
+    }
 
-#paragrafo-texto-favorito {
-    color: #76665F; /* Define a cor do parágrafo */
-    font-size: 16px; /* Define o tamanho do texto */
+    & #oq-vai-ser-hj {
+        color: #261B17; /* Define a cor escura do título */
+        font-size: 36px; /* Define o tamanho do título */
+        margin: 0; /* Remove a margem padrão */
+        font-weight: bolder; /* Deixa o título com peso maior */
+    }
+
+    & #paragrafo-texto-favorito {
+        color: #76665F; /* Define a cor do parágrafo */
+        font-size: 16px; /* Define o tamanho do texto */
+    }
 }
 
 .favoritos {
@@ -210,33 +269,71 @@ form {
         border-radius: 15px; /* Arredonda as bordas */
         border: 1px solid #FF9A50; /* Adiciona uma borda laranja */
         box-sizing: border-box; /* Inclui padding e borda no tamanho do card */
-    }
+        position: relative; /* Serve de referência para o reflexo */
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); /* Suaviza a inclinação e a volta do card */
 
-    & h2 {
-        font-size: 17px; /* Aumenta o tamanho do nome do produto */
-        font-weight: bold; /* Deixa o nome em negrito */
-        text-align: center; /* Centraliza o nome */
-        padding: 0 8px; /* Afasta o nome das bordas laterais */
-    }
+        &:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(-10deg) scale(1.02); /* Inclina e aumenta apenas o card sob o mouse */
+        }
 
-    & .preco {
-        color: #AD281B; /* Define a cor vermelha do preço */
-        font-size: 18px; /* Define o tamanho do preço */
-        font-weight: bold; /* Deixa o preço em negrito */
-        text-align: center; /* Centraliza o preço */
-        margin-top: auto; /* Alinha os preços na parte inferior dos cards da mesma linha */
-    }
+        &::after {
+            content: ""; /* Cria uma camada para o reflexo */
+            position: absolute; /* Posiciona o reflexo sobre o card */
+            inset: 0; /* Faz a camada ocupar todo o card */
+            border-radius: inherit; /* Mantém o arredondamento original */
+            pointer-events: none; /* Impede que o reflexo bloqueie o mouse */
+            background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1) 55%, transparent 60%); /* Cria uma faixa diagonal de luz */
+            background-size: 250% 250%; /* Permite movimentar o reflexo */
+            background-position: 100% 100%; /* Define a posição inicial do reflexo */
+            opacity: 0; /* Esconde o reflexo enquanto o card está parado */
+            transition: background-position 0.6s ease, opacity 0.6s ease; /* Suaviza o movimento e a aparição do reflexo */
+        }
 
-    & img {
-        width: 181px; /* Define a largura das imagens */
-        height: 153px; /* Define a altura das imagens */
-        border-radius: 11px; /* Arredonda as bordas das imagens */
-        object-fit: cover; /* Preenche o espaço sem deformar a imagem */
-        margin-top: 5px; /* Afasta a imagem do topo do card */
+        &:hover::after {
+            background-position: 0% 0%; /* Faz o reflexo atravessar o card */
+            opacity: 1; /* Mostra o reflexo durante o hover */
+        }
+
+        & img {
+            width: 181px; /* Define a largura das imagens */
+            height: 153px; /* Define a altura das imagens */
+            border-radius: 11px; /* Arredonda as bordas das imagens */
+            object-fit: cover; /* Preenche o espaço sem deformar a imagem */
+            margin-top: 5px; /* Afasta a imagem do topo do card */
+        }
+
+        & h2 {
+            font-size: 17px; /* Aumenta o tamanho do nome do produto */
+            font-weight: bold; /* Deixa o nome em negrito */
+            text-align: center; /* Centraliza o nome */
+            padding: 0 8px; /* Afasta o nome das bordas laterais */
+        }
+
+        & .preco {
+            color: #AD281B; /* Define a cor vermelha do preço */
+            font-size: 18px; /* Define o tamanho do preço */
+            font-weight: bold; /* Deixa o preço em negrito */
+            text-align: center; /* Centraliza o preço */
+            margin-top: auto; /* Alinha os preços na parte inferior dos cards da mesma linha */
+        }
     }
 }
 
 #banner-pizza {
     width: 100%; /* Faz o banner acompanhar a largura disponível */
     height: auto; /* Mantém a proporção da imagem */
+}
+
+.combos {
+    & .NOSSAS-ESCOLHAS {
+        margin-top: 20px; /* Adiciona espaço acima do texto */
+        font-size: 14px; /* Define o tamanho do texto */
+        font-weight: bolder; /* Deixa o texto com peso maior */
+        color: #AD281B; /* Define a cor vermelha do texto */
+    }
+
+    & .COMBO-PARA-QUALQUER-FOME {
+        font-size: 38px; /* Define o tamanho do título dos combos */
+        color: #261B17; /* Define a cor escura do título */
+    }
 }
