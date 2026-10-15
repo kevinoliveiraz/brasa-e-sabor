@@ -273,6 +273,8 @@ input {
         position: relative; /* Serve de referência para o reflexo */
         transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); /* Suaviza a inclinação e a volta do card */
 
+
+
         &:hover {
             transform: perspective(1000px) rotateX(5deg) rotateY(-10deg) scale(1.02); /* Inclina e aumenta apenas o card sob o mouse */
         }
@@ -350,6 +352,7 @@ input {
 
 .combos-produtos {
     display: flex; /* Coloca os cards lado a lado */
+    margin-top: 20px;
     width: 100%; /* Ocupa toda a largura disponível */
     padding: 0 80px; /* Define o espaço nas laterais */
     box-sizing: border-box; /* Inclui o padding na largura da seção */
@@ -360,7 +363,8 @@ input {
 
     & .card {
         display: flex; /* Ativa o Flexbox dentro do card */
-        width: 197px; /* Define a largura do card */
+        width: 305px; /* Aumenta a largura do card */
+        min-height: 450px; /* Define uma altura mínima para o card */
         height: auto; /* Ajusta a altura ao conteúdo */
         padding-bottom: 15px; /* Cria espaço abaixo do preço */
         flex-shrink: 0; /* Impede que o card diminua de largura */
@@ -373,6 +377,19 @@ input {
         position: relative; /* Serve de referência para o reflexo */
         transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); /* Suaviza a inclinação e a volta do card */
 
+        & .card-rodape {
+        display: flex; /* Coloca o preço e o botão lado a lado */
+        justify-content: space-between; /* Coloca um em cada ponta */
+        align-items: center; /* Alinha os dois verticalmente */
+        width: 100%; /* Ocupa toda a largura do card */
+        padding: 0 16px; /* Afasta os dois das bordas laterais */
+        box-sizing: border-box; /* Inclui o padding na largura */
+        margin-top: auto; /* Empurra o conjunto para baixo */
+
+        & .preco {
+            margin: 0; /* Remove a margem automática anterior do preço */
+        }
+    }
         &:hover {
             transform: perspective(1000px) rotateX(5deg) rotateY(-10deg) scale(1.02); /* Inclina e aumenta apenas o card sob o mouse */
         }
@@ -396,15 +413,15 @@ input {
         }
 
         & img {
-            width: 181px; /* Define a largura das imagens */
-            height: 153px; /* Define a altura das imagens */
+            width: calc(100% - 16px); /* Acompanha a largura interna do card, deixando espaço nas laterais */
+            height: 245px; /* Aumenta a altura das imagens */
             border-radius: 11px; /* Arredonda as bordas das imagens */
             object-fit: cover; /* Preenche o espaço sem deformar a imagem */
             margin-top: 5px; /* Afasta a imagem do topo do card */
         }
 
         & h2 {
-            font-size: 17px; /* Aumenta o tamanho do nome do produto */
+            font-size: 24px; /* Aumenta o tamanho do nome do produto */
             font-weight: bold; /* Deixa o nome em negrito */
             text-align: center; /* Centraliza o nome */
             padding: 0 8px; /* Afasta o nome das bordas laterais */
@@ -412,10 +429,79 @@ input {
 
         & .preco {
             color: #AD281B; /* Define a cor vermelha do preço */
-            font-size: 18px; /* Define o tamanho do preço */
+            font-size: 26px; /* Aumenta o tamanho do preço */
             font-weight: bold; /* Deixa o preço em negrito */
             text-align: center; /* Centraliza o preço */
             margin-top: auto; /* Alinha os preços na parte inferior dos cards da mesma linha */
+        }
+
+        & .adicionar{
+            background: #AD281B;
+            border: none; /* Remove a borda do botão */
+            color:white;
+            width: 43px;
+            height: 43px;
+            font-size: 26px;
+            border-radius: 100%;
+
+        }
+    }
+}
+
+
+.beneficios {
+    background-color: #FCEBDB; /* Define o fundo claro da faixa */
+    padding: 24px 80px; /* Define o espaço interno vertical e lateral */
+    box-sizing: border-box; /* Inclui o padding na largura da seção */
+    min-height: 220px; /* Define a altura mínima da faixa */
+
+    & #titulo-beneficios {
+        color: #AD281B; /* Define a cor vermelha do título */
+        font-size: 14px; /* Define o tamanho do título */
+        font-weight: bold; /* Deixa o título em negrito */
+        margin-bottom: 20px; /* Afasta o título dos benefícios */
+    }
+
+    & .beneficios-lista {
+        display: flex; /* Coloca os benefícios lado a lado */
+        flex-wrap: wrap; /* Permite quebrar a linha quando faltar espaço */
+        gap: 16px; /* Define o espaço entre os benefícios */
+
+        & .beneficio {
+            display: flex; /* Coloca o número ao lado do texto */
+            align-items: flex-start; /* Alinha o número e o texto pelo topo */
+            flex: 1 1 250px; /* Distribui o espaço e permite quebrar a linha */
+            min-width: 0; /* Permite que o conteúdo se ajuste ao espaço disponível */
+            background-color: white; /* Define o fundo branco do benefício */
+            border-radius: 12px; /* Arredonda as bordas */
+            padding: 24px 20px; /* Define o espaço interno do benefício */
+            box-sizing: border-box; /* Inclui o padding no tamanho do benefício */
+            gap: 16px; /* Afasta o número do texto */
+
+            & .beneficio-numero {
+                color: #FF4B23; /* Define a cor laranja do número */
+                font-size: 30px; /* Define o tamanho do número */
+                font-weight: bold; /* Deixa o número em negrito */
+                line-height: 1; /* Mantém a altura da linha próxima ao tamanho do número */
+                flex-shrink: 0; /* Impede que o número seja comprimido */
+            }
+
+            & .beneficio-texto {
+                min-width: 0; /* Permite que o texto se ajuste dentro do benefício */
+
+                & h3 {
+                    color: #261B17; /* Define a cor escura do título */
+                    font-size: 19px; /* Define o tamanho do título */
+                    font-weight: bold; /* Deixa o título em negrito */
+                    margin-bottom: 8px; /* Afasta o título da descrição */
+                }
+
+                & p {
+                    color: #76665F; /* Define a cor da descrição */
+                    font-size: 14px; /* Define o tamanho da descrição */
+                    line-height: 1.5; /* Aumenta o espaço entre as linhas */
+                }
+            }
         }
     }
 }
