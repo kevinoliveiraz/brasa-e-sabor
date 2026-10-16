@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Faz a página se adaptar corretamente a diferentes tamanhos de tela -->
     <title>Brasa & Sabor</title> <!-- Define o nome que aparece na aba do navegador -->
-    <link rel="stylesheet" href="index.css?v=bdbaaa188c81"> <!-- Carrega a versão atual do CSS e evita usar uma cópia antiga do cache -->
+    <link rel="stylesheet" href="index.css?v=c7e4914e09b7"> <!-- Carrega a versão atual do CSS e evita usar uma cópia antiga do cache -->
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <!-- Define o ícone que aparece na aba do navegador -->
 </head>
 
 <body> <!-- Inicia todo o conteúdo visível da página -->
 
-    <header> <!-- Cabeçalho principal do site -->
+    <header id="inicio"> <!-- Inicia o cabeçalho e identifica o início da página -->
 
         <img id="logo" src="logo.png" alt="Logo Brasa & Sabor"> <!-- Exibe a logo do site -->
 
@@ -106,7 +106,7 @@
 
     </section>
 
-    <section class="texto-favorito"><!-- Inicia a segunda seção do site -->
+    <section class="texto-favorito" id="cardapio"> <!-- Inicia a apresentação dos produtos e identifica o cardápio -->
 
         <p id="escolha-seu-favorito">
             ESCOLHA SEU FAVORITO
@@ -161,7 +161,7 @@
 
 <img id="banner-pizza" src="assets/banner/pizza-banner.png" alt="">
 
-<div class="combos">
+<div class="combos" id="combos"> <!-- Agrupa os títulos e identifica a seção de combos -->
     <h2 class="NOSSAS-ESCOLHAS">NOSSAS ESCOLHAS</h2>
     <H2 class="COMBO-PARA-QUALQUER-FOME">Combos para qualquer fome</H2>
     <H3 class="ESCOLHA">Escolha, personalize e aproveite.</H3>
@@ -240,6 +240,132 @@
 </section>
 
 
+
+<section class="nossa-historia" id="sobre" aria-labelledby="titulo-historia"> <!-- Inicia a seção de apresentação e associa seu título aos leitores de tela -->
+
+    <div class="historia-container"> <!-- Agrupa e alinha o cartão da apresentação -->
+
+        <div class="historia-conteudo"> <!-- Agrupa os textos e o botão dentro do cartão -->
+
+            <p class="historia-destaque">NOSSA HISTÓRIA</p> <!-- Exibe a legenda da seção -->
+
+            <h2 id="titulo-historia" class="historia-titulo"> <!-- Inicia o título da apresentação -->
+                Uma marca feita<br> <!-- Exibe a primeira frase e quebra a linha -->
+                para reunir pessoas. <!-- Exibe a segunda frase do título -->
+            </h2> <!-- Encerra o título da apresentação -->
+
+            <p class="historia-descricao"> <!-- Inicia o parágrafo de apresentação -->
+                Da primeira mordida ao último pedaço: comida bem feita e momentos que merecem ser lembrados. Este é um conceito de marca para apresentar a experiência visual de um delivery. <!-- Exibe o texto de apresentação da marca -->
+            </p> <!-- Encerra o parágrafo de apresentação -->
+
+            <button class="historia-botao" type="button"> <!-- Cria um botão que não envia formulários -->
+                CONHEÇA NOSSA HISTÓRIA <!-- Exibe o texto do botão -->
+            </button> <!-- Encerra o botão da apresentação -->
+
+        </div> <!-- Encerra o cartão da apresentação -->
+
+    </div> <!-- Encerra a área de alinhamento do cartão -->
+
+</section> <!-- Encerra a seção de apresentação -->
+
+<section class="como-pedir" aria-labelledby="titulo-passos"> <!-- Inicia a seção sobre o pedido e associa seu título aos leitores de tela -->
+
+    <div class="passos-cabecalho"> <!-- Agrupa a legenda e o título da seção -->
+
+        <p class="passos-destaque">SIMPLES ASSIM</p> <!-- Exibe a legenda acima do título -->
+
+        <h2 id="titulo-passos">Seu pedido em três passos</h2> <!-- Exibe o título da seção de pedidos -->
+
+    </div> <!-- Encerra o cabeçalho da seção de pedidos -->
+
+    <ol class="passos-lista"> <!-- Inicia a lista ordenada das etapas do pedido -->
+
+        <li class="passo"> <!-- Inicia o cartão da primeira etapa -->
+            <span class="passo-numero" aria-hidden="true">01</span> <!-- Exibe o número sem repetir a numeração para os leitores de tela -->
+            <h3 class="passo-titulo">Escolha seus favoritos</h3> <!-- Exibe o título da primeira etapa -->
+            <p class="passo-descricao">Navegue pelas categorias e encontre sua combinação.</p> <!-- Explica como escolher os produtos -->
+        </li> <!-- Encerra o cartão da primeira etapa -->
+
+        <li class="passo"> <!-- Inicia o cartão da segunda etapa -->
+            <span class="passo-numero" aria-hidden="true">02</span> <!-- Exibe o número sem repetir a numeração para os leitores de tela -->
+            <h3 class="passo-titulo">Revise seu carrinho</h3> <!-- Exibe o título da segunda etapa -->
+            <p class="passo-descricao">Confira os itens, quantidades e detalhes do pedido.</p> <!-- Explica o que revisar no carrinho -->
+        </li> <!-- Encerra o cartão da segunda etapa -->
+
+        <li class="passo"> <!-- Inicia o cartão da terceira etapa -->
+            <span class="passo-numero" aria-hidden="true">03</span> <!-- Exibe o número sem repetir a numeração para os leitores de tela -->
+            <h3 class="passo-titulo">Finalize o pedido</h3> <!-- Exibe o título da terceira etapa -->
+            <p class="passo-descricao">Informe os dados e confirme sua escolha.</p> <!-- Explica como concluir o pedido -->
+        </li> <!-- Encerra o cartão da terceira etapa -->
+
+    </ol> <!-- Encerra a lista das etapas do pedido -->
+
+</section> <!-- Encerra a seção de pedidos -->
+
+<footer class="rodape"> <!-- Inicia o rodapé da página -->
+
+    <div class="rodape-chamada"> <!-- Cria a faixa de chamada acima das informações finais -->
+
+        <div class="rodape-chamada-conteudo"> <!-- Alinha o texto e o link da faixa -->
+            <p class="rodape-chamada-texto">BATEU A FOME? ESCOLHA O SEU PEDIDO AGORA.</p> <!-- Exibe a chamada para escolher um pedido -->
+            <a class="rodape-botao" href="#cardapio">VER CARDÁPIO</a> <!-- Leva o visitante até os produtos da página -->
+        </div> <!-- Encerra o conteúdo da faixa de chamada -->
+
+    </div> <!-- Encerra a faixa de chamada -->
+
+    <div class="rodape-corpo"> <!-- Cria a área escura das informações finais -->
+
+        <div class="rodape-conteudo"> <!-- Limita e centraliza o conteúdo do rodapé -->
+
+            <div class="rodape-colunas"> <!-- Agrupa a marca, a navegação e o atendimento -->
+
+                <div class="rodape-marca"> <!-- Agrupa o nome e o slogan da marca -->
+                    <h2 class="rodape-nome">BRASA &amp; SABOR</h2> <!-- Exibe o nome da marca -->
+                    <p class="rodape-slogan">Mais que comida, bons momentos.</p> <!-- Exibe o slogan da marca -->
+                </div> <!-- Encerra as informações da marca -->
+
+                <nav class="rodape-navegacao" aria-labelledby="titulo-navegacao"> <!-- Identifica os links de navegação do rodapé -->
+                    <h3 class="rodape-subtitulo" id="titulo-navegacao">NAVEGAÇÃO</h3> <!-- Exibe o título da navegação -->
+
+                    <div class="rodape-links"> <!-- Agrupa as duas linhas de links -->
+
+                        <div class="rodape-linha"> <!-- Agrupa a primeira linha de links -->
+                            <a href="#inicio">Início</a> <!-- Leva ao início da página -->
+                            <a href="#cardapio">Cardápio</a> <!-- Leva à apresentação dos produtos -->
+                            <a href="#banner-pizza">Promoções</a> <!-- Leva ao banner de promoção -->
+                        </div> <!-- Encerra a primeira linha de links -->
+
+                        <div class="rodape-linha"> <!-- Agrupa a segunda linha de links -->
+                            <a href="#combos">Combos</a> <!-- Leva à seção de combos -->
+                            <a href="#sobre">Sobre</a> <!-- Leva à apresentação da marca -->
+                            <a href="#contato">Contato</a> <!-- Leva às informações de atendimento -->
+                        </div> <!-- Encerra a segunda linha de links -->
+
+                    </div> <!-- Encerra o grupo de links -->
+
+                </nav> <!-- Encerra a navegação do rodapé -->
+
+                <section class="rodape-atendimento" id="contato" aria-labelledby="titulo-atendimento"> <!-- Agrupa e identifica as informações de atendimento -->
+                    <h3 class="rodape-subtitulo" id="titulo-atendimento">ATENDIMENTO</h3> <!-- Exibe o título do atendimento -->
+
+                    <p class="rodape-dados"> <!-- Inicia as informações de contato -->
+                        WhatsApp: (00) 00000-0000<br> <!-- Exibe o telefone e quebra a linha -->
+                        Horários e endereço a definir <!-- Exibe a situação dos dados de atendimento -->
+                    </p> <!-- Encerra as informações de contato -->
+
+                </section> <!-- Encerra a área de atendimento -->
+
+            </div> <!-- Encerra as três colunas do rodapé -->
+
+            <p class="rodape-social">Siga a marca: @brasaesabor</p> <!-- Exibe o nome da marca nas redes sociais -->
+            <hr class="rodape-divisor"> <!-- Separa as informações dos créditos finais -->
+            <p class="rodape-creditos">© 2026 Brasa &amp; Sabor · Projeto conceitual de UI/UX</p> <!-- Exibe o ano, a marca e a identificação do projeto -->
+
+        </div> <!-- Encerra o conteúdo centralizado do rodapé -->
+
+    </div> <!-- Encerra a área escura do rodapé -->
+
+</footer> <!-- Encerra o rodapé da página -->
 
 </body>
 

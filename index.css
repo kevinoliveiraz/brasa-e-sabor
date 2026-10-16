@@ -505,3 +505,530 @@ input {
         }
     }
 }
+
+/* Registra a fonte local usada nas seções de texto */
+@font-face { /* Registra os arquivos e os pesos de uma fonte local */
+    font-family: "Inter"; /* Registra o nome da fonte */
+    src: url("assets/fonts/InterVariable.woff2") format("woff2"); /* Carrega o arquivo local */
+    font-weight: 100 900; /* Disponibiliza os pesos de 100 a 900 da mesma fonte */
+    font-style: normal; /* Usa a versão sem itálico */
+    font-display: swap; /* Exibe a fonte alternativa enquanto a fonte local carrega */
+} /* Encerra este bloco de estilos */
+
+.nossa-historia { /* Seleciona a seção de apresentação da marca */
+    padding: 53px 0 72px; /* Define 53px acima, 72px abaixo e nenhum espaço interno lateral */
+    font-family: "Inter", Arial, sans-serif; /* Define a fonte Inter e as fontes alternativas desta seção */
+    font-optical-sizing: none; /* Desativa o ajuste óptico automático da fonte */
+
+    & * { /* Seleciona todos os elementos dentro da seção */
+        font-family: inherit; /* Evita que a regra geral de Arial sobrescreva a nova fonte */
+    } /* Encerra este bloco de estilos */
+
+    & .historia-container { /* Seleciona a área que alinha o cartão */
+        width: calc(100% - 160px); /* Reserva as margens laterais de 80px */
+        max-width: 1280px; /* Limita a largura do conteúdo no desktop */
+        margin: 0 auto; /* Centraliza o espaço disponível */
+        padding-right: 68px; /* Reserva 68px de espaço interno à direita */
+        box-sizing: border-box; /* Inclui o espaço interno na largura */
+        display: flex; /* Permite alinhar o cartão na horizontal */
+        justify-content: flex-end; /* Coloca o conteúdo do lado direito */
+    } /* Encerra este bloco de estilos */
+
+    & .historia-conteudo { /* Seleciona o cartão da apresentação */
+        width: 588px; /* Define a largura do cartão em 588px */
+        max-width: 100%; /* Permite que o cartão caiba em telas menores */
+        min-height: 390px; /* Define a altura mínima do cartão e permite que ele cresça */
+        padding: 38px 10px 23px; /* Define o espaço interno do cartão */
+        box-sizing: border-box; /* Inclui o padding nos 588px */
+        background-color: #FBECDD; /* Define o fundo bege claro do cartão */
+        border-radius: 18px; /* Arredonda os cantos do cartão em 18px */
+        display: flex; /* Organiza os textos e o botão */
+        flex-direction: column; /* Coloca os elementos um abaixo do outro */
+        align-items: flex-start; /* Alinha os elementos à esquerda */
+    } /* Encerra este bloco de estilos */
+
+    & .historia-destaque { /* Seleciona a legenda da apresentação */
+        margin-left: 5px; /* Adiciona 5px de margem à esquerda da legenda */
+        color: #AD281B; /* Usa o vermelho da marca */
+        font-size: 14px; /* Define o tamanho da legenda em 14px */
+        font-weight: 700; /* Deixa a legenda em negrito */
+        height: 28px; /* Reserva 28px de altura para a legenda */
+        line-height: normal; /* Mantém as letras alinhadas ao topo da legenda */
+    } /* Encerra este bloco de estilos */
+
+    & .historia-titulo { /* Seleciona o título da apresentação */
+        margin: 6px 0 0 3px; /* Define 6px de margem acima e 3px à esquerda do título */
+        color: #261B17; /* Define a cor marrom escura do título */
+        font-size: 45px; /* Mantém o tamanho do título */
+        font-weight: 700; /* Deixa o título em negrito */
+        line-height: 54px; /* Define a distância entre as duas linhas */
+    } /* Encerra este bloco de estilos */
+
+    & .historia-descricao { /* Seleciona o parágrafo da apresentação */
+        width: 580px; /* Define a largura do parágrafo em 580px */
+        max-width: calc(100% - 6px); /* Mantém o texto dentro do cartão */
+        margin: 27px 0 0 6px; /* Define 27px de margem acima e 6px à esquerda do parágrafo */
+        color: #76665F; /* Define a cor marrom acinzentada do parágrafo */
+        font-size: 17px; /* Define o tamanho do texto de apresentação */
+        font-weight: 400; /* Usa o peso normal da fonte */
+        line-height: 26px; /* Define a altura de cada linha do parágrafo em 26px */
+    } /* Encerra este bloco de estilos */
+
+    & .historia-botao { /* Seleciona o botão da apresentação */
+        width: 335px; /* Define a largura do botão em 335px */
+        max-width: 100%; /* Permite que o botão caiba em telas menores */
+        height: 55px; /* Define a altura do botão em 55px */
+        margin-top: 27px; /* Adiciona 27px de margem acima do botão */
+        padding: 0 25px 4px; /* Define 25px de espaço interno nas laterais e 4px abaixo */
+        box-sizing: border-box; /* Inclui o padding nos 335px */
+        background-color: #AD281B; /* Usa o fundo vermelho da marca */
+        border: none; /* Remove a borda padrão do navegador */
+        border-radius: 12px; /* Arredonda os cantos do botão em 12px */
+        color: white; /* Deixa o texto branco */
+        font-size: 15px; /* Mantém o tamanho do texto do botão */
+        font-weight: 700; /* Deixa o texto em negrito */
+        line-height: 18px; /* Define a altura da linha do texto em 18px */
+        text-align: left; /* Alinha o texto do botão à esquerda */
+        flex-shrink: 0; /* Preserva a altura do botão dentro do cartão */
+
+        &:hover { /* Aplica os estilos quando o ponteiro passa sobre o botão */
+            background-color: #630E06; /* Repete o efeito dos outros botões da página */
+        } /* Encerra este bloco de estilos */
+
+        &:focus-visible { /* Aplica os estilos quando o botão recebe foco pelo teclado */
+            outline: 2px solid #AD281B; /* Destaca o botão ao navegar pelo teclado */
+            outline-offset: 3px; /* Separa o contorno da borda */
+        } /* Encerra este bloco de estilos */
+    } /* Encerra este bloco de estilos */
+} /* Encerra este bloco de estilos */
+
+@media (max-width: 1024px) { /* Aplica os estilos abaixo em telas de até 1024px */
+    .nossa-historia .historia-container { /* Seleciona a área de alinhamento da apresentação */
+        width: calc(100% - 48px); /* Reserva margens laterais de 24px */
+        padding-right: 0; /* Aproveita o espaço disponível */
+    } /* Encerra este bloco de estilos */
+} /* Encerra este bloco de estilos */
+
+@media (max-width: 640px) { /* Aplica os estilos abaixo em telas de até 640px */
+    .nossa-historia { /* Seleciona a seção de apresentação da marca */
+        padding: 40px 0; /* Diminui as distâncias verticais */
+
+        & .historia-container { /* Seleciona a área que alinha o cartão */
+            width: calc(100% - 32px); /* Reserva margens laterais de 16px */
+        } /* Encerra este bloco de estilos */
+
+        & .historia-conteudo { /* Seleciona o cartão da apresentação */
+            padding: 28px 18px; /* Mantém o texto afastado das bordas */
+        } /* Encerra este bloco de estilos */
+
+        & .historia-destaque { /* Seleciona a legenda da apresentação */
+            margin-left: 0; /* Alinha a legenda aos outros textos */
+        } /* Encerra este bloco de estilos */
+
+        & .historia-titulo { /* Seleciona o título da apresentação */
+            margin-left: 0; /* Alinha o título à legenda */
+            font-size: clamp(28px, 6.8vw, 40px); /* Ajusta o título à largura da tela */
+            line-height: 1.2; /* Acompanha o novo tamanho da fonte */
+        } /* Encerra este bloco de estilos */
+
+        & .historia-descricao { /* Seleciona o parágrafo da apresentação */
+            max-width: 100%; /* Usa toda a largura interna do cartão */
+            margin: 24px 0 0; /* Mantém a separação entre o título e o parágrafo */
+        } /* Encerra este bloco de estilos */
+
+        & .historia-botao { /* Seleciona o botão da apresentação */
+            margin-top: 24px; /* Mantém o botão separado do texto */
+            padding: 0 16px; /* Reserva espaço sem apertar o texto */
+        } /* Encerra este bloco de estilos */
+    } /* Encerra este bloco de estilos */
+} /* Encerra este bloco de estilos */
+
+.como-pedir { /* Seleciona a seção que apresenta como fazer um pedido */
+    width: calc(100% - 160px); /* Reserva margens laterais de 80px */
+    max-width: 1280px; /* Limita a largura da área de conteúdo */
+    margin: 0 auto; /* Centraliza a área de conteúdo na página */
+    font-family: "Inter", Arial, sans-serif; /* Define a fonte e as opções alternativas da seção */
+    font-optical-sizing: none; /* Desativa o ajuste óptico automático da fonte */
+
+    & * { /* Seleciona todos os elementos dentro da seção */
+        font-family: inherit; /* Faz os textos herdarem a fonte da seção */
+    } /* Encerra os estilos dos elementos internos */
+
+    & .passos-cabecalho { /* Seleciona o grupo da legenda e do título */
+        width: 900px; /* Define a largura do cabeçalho em 900px */
+        max-width: 100%; /* Impede que o cabeçalho ultrapasse a seção */
+    } /* Encerra os estilos do grupo de textos */
+
+    & .passos-destaque { /* Seleciona a legenda acima do título */
+        width: 570px; /* Define a largura da legenda em 570px */
+        max-width: 100%; /* Mantém a legenda dentro do cabeçalho */
+        height: 28px; /* Reserva 28px de altura para a legenda */
+        color: #AD281B; /* Define a cor vermelha da legenda */
+        font-size: 14px; /* Define o tamanho das letras da legenda */
+        font-weight: 700; /* Deixa a legenda em negrito */
+        line-height: normal; /* Usa a altura de linha padrão da fonte */
+    } /* Encerra os estilos da legenda */
+
+    & #titulo-passos { /* Seleciona o título da seção de pedidos */
+        margin-top: 5px; /* Separa o título da área reservada para a legenda */
+        color: #261B17; /* Define a cor marrom escura do título */
+        font-size: 39px; /* Define o tamanho das letras do título */
+        font-weight: 700; /* Deixa o título em negrito */
+        line-height: 1.2; /* Define a altura da linha como 120% do tamanho da fonte */
+    } /* Encerra os estilos do título */
+} /* Encerra os estilos da seção de pedidos */
+
+@media (max-width: 1024px) { /* Aplica os estilos abaixo em telas de até 1024px */
+    .como-pedir { /* Seleciona a seção de pedidos em telas menores */
+        width: calc(100% - 48px); /* Reserva margens laterais de 24px */
+    } /* Encerra o ajuste da largura da seção */
+} /* Encerra as regras para telas de até 1024px */
+
+@media (max-width: 640px) { /* Aplica os estilos abaixo em telas de até 640px */
+    .como-pedir { /* Seleciona a seção de pedidos em telas pequenas */
+        width: calc(100% - 32px); /* Reserva margens laterais de 16px */
+
+        & #titulo-passos { /* Seleciona o título em telas pequenas */
+            font-size: clamp(28px, 6vw, 39px); /* Ajusta as letras entre 28px e 39px conforme a largura da tela */
+        } /* Encerra o ajuste do tamanho do título */
+    } /* Encerra os ajustes da seção em telas pequenas */
+} /* Encerra as regras para telas de até 640px */
+
+
+.passos-lista { /* Seleciona a lista das etapas do pedido */
+    display: grid; /* Organiza os cartões em uma grade */
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Cria três colunas com a mesma largura */
+    column-gap: 28px; /* Separa as colunas por 28px */
+    align-items: start; /* Alinha cada cartão ao início de sua área */
+    margin-top: 35.2px; /* Separa os cartões do cabeçalho da seção */
+    padding: 0; /* Remove o espaço interno padrão da lista */
+    list-style: none; /* Remove os números padrão exibidos antes dos itens */
+
+    & .passo { /* Seleciona cada cartão da lista */
+        min-width: 0; /* Permite que o cartão encolha dentro da coluna */
+        min-height: 226px; /* Define a altura mínima do cartão */
+        padding: 23px 24px; /* Define o espaço interno vertical e lateral */
+        box-sizing: border-box; /* Inclui o padding e a borda nas dimensões do cartão */
+        background-color: white; /* Define o fundo branco do cartão */
+        border: 1px solid #EADBD0; /* Desenha uma borda fina em tom bege */
+        border-radius: 18px; /* Arredonda os cantos do cartão */
+    } /* Encerra os estilos dos cartões */
+
+    & .passo-numero { /* Seleciona o círculo com o número da etapa */
+        display: block; /* Permite definir largura e altura para o número */
+        width: 57px; /* Define a largura do círculo */
+        height: 57px; /* Define a altura do círculo */
+        margin-left: 2px; /* Desloca o círculo 2px para a direita */
+        padding: 15px 0 0 12px; /* Posiciona o texto dentro do círculo */
+        box-sizing: border-box; /* Inclui o espaço interno nas dimensões do círculo */
+        background-color: #FBECDD; /* Define o fundo bege claro do círculo */
+        border-radius: 29px; /* Arredonda o fundo até formar um círculo */
+        color: #AD281B; /* Define a cor vermelha dos números */
+        font-size: 24px; /* Define o tamanho dos números */
+        font-weight: 700; /* Deixa os números em negrito */
+        line-height: 28.8px; /* Define a altura da linha dos números */
+    } /* Encerra os estilos dos círculos numerados */
+
+    & .passo-titulo { /* Seleciona o título de cada etapa */
+        margin-top: 24px; /* Separa o título do círculo numerado */
+        color: #261B17; /* Define a cor marrom escura do título */
+        font-size: 23px; /* Define o tamanho das letras do título */
+        font-weight: 700; /* Deixa o título em negrito */
+        line-height: 28px; /* Define a altura de cada linha do título */
+    } /* Encerra os estilos dos títulos */
+
+    & .passo-descricao { /* Seleciona o parágrafo de cada etapa */
+        width: 350px; /* Define a largura do texto de apoio */
+        max-width: 100%; /* Mantém o texto dentro do cartão */
+        margin-top: 13px; /* Separa o parágrafo do título */
+        color: #76665F; /* Define a cor marrom acinzentada do texto */
+        font-size: 16px; /* Define o tamanho das letras do parágrafo */
+        font-weight: 400; /* Usa o peso normal da fonte */
+        line-height: 25px; /* Define a altura de cada linha do parágrafo */
+    } /* Encerra os estilos dos parágrafos */
+
+    & .passo:nth-child(2) { /* Seleciona somente o segundo cartão */
+        margin-top: 5px; /* Desloca o segundo cartão 5px para baixo */
+        translate: 1px 0; /* Desloca o segundo cartão 1px para a direita */
+        padding-top: 19px; /* Define o espaço interno acima do segundo círculo */
+
+        & .passo-numero { /* Seleciona o número do segundo cartão */
+            margin-left: 0; /* Remove o deslocamento lateral do círculo */
+        } /* Encerra o ajuste do segundo círculo */
+
+        & .passo-titulo { /* Seleciona o título do segundo cartão */
+            margin-top: 23px; /* Mantém o título alinhado aos títulos dos outros cartões */
+        } /* Encerra o ajuste do segundo título */
+    } /* Encerra os ajustes do segundo cartão */
+
+    & .passo:nth-child(3) { /* Seleciona somente o terceiro cartão */
+        padding-left: 26px; /* Define o espaço interno à esquerda dos textos */
+
+        & .passo-numero { /* Seleciona o número do terceiro cartão */
+            margin-left: 0; /* Remove o deslocamento lateral do círculo */
+        } /* Encerra o ajuste do terceiro círculo */
+    } /* Encerra os ajustes do terceiro cartão */
+} /* Encerra os estilos da lista de etapas */
+
+@media (max-width: 900px) { /* Aplica os estilos abaixo em telas de até 900px */
+    .passos-lista { /* Seleciona a lista em telas menores */
+        grid-template-columns: 1fr; /* Coloca os cartões em uma única coluna */
+        row-gap: 20px; /* Separa as linhas da lista por 20px */
+
+        & .passo:nth-child(2) { /* Seleciona o segundo cartão em telas menores */
+            margin-top: 0; /* Remove o deslocamento vertical do cartão */
+            translate: 0; /* Remove o deslocamento horizontal do cartão */
+            padding-top: 23px; /* Iguala o espaço interno superior dos cartões */
+
+            & .passo-titulo { /* Seleciona o segundo título em telas menores */
+                margin-top: 24px; /* Iguala o espaço acima dos títulos */
+            } /* Encerra o ajuste do segundo título */
+        } /* Encerra os ajustes do segundo cartão em telas menores */
+
+        & .passo:nth-child(3) { /* Seleciona o terceiro cartão em telas menores */
+            padding-left: 24px; /* Iguala o espaço interno à esquerda dos cartões */
+        } /* Encerra o ajuste do terceiro cartão */
+
+        & .passo:nth-child(2) .passo-numero, /* Seleciona o segundo círculo */
+        & .passo:nth-child(3) .passo-numero { /* Seleciona também o terceiro círculo */
+            margin-left: 2px; /* Iguala o deslocamento lateral dos círculos */
+        } /* Encerra os ajustes dos círculos em telas menores */
+    } /* Encerra os ajustes da lista em telas menores */
+} /* Encerra as regras para telas de até 900px */
+
+
+.rodape { /* Seleciona o rodapé da página */
+    margin-top: 54px; /* Separa o rodapé dos cartões das etapas */
+    font-family: "Inter", Arial, sans-serif; /* Define a fonte e as opções alternativas do rodapé */
+    font-optical-sizing: none; /* Desativa o ajuste óptico automático da fonte */
+
+    & * { /* Seleciona todos os elementos dentro do rodapé */
+        font-family: inherit; /* Faz os elementos herdarem a fonte do rodapé */
+    } /* Encerra os estilos dos elementos internos */
+
+    & .rodape-chamada { /* Seleciona a faixa de chamada */
+        position: relative; /* Permite controlar a ordem de sobreposição da faixa */
+        z-index: 1; /* Mantém a faixa acima do fundo escuro */
+        min-height: 65px; /* Define a altura mínima da faixa */
+        box-sizing: border-box; /* Inclui a borda na altura da faixa */
+        background-color: #AD281B; /* Define o fundo vermelho da faixa */
+        border: 1px solid black; /* Desenha uma borda preta fina ao redor da faixa */
+    } /* Encerra os estilos da faixa de chamada */
+
+    & .rodape-chamada-conteudo { /* Seleciona o conteúdo interno da faixa */
+        width: calc(100% - 158px); /* Reserva o espaço lateral dentro da borda */
+        max-width: 1280px; /* Limita a largura do conteúdo da faixa */
+        min-height: 63px; /* Reserva a altura interna da faixa sem as bordas */
+        margin: 0 auto; /* Centraliza o conteúdo da faixa */
+        display: flex; /* Coloca a chamada e o link lado a lado */
+        align-items: flex-start; /* Alinha os elementos ao início da faixa */
+        justify-content: space-between; /* Distribui o espaço entre a chamada e o link */
+        gap: 24px; /* Mantém uma distância mínima entre o texto e o link */
+    } /* Encerra os estilos do conteúdo da faixa */
+
+    & .rodape-chamada-texto { /* Seleciona o texto da chamada */
+        flex: 1; /* Permite que o texto ocupe o espaço disponível */
+        min-width: 0; /* Permite que o texto encolha e quebre a linha */
+        max-width: 970px; /* Limita a largura do texto da chamada */
+        margin: 17px 0 0 5px; /* Posiciona o texto dentro da faixa */
+        color: white; /* Deixa o texto da chamada branco */
+        font-size: 25px; /* Define o tamanho das letras da chamada */
+        font-weight: 700; /* Deixa a chamada em negrito */
+        line-height: 30px; /* Define a altura de cada linha da chamada */
+    } /* Encerra os estilos do texto da chamada */
+
+    & .rodape-botao { /* Seleciona o link que leva ao cardápio */
+        display: inline-flex; /* Permite dimensionar e alinhar o conteúdo do link */
+        align-items: center; /* Centraliza o texto verticalmente */
+        justify-content: center; /* Centraliza o texto horizontalmente */
+        width: 242px; /* Define a largura do link em formato de botão */
+        max-width: 100%; /* Mantém o botão dentro da faixa em telas menores */
+        height: 46px; /* Define a altura do botão */
+        margin-top: 4px; /* Afasta o botão da borda superior da faixa */
+        translate: 1px 0; /* Desloca o botão 1px para a direita */
+        flex-shrink: 0; /* Preserva a largura do botão ao lado do texto */
+        border-radius: 12px; /* Arredonda os cantos do botão */
+        background-color: #FFB72B; /* Define o fundo amarelo do botão */
+        color: #21120E; /* Define a cor escura do texto do botão */
+        font-size: 15px; /* Define o tamanho das letras do botão */
+        font-weight: 700; /* Deixa o texto do botão em negrito */
+        line-height: 18px; /* Define a altura da linha do texto do botão */
+
+        &:hover { /* Seleciona o botão quando o ponteiro passa sobre ele */
+            background-color: #FFC858; /* Clareia o fundo do botão */
+        } /* Encerra o efeito do ponteiro no botão */
+
+        &:focus-visible { /* Seleciona o botão ao receber foco pelo teclado */
+            outline: 2px solid white; /* Destaca o botão com um contorno branco */
+            outline-offset: 3px; /* Afasta o contorno da borda do botão */
+        } /* Encerra o destaque de foco do botão */
+    } /* Encerra os estilos do botão do cardápio */
+
+    & .rodape-corpo { /* Seleciona a área principal das informações finais */
+        margin-top: -6px; /* Aproxima o fundo escuro da faixa de chamada */
+        background-color: #21120E; /* Define o fundo marrom escuro do rodapé */
+    } /* Encerra os estilos do fundo escuro */
+
+    & .rodape-conteudo { /* Seleciona a área centralizada das informações */
+        width: calc(100% - 160px); /* Reserva margens laterais de 80px */
+        max-width: 1280px; /* Limita a largura das informações do rodapé */
+        min-height: 255px; /* Define a altura mínima da área de informações */
+        margin: 0 auto; /* Centraliza as informações na página */
+        padding: 24px 0 26px; /* Define o espaço interno acima e abaixo das informações */
+        box-sizing: border-box; /* Inclui o padding na altura da área */
+    } /* Encerra os estilos da área centralizada */
+
+    & .rodape-colunas { /* Seleciona o grupo da marca, navegação e atendimento */
+        display: grid; /* Organiza as informações em colunas */
+        grid-template-columns: 420px 355px minmax(0, 1fr); /* Define as larguras das três colunas */
+        align-items: start; /* Alinha o conteúdo ao início de cada coluna */
+    } /* Encerra os estilos das colunas */
+
+    & .rodape-nome { /* Seleciona o nome da marca */
+        margin-top: 1px; /* Desloca o nome 1px para baixo */
+        color: white; /* Deixa o nome da marca branco */
+        font-size: 31px; /* Define o tamanho das letras do nome */
+        font-weight: 700; /* Deixa o nome da marca em negrito */
+        line-height: 37.2px; /* Define a altura da linha do nome */
+    } /* Encerra os estilos do nome da marca */
+
+    & .rodape-slogan { /* Seleciona o slogan da marca */
+        max-width: 325px; /* Limita a largura do slogan */
+        min-height: 28px; /* Reserva espaço vertical para o slogan */
+        margin-top: 11.8px; /* Separa o slogan do nome da marca */
+        color: #FBECDD; /* Define a cor bege clara do slogan */
+        font-size: 15px; /* Define o tamanho das letras do slogan */
+        font-weight: 400; /* Usa o peso normal da fonte */
+        line-height: normal; /* Usa a altura de linha padrão da fonte */
+    } /* Encerra os estilos do slogan */
+
+    & .rodape-subtitulo { /* Seleciona os títulos de navegação e atendimento */
+        height: 28px; /* Reserva espaço vertical para os títulos */
+        color: #FFB72B; /* Define a cor amarela dos títulos */
+        font-size: 15px; /* Define o tamanho das letras dos títulos */
+        font-weight: 700; /* Deixa os títulos em negrito */
+        line-height: normal; /* Usa a altura de linha padrão da fonte */
+    } /* Encerra os estilos dos títulos das colunas */
+
+    & .rodape-links { /* Seleciona o grupo de links do rodapé */
+        margin-top: 7px; /* Separa os links do título da navegação */
+    } /* Encerra os estilos do grupo de links */
+
+    & .rodape-linha { /* Seleciona cada linha de links */
+        display: flex; /* Coloca os links lado a lado */
+        flex-wrap: wrap; /* Permite quebrar a linha quando faltar espaço */
+        gap: 20px; /* Separa os links por 20px */
+
+        & a { /* Seleciona os links de navegação do rodapé */
+            color: white; /* Deixa os links brancos */
+            font-size: 15px; /* Define o tamanho das letras dos links */
+            font-weight: 400; /* Usa o peso normal da fonte */
+            line-height: 28px; /* Define a altura de cada linha de links */
+
+            &:hover { /* Seleciona o link quando o ponteiro passa sobre ele */
+                color: #FFB72B; /* Destaca o link com a cor amarela */
+                text-decoration: underline; /* Sublinha o link apontado */
+            } /* Encerra o destaque do ponteiro no link */
+
+            &:focus-visible { /* Seleciona o link ao receber foco pelo teclado */
+                outline: 2px solid #FFB72B; /* Destaca o link com um contorno amarelo */
+                outline-offset: 3px; /* Afasta o contorno do texto do link */
+            } /* Encerra o destaque de foco do link */
+        } /* Encerra os estilos dos links de navegação */
+    } /* Encerra os estilos das linhas de links */
+
+    & .rodape-dados { /* Seleciona o texto de atendimento */
+        margin-top: 7px; /* Separa as informações do título do atendimento */
+        color: white; /* Deixa as informações de atendimento brancas */
+        font-size: 15px; /* Define o tamanho das letras das informações */
+        font-weight: 400; /* Usa o peso normal da fonte */
+        line-height: 28px; /* Define a distância entre as linhas de atendimento */
+    } /* Encerra os estilos das informações de atendimento */
+
+    & .rodape-social { /* Seleciona o texto sobre as redes sociais */
+        min-height: 28px; /* Reserva espaço vertical para o texto */
+        margin-top: 43px; /* Separa o texto das três colunas */
+        color: #FBECDD; /* Define a cor bege clara do texto */
+        font-size: 14px; /* Define o tamanho das letras do texto */
+        font-weight: 400; /* Usa o peso normal da fonte */
+        line-height: normal; /* Usa a altura de linha padrão da fonte */
+    } /* Encerra os estilos das informações sociais */
+
+    & .rodape-divisor { /* Seleciona a linha acima dos créditos */
+        height: 1px; /* Define a espessura da linha */
+        margin-top: 5px; /* Separa a linha do texto anterior */
+        border: none; /* Remove a borda padrão do separador */
+        background-color: #50352C; /* Define a cor marrom da linha */
+    } /* Encerra os estilos da linha divisória */
+
+    & .rodape-creditos { /* Seleciona os créditos finais da página */
+        min-height: 28px; /* Reserva espaço vertical para os créditos */
+        margin-top: 9px; /* Separa os créditos da linha divisória */
+        color: #FBECDD; /* Define a cor bege clara dos créditos */
+        font-size: 12px; /* Define o tamanho das letras dos créditos */
+        font-weight: 400; /* Usa o peso normal da fonte */
+        line-height: normal; /* Usa a altura de linha padrão da fonte */
+    } /* Encerra os estilos dos créditos finais */
+} /* Encerra os estilos do rodapé */
+
+@media (max-width: 1100px) { /* Aplica os estilos abaixo em telas de até 1100px */
+    .rodape .rodape-colunas { /* Seleciona as colunas do rodapé em telas menores */
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* Divide o espaço em três colunas iguais */
+        gap: 24px; /* Separa as colunas por 24px */
+    } /* Encerra os ajustes das colunas */
+} /* Encerra as regras para telas de até 1100px */
+
+@media (max-width: 1024px) { /* Aplica os estilos abaixo em telas de até 1024px */
+    .rodape { /* Seleciona o rodapé em telas menores */
+        & .rodape-chamada-conteudo, /* Seleciona o conteúdo da faixa de chamada */
+        & .rodape-conteudo { /* Seleciona também a área de informações */
+            width: calc(100% - 48px); /* Reserva margens laterais de 24px */
+        } /* Encerra o ajuste das larguras */
+
+        & .rodape-chamada-conteudo { /* Seleciona o conteúdo da faixa em telas menores */
+            padding: 16px 0; /* Afasta os elementos das bordas superior e inferior */
+            flex-direction: column; /* Coloca o texto e o botão um abaixo do outro */
+            gap: 16px; /* Separa o texto do botão */
+        } /* Encerra os ajustes da faixa */
+
+        & .rodape-chamada-texto { /* Seleciona a chamada em telas menores */
+            margin: 0; /* Remove os deslocamentos internos do texto */
+        } /* Encerra o ajuste do texto da chamada */
+
+        & .rodape-botao { /* Seleciona o botão em telas menores */
+            margin-top: 0; /* Remove o espaço acima do botão */
+            translate: 0; /* Remove o deslocamento horizontal do botão */
+        } /* Encerra os ajustes do botão */
+
+        & .rodape-corpo { /* Seleciona a área escura em telas menores */
+            margin-top: 0; /* Coloca a área escura depois da faixa sem sobreposição */
+        } /* Encerra o ajuste da área escura */
+    } /* Encerra os ajustes do rodapé em telas menores */
+} /* Encerra as regras para telas de até 1024px */
+
+@media (max-width: 800px) { /* Aplica os estilos abaixo em telas de até 800px */
+    .rodape { /* Seleciona o rodapé em telas pequenas */
+        & .rodape-colunas { /* Seleciona o grupo de informações em telas pequenas */
+            grid-template-columns: 1fr; /* Organiza as informações em uma única coluna */
+            gap: 28px; /* Separa os grupos de informações por 28px */
+        } /* Encerra os ajustes das colunas em telas pequenas */
+
+        & .rodape-social { /* Seleciona as informações sociais em telas pequenas */
+            margin-top: 28px; /* Separa o texto social dos grupos de informações */
+        } /* Encerra o ajuste das informações sociais */
+    } /* Encerra os ajustes do rodapé em telas pequenas */
+} /* Encerra as regras para telas de até 800px */
+
+@media (max-width: 640px) { /* Aplica os estilos abaixo em telas de até 640px */
+    .rodape { /* Seleciona o rodapé em telas estreitas */
+        & .rodape-chamada-conteudo, /* Seleciona o conteúdo da faixa em telas estreitas */
+        & .rodape-conteudo { /* Seleciona também a área de informações */
+            width: calc(100% - 32px); /* Reserva margens laterais de 16px */
+        } /* Encerra o ajuste das larguras em telas estreitas */
+
+        & .rodape-chamada-texto { /* Seleciona a chamada em telas estreitas */
+            font-size: 20px; /* Diminui o tamanho das letras da chamada */
+            line-height: 24px; /* Ajusta a altura das linhas da chamada */
+        } /* Encerra os ajustes do texto em telas estreitas */
+    } /* Encerra os ajustes do rodapé em telas estreitas */
+} /* Encerra as regras para telas de até 640px */
