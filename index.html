@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Faz a página se adaptar corretamente a diferentes tamanhos de tela -->
     <title>Brasa & Sabor</title> <!-- Define o nome que aparece na aba do navegador -->
-    <link rel="stylesheet" href="index.css?v=38ee611eca91"> <!-- Carrega o CSS atualizado -->
+    <link rel="stylesheet" href="index.css?v=cd2eb52864ba"> <!-- Carrega o CSS atualizado -->
+    <script src="menu.js?v=e6cb607a9255" defer></script> <!-- Controla o menu do celular -->
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <!-- Define o ícone que aparece na aba do navegador -->
 </head>
@@ -18,53 +19,56 @@
 
         <img id="logo" src="logo.png" alt="Logo Brasa & Sabor"> <!-- Exibe a logo do site -->
 
-        <nav> <!-- Área de navegação principal -->
+        <button class="botao-menu" id="botao-menu" type="button" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu" hidden> <!-- Abre o menu no celular -->
+            <span aria-hidden="true"></span> <!-- Primeira barra do ícone -->
+            <span aria-hidden="true"></span> <!-- Segunda barra do ícone -->
+            <span aria-hidden="true"></span> <!-- Terceira barra do ícone -->
+        </button> <!-- Fim do botão do menu -->
+
+        <nav id="menu-principal" aria-label="Menu principal"> <!-- Links de navegação -->
 
             <ul><!-- Lista dos links do menu -->
 
                 <li> <!-- Item da lista -->
-                    <a href="#">Início</a><!-- Link para a página inicial -->
-                </li>
+                    <a href="#inicio">Início</a> <!-- Vai para o início -->
+                </li> <!-- Fim do item -->
 
-                <li>
-                    <a href="#">Cardápio</a><!-- Link para o cardápio -->
-                </li>
+                <li> <!-- Item do menu -->
+                    <a href="#cardapio">Cardápio</a> <!-- Vai para o cardápio -->
+                </li> <!-- Fim do item -->
 
-                <li>
-                    <a href="#">Combos</a> <!-- Link para os combos -->
-                </li>
+                <li> <!-- Item do menu -->
+                    <a href="#combos">Combos</a> <!-- Vai para os combos -->
+                </li> <!-- Fim do item -->
 
-                <li>
-                    <a href="#">Promoções</a> <!-- Link para as promoções -->
-                </li>
+                <li> <!-- Item do menu -->
+                    <a href="#banner-pizza">Promoções</a> <!-- Vai para as promoções -->
+                </li> <!-- Fim do item -->
 
-                <li>
-                    <a href="#">Sobre</a> <!-- Link para a área sobre a empresa -->
-                </li>
+                <li> <!-- Item do menu -->
+                    <a href="#sobre">Sobre</a> <!-- Vai para a apresentação -->
+                </li> <!-- Fim do item -->
 
-                <li>
-                    <a href="#">Contato</a> <!-- Link para a área de contato -->
-                </li>
+                <li> <!-- Item do menu -->
+                    <a href="#contato">Contato</a> <!-- Vai para o contato -->
+                </li> <!-- Fim do item -->
 
-            </ul>
-        </nav>
+                <li id="pedido-menu" hidden> <!-- Espaço para o pedido no celular -->
+                </li> <!-- Fim do espaço do pedido -->
+
+            </ul> <!-- Fim da lista -->
+        </nav> <!-- Fim da navegação -->
 
         <form> <!-- Cria o formulário da barra de pesquisa -->
 
             <input type="search" placeholder="Pesquisar"><!-- Cria o campo onde o usuário pode digitar uma pesquisa -->
 
-            <img class="lupa" src="assets/Search.png" alt="Ícone de pesquisa">
-            <!-- Exibe o ícone da lupa dentro da área de pesquisa -->
-        </form>
+            <img class="lupa" src="assets/Search.png" alt="Ícone de pesquisa"> <!-- Lupa da pesquisa -->
+        </form> <!-- Fim da pesquisa -->
 
-        <a href="https://youtu.be/Tk9TM7-eTmw?si=E-C-ctOI5o2lWUD2"> <!-- Cria um link ao redor do botão Meu pedido -->
+        <a id="meu-pedido" href="https://youtu.be/Tk9TM7-eTmw?si=E-C-ctOI5o2lWUD2">Meu pedido</a> <!-- Botão de acesso ao pedido -->
 
-            <button id="meu-pedido" type="button">
-                Meu pedido
-            </button><!-- Cria o botão Meu pedido -->
-        </a>
-
-    </header>
+    </header> <!-- Fim do cabeçalho -->
 
     <section class="hero"> <!-- Cria a seção principal do site, conhecida como hero -->
 

@@ -90,7 +90,11 @@ input {
     width: 18px; /* Define a largura da lupa */
 }
 
-#meu-pedido {
+#meu-pedido { /* Botão do pedido */
+    display: inline-flex; /* Organiza o texto do botão */
+    align-items: center; /* Centraliza na vertical */
+    justify-content: center; /* Centraliza na horizontal */
+    box-sizing: border-box; /* Inclui as bordas no tamanho */
     background: #AD281B; /* Define o fundo vermelho */
     width: 167px; /* Define a largura do botão */
     height: 43px; /* Define a altura do botão */
@@ -101,10 +105,15 @@ input {
     font-weight: bold; /* Deixa o texto em negrito */
     font-size: 15px; /* Define o tamanho do texto */
 
-    &:hover {
+    &:hover { /* Destaque ao passar o mouse */
         background-color: #630e06; /* Escurece o botão ao passar o mouse */
-    }
-}
+    } /* Fim do destaque */
+
+    &:focus-visible { /* Destaque pelo teclado */
+        outline: 2px solid #AD281B; /* Contorno vermelho */
+        outline-offset: 3px; /* Afasta o contorno */
+    } /* Fim do foco */
+} /* Fim do botão do pedido */
 
 @keyframes hero { /* Cria a animação de entrada da hero */
     from { /* Define o começo da animação */
@@ -1141,42 +1150,126 @@ input {
     } /* Fim dos benefícios */
 } /* Fim das telas até 1024px */
 
+/* Botão do menu do celular */
+.botao-menu { /* Botão de três barras */
+    display: none; /* Oculta em telas grandes */
+    align-items: center; /* Centraliza as barras */
+    justify-content: center; /* Centraliza na vertical */
+    flex-direction: column; /* Empilha as barras */
+    gap: 5px; /* Espaço entre as barras */
+    width: 44px; /* Largura para toque */
+    height: 44px; /* Altura para toque */
+    padding: 10px; /* Espaçamento do ícone */
+    box-sizing: border-box; /* Inclui o espaçamento no tamanho */
+    border: 1px solid #EADBD0; /* Borda clara */
+    border-radius: 10px; /* Arredonda os cantos */
+    background-color: #FFF8F0; /* Fundo claro */
+    color: #AD281B; /* Cor das barras */
+} /* Fim do botão do menu */
+
+.botao-menu span { /* Barras do ícone */
+    display: block; /* Permite definir o tamanho */
+    width: 22px; /* Largura das barras */
+    height: 2px; /* Espessura das barras */
+    border-radius: 2px; /* Arredonda as pontas */
+    background-color: currentColor; /* Usa a cor do botão */
+    transition: transform 0.2s ease, opacity 0.2s ease; /* Suaviza a troca do ícone */
+} /* Fim das barras */
+
+.botao-menu[aria-expanded="true"] span:nth-child(1) { /* Primeira barra com o menu aberto */
+    transform: translateY(7px) rotate(45deg); /* Forma a primeira parte do X */
+} /* Fim da primeira barra */
+
+.botao-menu[aria-expanded="true"] span:nth-child(2) { /* Barra central com o menu aberto */
+    opacity: 0; /* Esconde a barra central */
+} /* Fim da barra central */
+
+.botao-menu[aria-expanded="true"] span:nth-child(3) { /* Última barra com o menu aberto */
+    transform: translateY(-7px) rotate(-45deg); /* Completa o X */
+} /* Fim da última barra */
+
+.botao-menu:focus-visible { /* Foco pelo teclado */
+    outline: 2px solid #AD281B; /* Destaca o botão */
+    outline-offset: 3px; /* Afasta o contorno */
+} /* Fim do foco do menu */
+
 @media (max-width: 640px) { /* Telas até 640px */
     header { /* Cabeçalho no celular */
-        grid-template-columns: repeat(2, minmax(0, 1fr)); /* Duas colunas iguais */
+        grid-template-columns: minmax(0, 1fr); /* Uma coluna centralizada */
         padding: 16px; /* Espaçamento no cabeçalho */
-        gap: 12px; /* Espaço entre os elementos */
+        gap: 16px; /* Espaço entre as linhas */
     } /* Fim do cabeçalho */
 
     header #logo { /* Logo no celular */
-        grid-column: 1 / -1; /* Ocupa as duas colunas */
+        grid-column: 1; /* Coluna central */
+        grid-row: 1; /* Primeira linha */
         width: 240px; /* Largura da logo */
+        max-width: calc(100% - 104px); /* Reserva espaço para o menu */
         justify-self: center; /* Centraliza a logo */
+        transform: translateX(10.7%); /* Compensa a margem vazia da imagem */
     } /* Fim da logo */
 
+    header.menu-pronto .botao-menu { /* Botão no celular */
+        display: flex; /* Mostra o botão */
+        grid-column: 1; /* Mesma coluna da logo */
+        grid-row: 1; /* Mesma linha da logo */
+        justify-self: end; /* Coloca no canto direito */
+    } /* Fim da posição do botão */
+
+    header > form { /* Pesquisa no celular */
+        grid-column: 1; /* Coluna central */
+        grid-row: 2; /* Linha abaixo da logo */
+        width: min(100%, 360px); /* Largura do campo */
+        justify-self: center; /* Centraliza a pesquisa */
+    } /* Fim da pesquisa */
+
+    header > nav { /* Menu no celular */
+        grid-column: 1; /* Ocupa a coluna inteira */
+        grid-row: 3; /* Fica abaixo da pesquisa */
+        padding: 8px; /* Espaçamento dentro do menu */
+        box-sizing: border-box; /* Inclui o espaçamento na largura */
+        border: 1px solid #EADBD0; /* Borda do menu */
+        border-radius: 12px; /* Arredonda o menu */
+        background-color: #FFF8F0; /* Fundo do menu */
+    } /* Fim da área do menu */
+
+    header.menu-pronto > nav[hidden] { /* Menu fechado */
+        display: none; /* Esconde os links */
+    } /* Fim do menu fechado */
+
     header nav ul { /* Lista do menu no celular */
-        display: grid; /* Organiza os links em grade */
-        grid-template-columns: repeat(3, minmax(0, 1fr)); /* Três links por linha */
-        gap: 4px; /* Espaço entre os links */
+        flex-direction: column; /* Um item por linha */
+        gap: 4px; /* Espaço entre os itens */
     } /* Fim da lista */
 
     header nav a { /* Links no celular */
-        display: block; /* Preenche cada coluna */
-        padding: 12px 4px; /* Espaço para tocar nos links */
-        font-size: 14px; /* Tamanho dos links */
+        display: block; /* Preenche cada linha */
+        padding: 12px 16px; /* Espaço para toque */
+        font-size: 16px; /* Tamanho dos links */
         line-height: 20px; /* Altura da linha */
-        text-align: center; /* Centraliza os textos */
+        text-align: left; /* Alinha os textos */
     } /* Fim dos links */
 
-    header > form { /* Pesquisa no celular */
-        grid-column: 1; /* Coluna da esquerda */
-        grid-row: 3; /* Linha abaixo do menu */
-    } /* Fim da pesquisa */
+    header nav a:hover { /* Destaque dos links */
+        transform: none; /* Mantém o tamanho do item */
+    } /* Fim do destaque */
 
-    header > a { /* Pedido no celular */
-        grid-column: 2; /* Coluna da direita */
-        grid-row: 3; /* Linha abaixo do menu */
-    } /* Fim do pedido */
+    header #pedido-menu { /* Espaço do pedido no menu */
+        margin-top: 8px; /* Separa o pedido dos links */
+    } /* Fim do espaço do pedido */
+
+    header nav #meu-pedido { /* Botão dentro do menu */
+        display: flex; /* Centraliza o texto do botão */
+        height: auto; /* Ajusta a altura ao texto */
+        text-align: center; /* Centraliza o nome do botão */
+    } /* Fim do botão no menu */
+
+    header > #meu-pedido { /* Pedido sem o script */
+        grid-column: 1; /* Coluna central */
+        grid-row: 4; /* Linha após o menu */
+        width: min(100%, 360px); /* Limita a largura */
+        justify-self: center; /* Centraliza o botão */
+    } /* Fim da posição alternativa */
 
     .hero { /* Banner no celular */
         min-height: 520px; /* Altura mínima do banner */
