@@ -1032,3 +1032,249 @@ input {
         } /* Encerra os ajustes do texto em telas estreitas */
     } /* Encerra os ajustes do rodapé em telas estreitas */
 } /* Encerra as regras para telas de até 640px */
+
+/* Ajustes para tablets e celulares */
+@media (max-width: 1200px) { /* Telas até 1200px */
+    header { /* Cabeçalho */
+        display: grid; /* Organiza em linhas e colunas */
+        grid-template-columns: minmax(0, 1fr) 166px 167px; /* Logo, pesquisa e pedido */
+        padding: 16px 24px; /* Espaçamento no cabeçalho */
+    } /* Fim do cabeçalho */
+
+    header #logo { /* Logo */
+        grid-column: 1; /* Primeira coluna */
+        grid-row: 1; /* Primeira linha */
+        max-width: 100%; /* Limita ao espaço disponível */
+        height: auto; /* Mantém a proporção */
+    } /* Fim da logo */
+
+    header > nav { /* Menu principal */
+        grid-column: 1 / -1; /* Ocupa todas as colunas */
+        grid-row: 2; /* Segunda linha */
+        min-width: 0; /* Permite reduzir a largura */
+    } /* Fim do menu */
+
+    header nav ul { /* Lista do menu */
+        justify-content: center; /* Centraliza os links */
+    } /* Fim da lista */
+
+    header nav a { /* Links do menu */
+        min-height: 44px; /* Área de toque */
+        box-sizing: border-box; /* Inclui o espaçamento na altura */
+    } /* Fim dos links */
+
+    header > form { /* Pesquisa */
+        grid-column: 2; /* Segunda coluna */
+        grid-row: 1; /* Primeira linha */
+        margin-left: 0; /* Remove a margem automática */
+        min-width: 0; /* Permite reduzir o campo */
+    } /* Fim da pesquisa */
+
+    header input { /* Campo de pesquisa */
+        width: 100%; /* Preenche a coluna */
+        min-width: 0; /* Permite diminuir a largura */
+        height: 44px; /* Área de toque */
+        font-size: 16px; /* Tamanho do texto */
+    } /* Fim do campo */
+
+    header > a { /* Link do pedido */
+        grid-column: 3; /* Terceira coluna */
+        grid-row: 1; /* Primeira linha */
+        min-width: 0; /* Permite reduzir o link */
+    } /* Fim do link */
+
+    header #meu-pedido { /* Botão do pedido */
+        width: 100%; /* Preenche a coluna */
+        min-height: 44px; /* Área de toque */
+    } /* Fim do botão */
+} /* Fim das telas até 1200px */
+
+@media (max-width: 1024px) { /* Telas até 1024px */
+    .hero { /* Banner principal */
+        height: auto; /* Cresce com o conteúdo */
+        min-height: 550px; /* Altura mínima do banner */
+        padding: 56px 24px; /* Espaçamento no banner */
+    } /* Fim do banner */
+
+    .hero::before { /* Camada sobre o fundo */
+        content: ""; /* Cria a camada */
+        position: absolute; /* Posiciona sobre o fundo */
+        inset: 0; /* Cobre o banner */
+        background: linear-gradient(90deg, rgb(0 0 0 / 75%), rgb(0 0 0 / 15%)); /* Escurece atrás do texto */
+        z-index: -1; /* Fica atrás do conteúdo */
+        pointer-events: none; /* Libera os cliques */
+    } /* Fim da camada */
+
+    .hero .video-hero { /* Vídeo de fundo */
+        z-index: -2; /* Fica atrás da camada escura */
+    } /* Fim do vídeo */
+
+    .hero #h1 { /* Título principal */
+        max-width: 540px; /* Limita a largura do título */
+        margin-top: 12px; /* Espaço acima do título */
+        font-size: clamp(46px, 6vw, 60px); /* Ajusta a fonte à tela */
+        line-height: 1.08; /* Espaço entre as linhas */
+    } /* Fim do título */
+
+    .hero > p { /* Descrição do banner */
+        max-width: 440px; /* Limita a largura do texto */
+        margin-top: 16px; /* Espaço acima da descrição */
+        line-height: 1.5; /* Espaço entre as linhas */
+    } /* Fim da descrição */
+
+    .texto-favorito { /* Títulos dos favoritos */
+        padding: 40px 24px 24px; /* Espaçamento dos títulos */
+    } /* Fim dos títulos */
+
+    .favoritos, .combos-produtos { /* Listas de produtos */
+        padding: 0 24px; /* Espaçamento lateral dos cards */
+        gap: 24px; /* Espaço entre os cards */
+    } /* Fim das listas */
+
+    .combos { /* Títulos dos combos */
+        padding: 0 24px; /* Espaçamento lateral dos títulos */
+        box-sizing: border-box; /* Inclui o espaçamento na largura */
+    } /* Fim dos títulos dos combos */
+
+    .beneficios { /* Faixa de benefícios */
+        padding: 24px; /* Espaçamento da faixa */
+    } /* Fim dos benefícios */
+} /* Fim das telas até 1024px */
+
+@media (max-width: 640px) { /* Telas até 640px */
+    header { /* Cabeçalho no celular */
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* Duas colunas iguais */
+        padding: 16px; /* Espaçamento no cabeçalho */
+        gap: 12px; /* Espaço entre os elementos */
+    } /* Fim do cabeçalho */
+
+    header #logo { /* Logo no celular */
+        grid-column: 1 / -1; /* Ocupa as duas colunas */
+        width: 240px; /* Largura da logo */
+        justify-self: center; /* Centraliza a logo */
+    } /* Fim da logo */
+
+    header nav ul { /* Lista do menu no celular */
+        display: grid; /* Organiza os links em grade */
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* Três links por linha */
+        gap: 4px; /* Espaço entre os links */
+    } /* Fim da lista */
+
+    header nav a { /* Links no celular */
+        display: block; /* Preenche cada coluna */
+        padding: 12px 4px; /* Espaço para tocar nos links */
+        font-size: 14px; /* Tamanho dos links */
+        line-height: 20px; /* Altura da linha */
+        text-align: center; /* Centraliza os textos */
+    } /* Fim dos links */
+
+    header > form { /* Pesquisa no celular */
+        grid-column: 1; /* Coluna da esquerda */
+        grid-row: 3; /* Linha abaixo do menu */
+    } /* Fim da pesquisa */
+
+    header > a { /* Pedido no celular */
+        grid-column: 2; /* Coluna da direita */
+        grid-row: 3; /* Linha abaixo do menu */
+    } /* Fim do pedido */
+
+    .hero { /* Banner no celular */
+        min-height: 520px; /* Altura mínima do banner */
+        padding: 48px 16px; /* Espaçamento no banner */
+        background-position: 65% center; /* Ajusta o fundo na tela estreita */
+    } /* Fim do banner */
+
+    .hero .video-hero { /* Vídeo no celular */
+        object-position: 65% center; /* Ajusta o enquadramento do vídeo */
+    } /* Fim do vídeo */
+
+    .hero #h2-section { /* Legenda do banner */
+        font-size: 13px; /* Tamanho da legenda */
+        font-weight: 700; /* Deixa a legenda em negrito */
+        line-height: 1.4; /* Espaço entre as linhas */
+    } /* Fim da legenda */
+
+    .hero #h1 { /* Título no celular */
+        max-width: 12ch; /* Limita o comprimento das linhas */
+        font-size: clamp(36px, 9.5vw, 52px); /* Ajusta o título à tela */
+    } /* Fim do título */
+
+    .hero #h1 br, .hero > p br { /* Quebras de linha do banner */
+        display: none; /* Deixa o texto quebrar naturalmente */
+    } /* Fim das quebras */
+
+    .hero .botoes-hero { /* Botões do banner */
+        flex-direction: column; /* Coloca um botão abaixo do outro */
+        align-items: flex-start; /* Alinha à esquerda */
+        gap: 12px; /* Espaço entre os botões */
+    } /* Fim do grupo de botões */
+
+    .hero .botoes-hero #fazer-pedido, .hero .botoes-hero #explorar-cardapio { /* Botões no celular */
+        width: 100%; /* Acompanha a largura disponível */
+        max-width: 360px; /* Limita a largura dos botões */
+        height: 52px; /* Altura dos botões */
+        flex-shrink: 0; /* Preserva a altura */
+    } /* Fim dos botões */
+
+    .texto-favorito { /* Apresentação dos favoritos */
+        padding: 32px 16px 24px; /* Espaçamento da apresentação */
+        gap: 8px; /* Espaço entre os textos */
+    } /* Fim da apresentação */
+
+    .texto-favorito #oq-vai-ser-hj, .combos .COMBO-PARA-QUALQUER-FOME { /* Títulos dos produtos */
+        font-size: clamp(28px, 7vw, 36px); /* Ajusta os títulos à tela */
+        line-height: 1.15; /* Espaço entre as linhas */
+    } /* Fim dos títulos */
+
+    .texto-favorito #paragrafo-texto-favorito, .combos .ESCOLHA { /* Descrições dos produtos */
+        line-height: 1.5; /* Espaço entre as linhas */
+    } /* Fim das descrições */
+
+    .favoritos, .combos-produtos { /* Listas no celular */
+        display: grid; /* Organiza os cards em grade */
+        grid-template-columns: minmax(0, 1fr); /* Um card por linha */
+        justify-items: center; /* Centraliza os cards */
+        padding: 0 16px; /* Espaçamento lateral das listas */
+        gap: 20px; /* Espaço entre os cards */
+    } /* Fim das listas */
+
+    .favoritos .card, .combos-produtos .card { /* Cards no celular */
+        width: 100%; /* Acompanha a largura disponível */
+        max-width: 360px; /* Limita a largura dos cards */
+    } /* Fim dos cards */
+
+    .favoritos .card img { /* Imagens dos favoritos */
+        width: calc(100% - 16px); /* Reserva espaço nas laterais */
+        height: auto; /* Ajusta a altura à largura */
+        aspect-ratio: 181 / 153; /* Mantém a proporção da imagem */
+    } /* Fim das imagens */
+
+    .favoritos .card h2 { /* Nomes dos favoritos */
+        font-size: 20px; /* Tamanho dos nomes */
+    } /* Fim dos nomes */
+
+    .combos { /* Apresentação dos combos */
+        padding: 0 16px; /* Espaçamento lateral dos textos */
+    } /* Fim da apresentação */
+
+    .combos-produtos .card { /* Cards dos combos */
+        min-height: 0; /* Ajusta a altura ao conteúdo */
+    } /* Fim dos cards dos combos */
+
+    .combos-produtos .card img { /* Imagens dos combos */
+        height: auto; /* Mantém a proporção da imagem */
+    } /* Fim das imagens dos combos */
+
+    .combos-produtos .card .card-rodape { /* Preço e botão do combo */
+        margin-top: 20px; /* Espaço abaixo do nome */
+    } /* Fim do preço e botão */
+
+    .beneficios { /* Benefícios no celular */
+        padding: 24px 16px; /* Espaçamento da faixa */
+    } /* Fim da faixa */
+
+    .beneficios .beneficios-lista .beneficio { /* Cada benefício */
+        padding: 20px 16px; /* Espaçamento do benefício */
+        gap: 12px; /* Espaço entre número e texto */
+    } /* Fim do benefício */
+} /* Fim das telas até 640px */
