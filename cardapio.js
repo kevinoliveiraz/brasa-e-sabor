@@ -1,6 +1,51 @@
 (() => { // Controla o cardápio e o carrinho
     const produtos = [ // Produtos disponíveis
         { // Dados de um produto
+            id: "mega-combo", // Código do produto
+            nome: "Mega Combo", // Nome do produto
+            categoria: "combos", // Categoria do produto
+            descricao: "Hambúrguer, cheddar, alface, tomate e cebola roxa. Acompanha batata e bebida.", // Descrição do produto
+            preco: 2590, // Preço em centavos
+            imagem: "assets/cardapio/combo-classico-v2.webp", // Arquivo da imagem
+            destaque: "Clássico", // Texto do selo
+        }, // Fim dos dados do produto
+        { // Dados de um produto
+            id: "hamburguer-especial", // Código do produto
+            nome: "Hambúrguer Especial", // Nome do produto
+            categoria: "combos", // Categoria do produto
+            descricao: "Hambúrguer, cheddar, bacon, cebola caramelizada e barbecue. Acompanha batata e bebida.", // Descrição do produto
+            preco: 600, // Preço em centavos
+            imagem: "assets/cardapio/combo-bacon-v2.webp", // Arquivo da imagem
+            destaque: "Com bacon", // Texto do selo
+        }, // Fim dos dados do produto
+        { // Dados de um produto
+            id: "bateu-a-fome", // Código do produto
+            nome: "Bateu a Fome", // Nome do produto
+            categoria: "combos", // Categoria do produto
+            descricao: "Dois hambúrgueres, cheddar, alface, picles e molho da casa. Acompanha batata e bebida.", // Descrição do produto
+            preco: 1800, // Preço em centavos
+            imagem: "assets/cardapio/combo-duplo-v2.webp", // Arquivo da imagem
+            destaque: "Duplo", // Texto do selo
+        }, // Fim dos dados do produto
+        { // Dados de um produto
+            id: "frango-crocante", // Código do produto
+            nome: "Combo Frango Crocante", // Nome do produto
+            categoria: "combos", // Categoria do produto
+            descricao: "Frango empanado, alface, tomate e maionese. Acompanha batata e bebida.", // Descrição do produto
+            preco: 3290, // Preço em centavos
+            imagem: "assets/cardapio/combo-frango-v2.webp", // Arquivo da imagem
+            destaque: "Crocante", // Texto do selo
+        }, // Fim dos dados do produto
+        { // Dados de um produto
+            id: "para-voce", // Código do produto
+            nome: "Para Você", // Nome do produto
+            categoria: "combos", // Categoria do produto
+            descricao: "Hambúrguer, cheddar, onion rings e molho especial. Acompanha batata e bebida.", // Descrição do produto
+            preco: 1500, // Preço em centavos
+            imagem: "assets/cardapio/combo-onion-v2.webp", // Arquivo da imagem
+            destaque: "Onion rings", // Texto do selo
+        }, // Fim dos dados do produto
+        { // Dados de um produto
             id: "hamburguer", // Código do produto
             nome: "Hambúrguer", // Nome do produto
             categoria: "hamburgueres", // Categoria do produto
@@ -15,14 +60,6 @@
             descricao: "Uma escolha para reunir as pessoas e compartilhar o sabor.", // Descrição do produto
             preco: 4990, // Preço em centavos
             imagem: "assets/favoritos/img/pizza.png", // Arquivo da imagem
-        }, // Fim dos dados do produto
-        { // Dados de um produto
-            id: "mega-combo", // Código do produto
-            nome: "Mega Combo", // Nome do produto
-            categoria: "combos", // Categoria do produto
-            descricao: "Hambúrguer, batata e bebida em uma combinação especial.", // Descrição do produto
-            preco: 2590, // Preço em centavos
-            imagem: "assets/cardapio/mega-combo.png", // Arquivo da imagem
         }, // Fim dos dados do produto
         { // Dados de um produto
             id: "acai", // Código do produto
@@ -56,30 +93,6 @@
             preco: 3995, // Preço em centavos
             imagem: "assets/cardapio/pizza-pepperoni.png", // Arquivo da imagem
         }, // Fim dos dados do produto
-        { // Dados de um produto
-            id: "hamburguer-especial", // Código do produto
-            nome: "Hambúrguer Especial", // Nome do produto
-            categoria: "combos", // Categoria do produto
-            descricao: "Uma das opções especiais que já fazem parte do nosso menu.", // Descrição do produto
-            preco: 600, // Preço em centavos
-            imagem: "assets/favoritos/img/hamburguer espcial.png", // Arquivo da imagem
-        }, // Fim dos dados do produto
-        { // Dados de um produto
-            id: "bateu-a-fome", // Código do produto
-            nome: "Bateu a Fome", // Nome do produto
-            categoria: "combos", // Categoria do produto
-            descricao: "Uma opção do menu para quando a fome pede mais.", // Descrição do produto
-            preco: 1800, // Preço em centavos
-            imagem: "assets/favoritos/img/bateu a fome.png", // Arquivo da imagem
-        }, // Fim dos dados do produto
-        { // Dados de um produto
-            id: "para-voce", // Código do produto
-            nome: "Para Você", // Nome do produto
-            categoria: "combos", // Categoria do produto
-            descricao: "Escolha esse favorito e combine com os outros sabores do cardápio.", // Descrição do produto
-            preco: 1500, // Preço em centavos
-            imagem: "assets/favoritos/img/para voce.png", // Arquivo da imagem
-        }, // Fim dos dados do produto
     ]; // Fim dos produtos
     const categorias = { // Nomes das categorias
         hamburgueres: "Hambúrgueres", // Nome exibido no filtro
@@ -111,6 +124,22 @@
         if (texto !== undefined) elemento.textContent = texto; // Preenche o texto com segurança
         return elemento; // Entrega o elemento criado
     } // Fim da criação
+
+    function criarIcone(nome) { // Cria um ícone do cardápio
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg"); // Cria o desenho vetorial
+        const desenho = document.createElementNS("http://www.w3.org/2000/svg", "use"); // Reutiliza o símbolo
+        svg.classList.add("icone-cardapio"); // Define o tamanho visual
+        svg.setAttribute("viewBox", "0 0 24 24"); // Define a área do desenho
+        svg.setAttribute("fill", "none"); // Mantém o fundo vazio
+        svg.setAttribute("stroke", "currentColor"); // Usa a cor do botão
+        svg.setAttribute("stroke-width", "1.6"); // Espessura do traço
+        svg.setAttribute("stroke-linecap", "round"); // Arredonda as pontas
+        svg.setAttribute("stroke-linejoin", "round"); // Arredonda as junções
+        svg.setAttribute("aria-hidden", "true"); // Oculta o desenho decorativo
+        desenho.setAttribute("href", "#icone-" + nome); // Escolhe o símbolo
+        svg.append(desenho); // Monta o ícone
+        return svg; // Entrega o desenho
+    } // Fim do ícone
 
     function lerPedido() { // Lê o pedido salvo
         try { // Tenta acessar o navegador
@@ -172,7 +201,7 @@
         const imagem = criarElemento("img", classe); // Cria a imagem
         imagem.src = produto.imagem; // Usa o arquivo do projeto
         imagem.alt = produto.nome; // Descreve a imagem
-        imagem.loading = "lazy"; // Carrega perto da área visível
+        imagem.loading = produto.destaque ? "eager" : "lazy"; // Carrega perto da área visível
         imagem.decoding = "async"; // Libera a leitura da página
         return imagem; // Retorna a foto
     } // Fim da imagem
@@ -188,6 +217,9 @@
         visiveis.forEach((produto) => { // Monta cada card
             const card = criarElemento("article", "produto-card"); // Cria o card
             const foto = imagemProduto(produto, "produto-imagem"); // Prepara a foto
+            const capa = criarElemento("div", "produto-foto"); // Agrupa foto e selo
+            capa.append(foto); // Coloca a imagem no card
+            if (produto.destaque) capa.append(criarElemento("span", "produto-selo", produto.destaque)); // Identifica o sabor
             const corpo = criarElemento("div", "produto-corpo"); // Agrupa os textos
             const categoria = criarElemento("p", "produto-categoria", categorias[produto.categoria]); // Mostra a categoria
             const titulo = criarElemento("h3", "produto-nome", produto.nome); // Mostra o nome
@@ -198,13 +230,14 @@
             detalhes.setAttribute("aria-label", "Ver detalhes de " + produto.nome); // Explica o botão
             const rodape = criarElemento("div", "produto-rodape"); // Agrupa preço e ação
             const preco = criarElemento("strong", "produto-preco", moeda.format(produto.preco / 100)); // Mostra o preço
-            const adicionar = criarElemento("button", "botao-loja botao-adicionar", "+ Adicionar"); // Cria o botão de adicionar
+            const adicionar = criarElemento("button", "botao-loja botao-adicionar", "Adicionar"); // Cria o botão de adicionar
+            adicionar.prepend(criarIcone("carrinho")); // Coloca o ícone do carrinho
             adicionar.type = "button"; // Evita enviar formulários
             adicionar.dataset.adicionar = produto.id; // Liga ao carrinho
             adicionar.setAttribute("aria-label", "Adicionar " + produto.nome + " ao pedido"); // Identifica a ação
             rodape.append(preco, adicionar); // Coloca preço e botão na linha
             corpo.append(categoria, titulo, descricao, detalhes, rodape); // Monta os textos
-            card.append(foto, corpo); // Monta o card completo
+            card.append(capa, corpo); // Monta o card completo
             grade.append(card); // Coloca o card no cardápio
         }); // Fim dos cards
         document.getElementById("resultado-produtos").textContent = visiveis.length + (visiveis.length === 1 ? " opção encontrada" : " opções encontradas"); // Informa o resultado

@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta à tela -->
     <title>Cardápio | Brasa &amp; Sabor</title> <!-- Nome da aba -->
     <link rel="icon" href="assets/favicon.png"> <!-- Ícone da aba -->
-    <link rel="stylesheet" href="index.css?v=cd2eb52864ba"> <!-- Estilos da identidade visual -->
-    <link rel="stylesheet" href="cardapio.css?v=669b8cf87e80"> <!-- Estilos do cardápio e pedido -->
+    <link rel="stylesheet" href="index.css?v=a0e9b77c3fe5"> <!-- Estilos da identidade visual -->
+    <link rel="stylesheet" href="cardapio.css?v=f6be557918ce"> <!-- Estilos do cardápio e pedido -->
     <script src="menu.js?v=e6cb607a9255" defer></script> <!-- Menu do celular -->
-    <script src="cardapio.js?v=883831ccedae" defer></script> <!-- Produtos e carrinho -->
+    <script src="cardapio.js?v=4896ae3f0e06" defer></script> <!-- Produtos e carrinho -->
 </head> <!-- Fim das configurações -->
 <body class="pagina-loja pagina-cardapio"> <!-- Conteúdo da loja -->
     <header id="inicio"> <!-- Inicia o cabeçalho e identifica o início da página -->
@@ -31,14 +31,6 @@
 
                 <li> <!-- Item do menu -->
                     <a href="cardapio.html" aria-current="page">Cardápio</a> <!-- Abre a página do cardápio -->
-                </li> <!-- Fim do item -->
-
-                <li> <!-- Item do menu -->
-                    <a href="index.html#combos">Combos</a> <!-- Vai para os combos -->
-                </li> <!-- Fim do item -->
-
-                <li> <!-- Item do menu -->
-                    <a href="index.html#banner-pizza">Promoções</a> <!-- Vai para as promoções -->
                 </li> <!-- Fim do item -->
 
                 <li> <!-- Item do menu -->
@@ -67,31 +59,53 @@
         <a id="meu-pedido" href="meu-pedido.html">Meu pedido <span class="contador-pedido" data-total-itens>0</span></a> <!-- Abre o carrinho e mostra a quantidade -->
 
     </header> <!-- Fim do cabeçalho -->
+<svg class="simbolos-cardapio" aria-hidden="true" focusable="false"> <!-- Guarda os ícones reutilizados -->
+    <symbol id="icone-todos" viewBox="0 0 24 24"><path d="M4 10h16M3 14h18M5 18h14M5 7c0-5 14-5 14 0Z"/><path d="M8 5h.01M12 4h.01M16 5h.01"/></symbol> <!-- Desenha o ícone -->
+    <symbol id="icone-hamburgueres" viewBox="0 0 24 24"><path d="M4 10h16M3 14h18M5 18h14M5 7c0-5 14-5 14 0Z"/><path d="m6 10 3 3 3-3 3 3 3-3"/></symbol> <!-- Desenha o ícone -->
+    <symbol id="icone-pizzas" viewBox="0 0 24 24"><path d="m12 3 9 18H3L12 3Z"/><path d="M5 17h14"/><circle cx="12" cy="10" r="1"/><circle cx="10" cy="14" r="1"/></symbol> <!-- Desenha o ícone -->
+    <symbol id="icone-combos" viewBox="0 0 24 24"><path d="M4 10h10l-1 11H5L4 10ZM6 10 5 3M9 10V2M12 10l1-6M17 8h5l-1 13h-4L16 8h1ZM19 8l1-6h3"/></symbol> <!-- Desenha o ícone -->
+    <symbol id="icone-acais" viewBox="0 0 24 24"><path d="M3 12h18a9 9 0 0 1-18 0ZM8 21h8M7 8l1-3M12 8V3M17 8l-1-3"/></symbol> <!-- Desenha o ícone -->
+    <symbol id="icone-sobremesas" viewBox="0 0 24 24"><path d="M4 12h16v9H4ZM3 12c0-5 18-5 18 0M12 8V4M10 4h4M4 16c3 3 5-3 8 0s5-3 8 0"/></symbol> <!-- Desenha o ícone -->
+    <symbol id="icone-bebidas" viewBox="0 0 24 24"><path d="M6 7h12l-1 14H7L6 7ZM5 7h14M12 7l2-5h5M8 12h8"/></symbol> <!-- Desenha o ícone -->
+    <symbol id="icone-carrinho" viewBox="0 0 24 24"><path d="M2 3h3l3 12h11l3-9H6M9 19h.01M18 19h.01"/><circle cx="9" cy="19" r="1"/><circle cx="18" cy="19" r="1"/></symbol> <!-- Desenha o ícone -->
+    <symbol id="icone-estrela" viewBox="0 0 24 24"><path d="m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6Z"/></symbol> <!-- Desenha o ícone -->
+</svg> <!-- Fim dos ícones -->
 <main> <!-- Conteúdo do cardápio -->
-    <section class="cardapio-abertura" aria-labelledby="titulo-cardapio"> <!-- Apresentação do cardápio -->
-        <div class="loja-container"> <!-- Alinha o conteúdo -->
-            <nav class="trilha-pagina" aria-label="Caminho da página"> <!-- Navegação de retorno -->
-                <a href="index.html">Início</a> <!-- Volta à página inicial -->
-                <span aria-hidden="true">/</span> <!-- Separador visual -->
-                <span aria-current="page">Cardápio</span> <!-- Página atual -->
-            </nav> <!-- Fim do caminho -->
-            <p class="loja-legenda">FEITO PARA MATAR SUA FOME</p> <!-- Legenda do banner -->
-            <h1 class="loja-titulo" id="titulo-cardapio">Seu próximo favorito está aqui.</h1> <!-- Título da página -->
-            <p class="loja-introducao">Do hambúrguer à sobremesa, escolha os sabores que vão fazer parte do seu pedido.</p> <!-- Apresenta as opções -->
+    <section class="cardapio-abertura" aria-labelledby="titulo-cardapio"> <!-- Banner do cardápio -->
+        <img class="cardapio-capa" src="assets/cardapio/banner-combos-v2.webp" alt="" fetchpriority="high" decoding="async"> <!-- Foto decorativa do combo -->
+        <div class="loja-container cardapio-banner-conteudo"> <!-- Alinha os textos do banner -->
+            <div class="cardapio-textos"> <!-- Agrupa a apresentação -->
+                <p class="loja-legenda">SABOR EM DOBRO</p> <!-- Legenda do banner -->
+                <h1 class="cardapio-titulo" id="titulo-cardapio"> <!-- Título principal -->
+                    <span>COMBOS QUE</span> <!-- Primeira linha do título -->
+                    <em>MATAM A FOME</em> <!-- Destaque do título -->
+                </h1> <!-- Fim do título -->
+                <p class="loja-introducao">Hambúrguer, acompanhamentos e bebida. Escolha sua combinação e complete o pedido com seus favoritos.</p> <!-- Apresenta o cardápio -->
+                <ul class="cardapio-vantagens" aria-label="O sabor da casa"> <!-- Vantagens dos combos -->
+                    <li><svg class="icone-cardapio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icone-hamburgueres"></use></svg><span>Ingredientes<br>selecionados</span></li> <!-- Apresenta uma vantagem -->
+                    <li><svg class="icone-cardapio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icone-combos"></use></svg><span>Combos<br>completos</span></li> <!-- Apresenta uma vantagem -->
+                    <li><svg class="icone-cardapio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icone-carrinho"></use></svg><span>Pedido do<br>seu jeito</span></li> <!-- Apresenta uma vantagem -->
+                    <li><svg class="icone-cardapio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icone-estrela"></use></svg><span>Qualidade<br>Brasa &amp; Sabor</span></li> <!-- Apresenta uma vantagem -->
+                </ul> <!-- Fim das vantagens -->
+            </div> <!-- Fim dos textos -->
+            <div class="selo-banner" aria-label="Combos do seu jeito"> <!-- Destaque do banner -->
+                <span>MAIS SABOR</span> <!-- Legenda do selo -->
+                <strong>DO SEU<br>JEITO</strong> <!-- Texto do selo -->
+            </div> <!-- Fim do destaque -->
         </div> <!-- Fim do conteúdo do banner -->
-    </section> <!-- Fim da apresentação -->
+    </section> <!-- Fim do banner -->
     <section class="loja-container cardapio-conteudo" aria-labelledby="titulo-catalogo"> <!-- Produtos do cardápio -->
         <div class="categorias-cardapio" role="group" aria-label="Filtrar por categoria"> <!-- Filtros do cardápio -->
-                <button class="categoria-botao" type="button" data-categoria="todos" aria-pressed="true">Todos</button> <!-- Filtra os produtos da categoria -->
-                <button class="categoria-botao" type="button" data-categoria="hamburgueres" aria-pressed="false">Hambúrgueres</button> <!-- Filtra os produtos da categoria -->
-                <button class="categoria-botao" type="button" data-categoria="pizzas" aria-pressed="false">Pizzas</button> <!-- Filtra os produtos da categoria -->
-                <button class="categoria-botao" type="button" data-categoria="combos" aria-pressed="false">Combos</button> <!-- Filtra os produtos da categoria -->
-                <button class="categoria-botao" type="button" data-categoria="acais" aria-pressed="false">Açaís</button> <!-- Filtra os produtos da categoria -->
-                <button class="categoria-botao" type="button" data-categoria="sobremesas" aria-pressed="false">Sobremesas</button> <!-- Filtra os produtos da categoria -->
-                <button class="categoria-botao" type="button" data-categoria="bebidas" aria-pressed="false">Bebidas</button> <!-- Filtra os produtos da categoria -->
+                <button class="categoria-botao" type="button" data-categoria="todos" aria-pressed="true"><svg class="icone-cardapio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icone-todos"></use></svg><span>Todo o cardápio</span></button> <!-- Filtra os produtos da categoria -->
+                <button class="categoria-botao" type="button" data-categoria="hamburgueres" aria-pressed="false"><svg class="icone-cardapio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icone-hamburgueres"></use></svg><span>Hambúrgueres</span></button> <!-- Filtra os produtos da categoria -->
+                <button class="categoria-botao" type="button" data-categoria="pizzas" aria-pressed="false"><svg class="icone-cardapio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icone-pizzas"></use></svg><span>Pizzas</span></button> <!-- Filtra os produtos da categoria -->
+                <button class="categoria-botao" type="button" data-categoria="combos" aria-pressed="false"><svg class="icone-cardapio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icone-combos"></use></svg><span>Combos</span></button> <!-- Filtra os produtos da categoria -->
+                <button class="categoria-botao" type="button" data-categoria="acais" aria-pressed="false"><svg class="icone-cardapio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icone-acais"></use></svg><span>Açaís</span></button> <!-- Filtra os produtos da categoria -->
+                <button class="categoria-botao" type="button" data-categoria="sobremesas" aria-pressed="false"><svg class="icone-cardapio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icone-sobremesas"></use></svg><span>Sobremesas</span></button> <!-- Filtra os produtos da categoria -->
+                <button class="categoria-botao" type="button" data-categoria="bebidas" aria-pressed="false"><svg class="icone-cardapio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icone-bebidas"></use></svg><span>Bebidas</span></button> <!-- Filtra os produtos da categoria -->
         </div> <!-- Fim das categorias -->
         <div class="catalogo-cabecalho"> <!-- Título e quantidade de resultados -->
-            <h2 id="titulo-catalogo">O que vai ser hoje?</h2> <!-- Título dos produtos -->
+            <h2 id="titulo-catalogo">Escolha seus favoritos</h2> <!-- Título dos produtos -->
             <p id="resultado-produtos" role="status"></p> <!-- Quantidade encontrada -->
         </div> <!-- Fim do cabeçalho dos produtos -->
         <div class="lista-produtos" id="lista-produtos"></div> <!-- Recebe os produtos do cardápio -->
@@ -133,11 +147,9 @@
                         <div class="rodape-linha"> <!-- Agrupa a primeira linha de links -->
                             <a href="index.html#inicio">Início</a> <!-- Leva ao início da página -->
                             <a href="cardapio.html">Cardápio</a> <!-- Abre o cardápio completo -->
-                            <a href="index.html#banner-pizza">Promoções</a> <!-- Leva ao banner de promoção -->
                         </div> <!-- Encerra a primeira linha de links -->
 
                         <div class="rodape-linha"> <!-- Agrupa a segunda linha de links -->
-                            <a href="index.html#combos">Combos</a> <!-- Leva à seção de combos -->
                             <a href="index.html#sobre">Sobre</a> <!-- Leva à apresentação da marca -->
                             <a href="index.html#contato">Contato</a> <!-- Leva às informações de atendimento -->
                         </div> <!-- Encerra a segunda linha de links -->

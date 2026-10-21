@@ -1,3 +1,36 @@
+@font-face { /* Fonte dos títulos do cardápio */
+    font-family: "Anton"; /* Nome da fonte local */
+    src: url("assets/fonts/Anton-Regular.ttf") format("truetype"); /* Carrega o arquivo da fonte */
+    font-weight: 400; /* Peso do título */
+    font-style: normal; /* Estilo da fonte */
+    font-display: swap; /* Mostra o texto durante a carga */
+} /* Fim da fonte */
+
+.simbolos-cardapio { /* Símbolos dos ícones */
+    position: absolute; /* Retira do espaço da página */
+    width: 0; /* Não ocupa largura */
+    height: 0; /* Não ocupa altura */
+    overflow: hidden; /* Esconde a lista de símbolos */
+} /* Fim dos símbolos */
+
+.icone-cardapio { /* Ícones do cardápio */
+    flex-shrink: 0; /* Mantém o tamanho do desenho */
+    width: 24px; /* Largura do ícone */
+    height: 24px; /* Altura do ícone */
+} /* Fim dos ícones */
+
+.pagina-cardapio .loja-container { /* Largura do cardápio */
+    width: calc(100% - 48px); /* Margens dos cards */
+    max-width: 1560px; /* Limite em telas grandes */
+} /* Fim da largura */
+
+.pagina-cardapio #menu-principal a[aria-current="page"] { /* Link da página atual */
+    color: #AD281B; /* Destaca o cardápio */
+    text-decoration: underline; /* Marca a página atual */
+    text-decoration-color: #FFB72B; /* Cor do destaque */
+    text-underline-offset: 8px; /* Afasta o sublinhado */
+} /* Fim do link atual */
+
 /* Pesquisa e contador do pedido */
 .botao-pesquisa { /* Botão da lupa */
     position: absolute; /* Fica dentro da pesquisa */
@@ -52,9 +85,11 @@
 } /* Fim do alinhamento */
 
 .cardapio-abertura { /* Banner do cardápio */
-    padding: 28px 0 44px; /* Espaçamento vertical */
-    background: linear-gradient(90deg, rgb(0 0 0 / 85%), rgb(0 0 0 / 12%)), url("assets/banner-burguer.png") center / cover; /* Fundo do banner */
-    color: white; /* Texto claro */
+    position: relative; /* Referência da imagem */
+    isolation: isolate; /* Organiza as camadas do banner */
+    overflow: hidden; /* Mantém a foto dentro do banner */
+    background: #FFF8F0; /* Fundo claro da marca */
+    color: #261B17; /* Texto escuro do banner */
 } /* Fim do banner */
 
 .trilha-pagina { /* Caminho de navegação */
@@ -80,7 +115,9 @@
 } /* Fim da legenda */
 
 .cardapio-abertura .loja-legenda { /* Legenda do banner */
-    color: #FFB72B; /* Amarelo sobre o fundo escuro */
+    color: #7C3C2D; /* Cor sobre o fundo claro */
+    font-size: 11px; /* Tamanho da legenda */
+    letter-spacing: 0.35em; /* Espaço entre as letras */
 } /* Fim da legenda do banner */
 
 .loja-titulo { /* Título principal */
@@ -99,28 +136,34 @@
 } /* Fim da apresentação */
 
 .cardapio-conteudo { /* Área dos produtos */
-    padding-top: 36px; /* Separa do banner */
+    padding-top: 0; /* Aproxima os filtros do banner */
 } /* Fim da área dos produtos */
 
 .categorias-cardapio { /* Filtros das categorias */
-    display: flex; /* Organiza os filtros em linha */
-    gap: 10px; /* Espaço entre os filtros */
-    overflow-x: auto; /* Permite rolar os filtros no celular */
-    padding: 4px 2px 14px; /* Espaço dos filtros e do foco */
+    display: flex; /* Coloca os filtros em linha */
+    align-items: center; /* Alinha os ícones */
+    justify-content: space-between; /* Distribui as categorias */
+    gap: 12px; /* Espaço entre os filtros */
+    overflow-x: auto; /* Permite rolar no celular */
+    padding: 20px 2px 16px; /* Espaçamento dos filtros */
     scrollbar-width: thin; /* Barra de rolagem discreta */
 } /* Fim dos filtros */
 
 .categoria-botao { /* Cada categoria */
-    flex-shrink: 0; /* Mantém o nome legível */
+    display: inline-flex; /* Coloca ícone e nome em linha */
+    align-items: center; /* Centraliza na vertical */
+    justify-content: center; /* Centraliza o conteúdo */
+    flex-shrink: 0; /* Mantém os nomes legíveis */
     min-height: 44px; /* Área para toque */
+    gap: 10px; /* Espaço entre ícone e nome */
     padding: 10px 18px; /* Espaçamento da categoria */
-    border: 1px solid #EADBD0; /* Borda clara */
-    border-radius: 24px; /* Formato arredondado */
-    background: white; /* Fundo da categoria */
-    color: #50352C; /* Cor do texto */
+    border: 1px solid transparent; /* Reserva a borda do foco */
+    border-radius: 28px; /* Arredonda o filtro */
+    background: transparent; /* Acompanha o fundo da página */
+    color: #57443A; /* Cor das categorias */
     font-size: 14px; /* Tamanho do nome */
-    font-weight: 600; /* Destaca a categoria */
-    white-space: nowrap; /* Mantém o nome em uma linha */
+    font-weight: 600; /* Destaca o nome */
+    white-space: nowrap; /* Evita quebrar o nome */
 } /* Fim da categoria */
 
 .categoria-botao[aria-pressed="true"] { /* Categoria selecionada */
@@ -129,17 +172,17 @@
     color: white; /* Texto branco */
 } /* Fim da seleção */
 
-.catalogo-cabecalho { /* Título e resultado do cardápio */
-    display: flex; /* Coloca os textos em linha */
+.catalogo-cabecalho { /* Título e resultado da busca */
+    display: flex; /* Organiza os textos em linha */
     align-items: baseline; /* Alinha os textos pela base */
     justify-content: space-between; /* Distribui o espaço */
     flex-wrap: wrap; /* Permite quebrar a linha */
     gap: 8px; /* Espaço entre os textos */
-    margin: 18px 0 24px; /* Espaçamento dos títulos */
+    margin: 8px 0 16px; /* Espaçamento do título */
 } /* Fim do cabeçalho dos produtos */
 
 .catalogo-cabecalho h2 { /* Título da lista */
-    font-size: 28px; /* Tamanho do título */
+    font-size: 21px; /* Tamanho do título */
     letter-spacing: -0.025em; /* Aproxima as letras */
 } /* Fim do título da lista */
 
@@ -151,55 +194,57 @@
 
 .lista-produtos { /* Grade do cardápio */
     display: grid; /* Organiza os produtos */
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Três produtos por linha */
-    gap: 24px; /* Espaço entre os cards */
+    grid-template-columns: repeat(5, minmax(0, 1fr)); /* Cinco produtos por linha */
+    gap: 16px; /* Espaço entre os cards */
 } /* Fim da grade */
 
 .produto-card { /* Card do produto */
     display: flex; /* Organiza imagem e conteúdo */
-    flex-direction: column; /* Coloca os elementos em coluna */
+    flex-direction: column; /* Coloca o conteúdo em coluna */
     min-width: 0; /* Permite ajustar à coluna */
-    overflow: hidden; /* Mantém a imagem dentro dos cantos */
+    overflow: hidden; /* Mantém a imagem nos cantos */
     border: 1px solid #EADBD0; /* Borda do card */
-    border-radius: 18px; /* Arredonda os cantos */
-    background: white; /* Fundo do produto */
+    border-radius: 14px; /* Arredonda os cantos */
+    background: #FFFBF6; /* Fundo claro do produto */
+    box-shadow: 0 5px 16px rgb(80 41 19 / 5%); /* Destaca o card */
 } /* Fim do card */
 
-.produto-imagem { /* Foto ou arte do produto */
-    display: block; /* Remove o espaço abaixo da imagem */
-    width: 100%; /* Ocupa o card */
-    aspect-ratio: 1; /* Mantém as artes completas */
-    object-fit: contain; /* Preserva o conteúdo da arte */
+.produto-imagem { /* Foto do produto */
+    display: block; /* Remove o espaço abaixo da foto */
+    width: 100%; /* Ocupa a largura do card */
+    aspect-ratio: 4 / 3; /* Enquadramento horizontal */
+    object-fit: cover; /* Preenche a área da foto */
     background: #FBECDD; /* Fundo das imagens */
 } /* Fim da imagem */
 
 .produto-corpo { /* Informações do produto */
     display: flex; /* Organiza os textos */
-    flex-direction: column; /* Coloca os textos em coluna */
-    flex: 1; /* Iguala o espaço dos cards */
-    padding: 22px; /* Espaçamento dos textos */
+    flex-direction: column; /* Coloca em coluna */
+    flex: 1; /* Iguala a altura dos cards */
+    padding: 14px; /* Espaçamento do conteúdo */
 } /* Fim das informações */
 
 .produto-categoria { /* Categoria do produto */
-    margin-bottom: 8px; /* Separa do nome */
-    color: #AD281B; /* Cor da categoria */
-    font-size: 12px; /* Tamanho da categoria */
+    margin-bottom: 6px; /* Separa do nome */
+    color: #76665F; /* Cor da categoria */
+    font-size: 10px; /* Tamanho da categoria */
     font-weight: 700; /* Destaca a categoria */
     text-transform: uppercase; /* Usa letras maiúsculas */
     letter-spacing: 0.05em; /* Espaça as letras */
 } /* Fim da categoria do produto */
 
 .produto-nome { /* Nome do produto */
-    font-size: 21px; /* Tamanho do nome */
-    line-height: 1.3; /* Altura das linhas */
-    letter-spacing: -0.02em; /* Aproxima as letras */
+    color: #7F170E; /* Vermelho escuro da marca */
+    font-size: 17px; /* Tamanho do nome */
+    line-height: 1.25; /* Altura das linhas */
+    letter-spacing: -0.025em; /* Aproxima as letras */
 } /* Fim do nome */
 
 .produto-descricao { /* Descrição do produto */
-    margin-top: 10px; /* Espaço abaixo do nome */
-    color: #76665F; /* Cor da descrição */
-    font-size: 14px; /* Tamanho do texto */
-    line-height: 1.6; /* Espaço entre as linhas */
+    margin-top: 8px; /* Espaço abaixo do nome */
+    color: #57443A; /* Cor da descrição */
+    font-size: 12px; /* Tamanho do texto */
+    line-height: 1.5; /* Espaço entre as linhas */
 } /* Fim da descrição */
 
 .produto-detalhes, .remover-item { /* Ações de texto */
@@ -214,14 +259,13 @@
     text-underline-offset: 3px; /* Afasta o sublinhado */
 } /* Fim das ações de texto */
 
-.produto-rodape { /* Preço e botão do produto */
-    display: flex; /* Coloca os dois em linha */
-    align-items: center; /* Centraliza na vertical */
-    justify-content: space-between; /* Distribui o espaço */
-    flex-wrap: wrap; /* Permite ajustar à largura */
+.produto-rodape { /* Preço e ação do produto */
+    display: flex; /* Organiza preço e botão */
+    flex-direction: column; /* Coloca o botão abaixo do preço */
+    align-items: flex-start; /* Alinha os valores à esquerda */
     gap: 12px; /* Espaço entre preço e botão */
     margin-top: auto; /* Alinha os rodapés dos cards */
-    padding-top: 16px; /* Espaço acima do preço */
+    padding-top: 10px; /* Separa dos detalhes */
 } /* Fim do rodapé do produto */
 
 .produto-preco { /* Preço do produto */
@@ -474,9 +518,9 @@
     font-size: 28px; /* Tamanho do símbolo */
 } /* Fim do botão de fechar */
 
-@media (max-width: 1100px) { /* Telas médias */
+@media (max-width: 1199px) { /* Telas médias */
     .lista-produtos { /* Grade dos produtos */
-        grid-template-columns: repeat(2, minmax(0, 1fr)); /* Dois produtos por linha */
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* Três produtos por linha */
     } /* Fim da grade média */
     .loja-container { /* Margens do conteúdo */
         width: calc(100% - 48px); /* Reserva 24px por lado */
@@ -494,17 +538,13 @@
         width: calc(100% - 32px); /* Reserva 16px por lado */
     } /* Fim do conteúdo */
     .cardapio-abertura { /* Banner no celular */
-        padding: 24px 0 36px; /* Espaçamento do banner */
-        background-position: 65% center; /* Enquadra o hambúrguer */
+        padding: 0; /* Remove o espaço externo */
     } /* Fim do banner móvel */
-    .cardapio-abertura .loja-titulo { /* Título no banner */
-        max-width: 11ch; /* Mantém linhas legíveis */
-    } /* Fim do título móvel */
     .trilha-pagina { /* Caminho no celular */
         margin-bottom: 24px; /* Espaço abaixo do caminho */
     } /* Fim do caminho móvel */
     .cardapio-conteudo { /* Produtos no celular */
-        padding-top: 24px; /* Espaço abaixo do banner */
+        padding-top: 0; /* Aproxima as categorias */
     } /* Fim da área móvel */
     .lista-produtos { /* Grade no celular */
         grid-template-columns: minmax(0, 1fr); /* Um produto por linha */
@@ -569,3 +609,266 @@
         min-height: 0; /* Permite diminuir */
     } /* Fim da imagem dos detalhes */
 } /* Fim dos celulares */
+
+
+.cardapio-capa { /* Foto do banner */
+    position: absolute; /* Coloca a foto atrás dos textos */
+    inset: 0; /* Ocupa o banner inteiro */
+    z-index: -1; /* Mantém os textos na frente */
+    width: 100%; /* Largura da foto */
+    height: 100%; /* Altura da foto */
+    object-fit: cover; /* Preenche o banner */
+    object-position: center; /* Centraliza a composição */
+} /* Fim da foto do banner */
+
+.pagina-cardapio .cardapio-banner-conteudo { /* Conteúdo do banner */
+    position: relative; /* Referência do selo */
+    width: calc(100% - 112px); /* Margens dos textos */
+    min-height: 410px; /* Altura do banner no computador */
+    padding: 36px 0; /* Espaçamento vertical */
+    box-sizing: border-box; /* Inclui o espaçamento na altura */
+    display: flex; /* Centraliza o conteúdo */
+    align-items: center; /* Alinha na vertical */
+} /* Fim do conteúdo do banner */
+
+.cardapio-textos { /* Textos da apresentação */
+    width: 52%; /* Reserva espaço para a foto */
+    max-width: 620px; /* Limita as linhas do título */
+} /* Fim dos textos */
+
+.pagina-cardapio .cardapio-titulo { /* Título do banner */
+    font-family: "Anton", Impact, sans-serif; /* Fonte dos títulos grandes */
+    font-size: clamp(50px, 5.8vw, 84px); /* Ajusta o título à tela */
+    font-weight: 400; /* Usa o peso da fonte */
+    line-height: 1.08; /* Aproxima as linhas */
+    letter-spacing: -0.015em; /* Espaço entre as letras */
+} /* Fim do título do banner */
+
+.cardapio-titulo span, .cardapio-titulo em { /* Linhas do título */
+    display: block; /* Coloca cada frase em uma linha */
+    font-family: inherit; /* Mantém a fonte do título */
+} /* Fim das linhas */
+
+.cardapio-titulo em { /* Frase em destaque */
+    margin-top: 4px; /* Separa as duas linhas */
+    color: #EAA400; /* Amarelo do título */
+    font-style: italic; /* Inclina a frase */
+} /* Fim da frase em destaque */
+
+.cardapio-textos .loja-introducao { /* Descrição do banner */
+    max-width: 440px; /* Limita a largura do texto */
+    margin-top: 18px; /* Espaço abaixo do título */
+    color: #50352C; /* Cor da descrição */
+    font-size: 15px; /* Tamanho do texto */
+    line-height: 1.5; /* Altura das linhas */
+} /* Fim da descrição do banner */
+
+.cardapio-vantagens { /* Vantagens da casa */
+    display: flex; /* Organiza as vantagens em linha */
+    align-items: center; /* Alinha os desenhos */
+    gap: 14px; /* Espaço entre as vantagens */
+    margin-top: 24px; /* Espaço abaixo da descrição */
+    padding: 0; /* Remove o recuo da lista */
+    list-style: none; /* Remove os marcadores */
+} /* Fim das vantagens */
+
+.cardapio-vantagens li { /* Cada vantagem */
+    display: flex; /* Coloca ícone e texto em linha */
+    align-items: center; /* Alinha na vertical */
+    gap: 8px; /* Separa o desenho do texto */
+    font-size: 10px; /* Tamanho da descrição */
+    line-height: 1.4; /* Altura das linhas */
+} /* Fim de cada vantagem */
+
+.cardapio-vantagens li + li { /* Separação das vantagens */
+    padding-left: 14px; /* Afasta a próxima vantagem */
+    border-left: 1px solid #DCCDC0; /* Linha de separação */
+} /* Fim da separação */
+
+.cardapio-vantagens .icone-cardapio { /* Ícones das vantagens */
+    width: 28px; /* Largura do desenho */
+    height: 28px; /* Altura do desenho */
+    color: #AD281B; /* Vermelho da marca */
+} /* Fim dos ícones das vantagens */
+
+.selo-banner { /* Selo do banner */
+    position: absolute; /* Posiciona sobre a foto */
+    right: 0; /* Alinha à direita */
+    bottom: 24px; /* Distância da borda inferior */
+    display: flex; /* Organiza os textos */
+    flex-direction: column; /* Coloca em coluna */
+    align-items: center; /* Centraliza os textos */
+    justify-content: center; /* Centraliza na vertical */
+    width: 116px; /* Largura do selo */
+    height: 116px; /* Altura do selo */
+    box-sizing: border-box; /* Inclui a borda no tamanho */
+    border: 3px solid #7F170E; /* Contorno do selo */
+    outline: 2px solid #FFB72B; /* Contorno externo amarelo */
+    outline-offset: 3px; /* Separa os contornos */
+    border-radius: 50%; /* Forma um círculo */
+    background: #FFB72B; /* Fundo amarelo */
+    color: #4A170B; /* Cor dos textos */
+    text-align: center; /* Centraliza o texto */
+    transform: rotate(-10deg); /* Inclina o selo */
+} /* Fim do selo do banner */
+
+.selo-banner span { /* Legenda do selo */
+    margin-bottom: 4px; /* Separa do destaque */
+    font-size: 10px; /* Tamanho da legenda */
+    font-weight: 800; /* Destaca a legenda */
+} /* Fim da legenda do selo */
+
+.selo-banner strong { /* Destaque do selo */
+    font-size: 22px; /* Tamanho do destaque */
+    line-height: 1; /* Aproxima as linhas */
+    letter-spacing: -0.05em; /* Aproxima as letras */
+} /* Fim do destaque do selo */
+
+.produto-foto { /* Área da imagem do produto */
+    position: relative; /* Referência do selo */
+    overflow: hidden; /* Mantém a foto dentro do card */
+} /* Fim da área da foto */
+
+.produto-selo { /* Selo de cada sabor */
+    position: absolute; /* Posiciona sobre a foto */
+    top: 12px; /* Distância do topo */
+    left: 12px; /* Distância da borda */
+    display: flex; /* Centraliza o texto */
+    align-items: center; /* Alinha na vertical */
+    justify-content: center; /* Alinha na horizontal */
+    width: 58px; /* Largura do selo */
+    height: 58px; /* Altura do selo */
+    padding: 6px; /* Espaçamento do texto */
+    box-sizing: border-box; /* Inclui o espaçamento */
+    border-radius: 50%; /* Forma circular */
+    background: #FFB72B; /* Amarelo da marca */
+    color: #4A170B; /* Texto escuro */
+    font-size: 10px; /* Tamanho do texto */
+    font-weight: 800; /* Destaca o texto */
+    line-height: 1.1; /* Altura das linhas */
+    text-align: center; /* Centraliza o conteúdo */
+    text-transform: uppercase; /* Usa letras maiúsculas */
+    transform: rotate(-10deg); /* Inclina o selo */
+} /* Fim do selo do produto */
+
+.pagina-cardapio .produto-detalhes { /* Acesso aos detalhes */
+    min-height: 32px; /* Altura do link secundário */
+    margin-top: 4px; /* Separa da descrição */
+    font-size: 12px; /* Tamanho do texto */
+} /* Fim do acesso aos detalhes */
+
+.botao-adicionar { /* Botão de cada card */
+    width: 100%; /* Ocupa a largura do conteúdo */
+    gap: 10px; /* Separa o ícone do texto */
+    border-radius: 28px; /* Formato arredondado */
+} /* Fim do botão de adicionar */
+
+.botao-adicionar .icone-cardapio { /* Ícone do carrinho */
+    width: 20px; /* Largura do desenho */
+    height: 20px; /* Altura do desenho */
+} /* Fim do ícone do carrinho */
+
+@media (max-width: 1199px) { /* Ajustes do banner em telas médias */
+    .cardapio-capa { /* Leitura do banner em telas médias */
+        mask-image: linear-gradient(90deg, transparent, rgb(0 0 0 / 15%) 30%, black 65%); /* Clareia a área dos textos */
+    } /* Fim da leitura do banner */
+    .pagina-cardapio .cardapio-banner-conteudo { /* Área do banner */
+        width: calc(100% - 64px); /* Margens dos textos */
+        min-height: 380px; /* Altura do banner */
+    } /* Fim da área média */
+    .cardapio-vantagens { /* Vantagens no banner */
+        display: grid; /* Organiza as vantagens */
+        grid-template-columns: repeat(2, max-content); /* Duas vantagens por linha */
+        gap: 12px 20px; /* Separa as vantagens */
+    } /* Fim das vantagens médias */
+    .cardapio-vantagens li + li { /* Separação das vantagens */
+        padding-left: 0; /* Remove o recuo */
+        border-left: 0; /* Remove a linha entre colunas */
+    } /* Fim da separação média */
+} /* Fim dos ajustes médios */
+
+@media (max-width: 900px) { /* Tablets */
+    .lista-produtos { /* Produtos no tablet */
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* Dois produtos por linha */
+    } /* Fim da grade do tablet */
+    .cardapio-textos { /* Textos no tablet */
+        width: 62%; /* Reserva espaço para o título */
+    } /* Fim dos textos do tablet */
+    .cardapio-textos .loja-introducao { /* Descrição no tablet */
+        max-width: 360px; /* Mantém o texto na área clara */
+    } /* Fim da descrição do tablet */
+    .cardapio-capa { /* Imagem no tablet */
+        object-position: 65% center; /* Enquadra o combo */
+    } /* Fim da imagem do tablet */
+    .selo-banner { /* Selo no tablet */
+        right: 0; /* Mantém na borda direita */
+        bottom: 32px; /* Distância da borda inferior */
+    } /* Fim do selo no tablet */
+} /* Fim dos tablets */
+
+@media (max-width: 640px) { /* Ajustes do cardápio no celular */
+    .pagina-cardapio .loja-container { /* Margens do cardápio */
+        width: calc(100% - 32px); /* Reserva 16px por lado */
+    } /* Fim das margens móveis */
+    .pagina-cardapio .cardapio-banner-conteudo { /* Conteúdo do banner */
+        min-height: 560px; /* Reserva espaço para a foto */
+        align-items: flex-start; /* Coloca os textos no topo */
+        padding: 28px 0 240px; /* Separa o texto da imagem */
+    } /* Fim do conteúdo móvel */
+    .cardapio-textos { /* Textos do banner */
+        width: 100%; /* Ocupa a largura disponível */
+        max-width: 430px; /* Limita as linhas longas */
+    } /* Fim dos textos móveis */
+    .pagina-cardapio .cardapio-titulo { /* Título no celular */
+        font-size: clamp(40px, 10vw, 58px); /* Ajusta o tamanho à tela */
+    } /* Fim do título móvel */
+    .cardapio-textos .loja-introducao { /* Descrição no celular */
+        max-width: 360px; /* Limita a largura do texto */
+        font-size: 14px; /* Tamanho da descrição */
+    } /* Fim da descrição móvel */
+    .cardapio-vantagens { /* Vantagens no celular */
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* Duas por linha */
+        gap: 12px; /* Espaço entre as vantagens */
+        max-width: 340px; /* Limita a largura da lista */
+        margin-top: 20px; /* Separa da descrição */
+    } /* Fim das vantagens móveis */
+    .cardapio-capa { /* Foto abaixo do título */
+        inset: auto 0 0; /* Alinha à base do banner */
+        height: 250px; /* Altura da foto no celular */
+        opacity: 1; /* Mostra a foto com suas cores */
+        object-position: right center; /* Mantém o hambúrguer visível */
+        mask-image: linear-gradient(transparent, black 15%); /* Suaviza o encontro com o texto */
+    } /* Fim da foto móvel */
+    .selo-banner { /* Selo no celular */
+        bottom: 18px; /* Distância da borda inferior */
+        right: 4px; /* Distância da borda direita */
+        width: 86px; /* Largura do selo */
+        height: 86px; /* Altura do selo */
+    } /* Fim do selo móvel */
+    .selo-banner strong { /* Destaque do selo móvel */
+        font-size: 17px; /* Tamanho do destaque */
+    } /* Fim do destaque móvel */
+    .selo-banner span { /* Legenda do selo móvel */
+        font-size: 8px; /* Tamanho da legenda */
+    } /* Fim da legenda móvel */
+    .categorias-cardapio { /* Categorias no celular */
+        justify-content: flex-start; /* Começa pela primeira categoria */
+        gap: 8px; /* Separa os filtros */
+    } /* Fim das categorias móveis */
+    .categoria-botao { /* Filtro no celular */
+        padding: 10px 14px; /* Espaçamento do botão */
+    } /* Fim do filtro móvel */
+    .lista-produtos { /* Produtos no celular */
+        grid-template-columns: minmax(0, 1fr); /* Um produto por linha */
+    } /* Fim da grade móvel */
+    .produto-nome { /* Nome no celular */
+        font-size: 21px; /* Tamanho do nome */
+    } /* Fim do nome móvel */
+    .produto-descricao { /* Descrição no celular */
+        font-size: 14px; /* Tamanho do texto */
+    } /* Fim da descrição móvel */
+    .pagina-cardapio .produto-detalhes { /* Detalhes no celular */
+        min-height: 44px; /* Área para toque */
+        font-size: 14px; /* Tamanho do link */
+    } /* Fim dos detalhes móveis */
+} /* Fim dos ajustes móveis */
