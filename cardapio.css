@@ -1,0 +1,571 @@
+/* Pesquisa e contador do pedido */
+.botao-pesquisa { /* Botão da lupa */
+    position: absolute; /* Fica dentro da pesquisa */
+    inset: 0 0 0 auto; /* Alinha à direita */
+    width: 44px; /* Área para toque */
+    border: 0; /* Remove a borda */
+    border-radius: 20px; /* Acompanha o campo */
+    background: transparent; /* Mantém o fundo do campo */
+} /* Fim da lupa */
+
+.contador-pedido { /* Quantidade no cabeçalho */
+    display: inline-flex; /* Centraliza o número */
+    align-items: center; /* Alinha na vertical */
+    justify-content: center; /* Alinha na horizontal */
+    min-width: 20px; /* Largura do contador */
+    height: 20px; /* Altura do contador */
+    margin-left: 8px; /* Separa do nome */
+    padding: 0 3px; /* Espaçamento do número */
+    box-sizing: border-box; /* Inclui o espaçamento */
+    border-radius: 12px; /* Forma uma cápsula */
+    background: #FFF8F0; /* Fundo claro */
+    color: #AD281B; /* Número vermelho */
+    font-size: 12px; /* Tamanho do número */
+} /* Fim do contador */
+
+.botao-pesquisa:focus-visible, header input:focus-visible { /* Foco da pesquisa */
+    outline: 2px solid #AD281B; /* Destaca o controle */
+    outline-offset: 3px; /* Afasta o contorno */
+} /* Fim do foco */
+
+.pagina-loja { /* Páginas de cardápio e pedido */
+    background: #FFF8F0; /* Fundo da marca */
+    color: #261B17; /* Cor principal dos textos */
+} /* Fim das páginas */
+
+.pagina-loja [hidden] { /* Elementos escondidos */
+    display: none !important; /* Respeita o estado oculto */
+} /* Fim dos elementos ocultos */
+
+.pagina-loja main, .pagina-loja main *, .detalhes-produto, .detalhes-produto * { /* Conteúdo da loja */
+    font-family: "Inter", Arial, sans-serif; /* Usa a fonte local */
+} /* Fim da fonte */
+
+.pagina-loja main { /* Área principal */
+    min-height: 55vh; /* Mantém espaço na página */
+} /* Fim da área principal */
+
+.loja-container { /* Alinhamento do conteúdo */
+    width: calc(100% - 160px); /* Margens laterais */
+    max-width: 1280px; /* Limite do conteúdo */
+    margin: 0 auto; /* Centraliza a área */
+} /* Fim do alinhamento */
+
+.cardapio-abertura { /* Banner do cardápio */
+    padding: 28px 0 44px; /* Espaçamento vertical */
+    background: linear-gradient(90deg, rgb(0 0 0 / 85%), rgb(0 0 0 / 12%)), url("assets/banner-burguer.png") center / cover; /* Fundo do banner */
+    color: white; /* Texto claro */
+} /* Fim do banner */
+
+.trilha-pagina { /* Caminho de navegação */
+    display: flex; /* Coloca os itens em linha */
+    gap: 10px; /* Espaço entre os itens */
+    margin-bottom: 28px; /* Separa do título */
+    font-size: 13px; /* Tamanho do caminho */
+    line-height: 1.5; /* Altura da linha */
+} /* Fim do caminho */
+
+.trilha-pagina a { /* Link de retorno */
+    color: inherit; /* Acompanha o texto da área */
+    text-decoration: underline; /* Identifica o link */
+    text-underline-offset: 3px; /* Afasta o sublinhado */
+} /* Fim do retorno */
+
+.loja-legenda { /* Legenda das seções */
+    margin-bottom: 12px; /* Espaço até o título */
+    color: #AD281B; /* Vermelho da marca */
+    font-size: 13px; /* Tamanho da legenda */
+    font-weight: 700; /* Destaca a legenda */
+    letter-spacing: 0.06em; /* Espaço entre as letras */
+} /* Fim da legenda */
+
+.cardapio-abertura .loja-legenda { /* Legenda do banner */
+    color: #FFB72B; /* Amarelo sobre o fundo escuro */
+} /* Fim da legenda do banner */
+
+.loja-titulo { /* Título principal */
+    max-width: 650px; /* Largura do título */
+    font-size: clamp(32px, 4vw, 48px); /* Ajusta à largura da tela */
+    font-weight: 750; /* Destaca o título */
+    line-height: 1.1; /* Aproxima as linhas */
+    letter-spacing: -0.035em; /* Ajusta o espaço das letras */
+} /* Fim do título */
+
+.loja-introducao { /* Texto de apresentação */
+    max-width: 540px; /* Limita o texto */
+    margin-top: 16px; /* Espaço acima do texto */
+    font-size: 16px; /* Tamanho da descrição */
+    line-height: 1.6; /* Espaço entre as linhas */
+} /* Fim da apresentação */
+
+.cardapio-conteudo { /* Área dos produtos */
+    padding-top: 36px; /* Separa do banner */
+} /* Fim da área dos produtos */
+
+.categorias-cardapio { /* Filtros das categorias */
+    display: flex; /* Organiza os filtros em linha */
+    gap: 10px; /* Espaço entre os filtros */
+    overflow-x: auto; /* Permite rolar os filtros no celular */
+    padding: 4px 2px 14px; /* Espaço dos filtros e do foco */
+    scrollbar-width: thin; /* Barra de rolagem discreta */
+} /* Fim dos filtros */
+
+.categoria-botao { /* Cada categoria */
+    flex-shrink: 0; /* Mantém o nome legível */
+    min-height: 44px; /* Área para toque */
+    padding: 10px 18px; /* Espaçamento da categoria */
+    border: 1px solid #EADBD0; /* Borda clara */
+    border-radius: 24px; /* Formato arredondado */
+    background: white; /* Fundo da categoria */
+    color: #50352C; /* Cor do texto */
+    font-size: 14px; /* Tamanho do nome */
+    font-weight: 600; /* Destaca a categoria */
+    white-space: nowrap; /* Mantém o nome em uma linha */
+} /* Fim da categoria */
+
+.categoria-botao[aria-pressed="true"] { /* Categoria selecionada */
+    border-color: #AD281B; /* Borda vermelha */
+    background: #AD281B; /* Fundo vermelho */
+    color: white; /* Texto branco */
+} /* Fim da seleção */
+
+.catalogo-cabecalho { /* Título e resultado do cardápio */
+    display: flex; /* Coloca os textos em linha */
+    align-items: baseline; /* Alinha os textos pela base */
+    justify-content: space-between; /* Distribui o espaço */
+    flex-wrap: wrap; /* Permite quebrar a linha */
+    gap: 8px; /* Espaço entre os textos */
+    margin: 18px 0 24px; /* Espaçamento dos títulos */
+} /* Fim do cabeçalho dos produtos */
+
+.catalogo-cabecalho h2 { /* Título da lista */
+    font-size: 28px; /* Tamanho do título */
+    letter-spacing: -0.025em; /* Aproxima as letras */
+} /* Fim do título da lista */
+
+.texto-suave, #resultado-produtos { /* Textos de apoio */
+    color: #76665F; /* Cor secundária */
+    font-size: 14px; /* Tamanho dos textos */
+    line-height: 1.6; /* Espaço entre as linhas */
+} /* Fim dos textos de apoio */
+
+.lista-produtos { /* Grade do cardápio */
+    display: grid; /* Organiza os produtos */
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Três produtos por linha */
+    gap: 24px; /* Espaço entre os cards */
+} /* Fim da grade */
+
+.produto-card { /* Card do produto */
+    display: flex; /* Organiza imagem e conteúdo */
+    flex-direction: column; /* Coloca os elementos em coluna */
+    min-width: 0; /* Permite ajustar à coluna */
+    overflow: hidden; /* Mantém a imagem dentro dos cantos */
+    border: 1px solid #EADBD0; /* Borda do card */
+    border-radius: 18px; /* Arredonda os cantos */
+    background: white; /* Fundo do produto */
+} /* Fim do card */
+
+.produto-imagem { /* Foto ou arte do produto */
+    display: block; /* Remove o espaço abaixo da imagem */
+    width: 100%; /* Ocupa o card */
+    aspect-ratio: 1; /* Mantém as artes completas */
+    object-fit: contain; /* Preserva o conteúdo da arte */
+    background: #FBECDD; /* Fundo das imagens */
+} /* Fim da imagem */
+
+.produto-corpo { /* Informações do produto */
+    display: flex; /* Organiza os textos */
+    flex-direction: column; /* Coloca os textos em coluna */
+    flex: 1; /* Iguala o espaço dos cards */
+    padding: 22px; /* Espaçamento dos textos */
+} /* Fim das informações */
+
+.produto-categoria { /* Categoria do produto */
+    margin-bottom: 8px; /* Separa do nome */
+    color: #AD281B; /* Cor da categoria */
+    font-size: 12px; /* Tamanho da categoria */
+    font-weight: 700; /* Destaca a categoria */
+    text-transform: uppercase; /* Usa letras maiúsculas */
+    letter-spacing: 0.05em; /* Espaça as letras */
+} /* Fim da categoria do produto */
+
+.produto-nome { /* Nome do produto */
+    font-size: 21px; /* Tamanho do nome */
+    line-height: 1.3; /* Altura das linhas */
+    letter-spacing: -0.02em; /* Aproxima as letras */
+} /* Fim do nome */
+
+.produto-descricao { /* Descrição do produto */
+    margin-top: 10px; /* Espaço abaixo do nome */
+    color: #76665F; /* Cor da descrição */
+    font-size: 14px; /* Tamanho do texto */
+    line-height: 1.6; /* Espaço entre as linhas */
+} /* Fim da descrição */
+
+.produto-detalhes, .remover-item { /* Ações de texto */
+    align-self: flex-start; /* Alinha à esquerda */
+    min-height: 44px; /* Área para toque */
+    border: 0; /* Remove a borda */
+    background: transparent; /* Fundo transparente */
+    color: #AD281B; /* Cor da ação */
+    font-size: 14px; /* Tamanho do texto */
+    font-weight: 600; /* Destaca a ação */
+    text-decoration: underline; /* Indica o clique */
+    text-underline-offset: 3px; /* Afasta o sublinhado */
+} /* Fim das ações de texto */
+
+.produto-rodape { /* Preço e botão do produto */
+    display: flex; /* Coloca os dois em linha */
+    align-items: center; /* Centraliza na vertical */
+    justify-content: space-between; /* Distribui o espaço */
+    flex-wrap: wrap; /* Permite ajustar à largura */
+    gap: 12px; /* Espaço entre preço e botão */
+    margin-top: auto; /* Alinha os rodapés dos cards */
+    padding-top: 16px; /* Espaço acima do preço */
+} /* Fim do rodapé do produto */
+
+.produto-preco { /* Preço do produto */
+    color: #AD281B; /* Cor do preço */
+    font-size: 23px; /* Tamanho do preço */
+    white-space: nowrap; /* Mantém o preço em uma linha */
+} /* Fim do preço */
+
+.botao-loja { /* Botões do cardápio e pedido */
+    display: inline-flex; /* Centraliza o conteúdo */
+    align-items: center; /* Centraliza na vertical */
+    justify-content: center; /* Centraliza na horizontal */
+    min-height: 44px; /* Área para toque */
+    padding: 12px 18px; /* Espaçamento do botão */
+    box-sizing: border-box; /* Inclui o espaçamento no tamanho */
+    border: 1px solid #AD281B; /* Borda do botão */
+    border-radius: 10px; /* Arredonda os cantos */
+    background: #AD281B; /* Fundo vermelho */
+    color: white; /* Texto branco */
+    font-size: 14px; /* Tamanho do texto */
+    font-weight: 700; /* Destaca o texto */
+    text-align: center; /* Centraliza os textos longos */
+    text-decoration: none; /* Remove o sublinhado */
+} /* Fim dos botões */
+
+.botao-loja:hover { /* Destaque do botão */
+    background: #630E06; /* Escurece o fundo */
+} /* Fim do destaque */
+
+.categoria-botao:focus-visible, .botao-loja:focus-visible, .produto-detalhes:focus-visible, .remover-item:focus-visible, .controle-quantidade button:focus-visible, .fechar-detalhes:focus-visible { /* Foco pelo teclado */
+    outline: 2px solid #AD281B; /* Contorno vermelho */
+    outline-offset: 3px; /* Afasta o contorno */
+} /* Fim do foco */
+
+.estado-vazio { /* Busca ou carrinho sem itens */
+    padding: 64px 24px; /* Espaçamento da mensagem */
+    border: 1px dashed #D6B7A5; /* Borda do estado vazio */
+    border-radius: 18px; /* Arredonda os cantos */
+    background: white; /* Fundo da mensagem */
+    text-align: center; /* Centraliza o conteúdo */
+} /* Fim do estado vazio */
+
+.estado-vazio h2 { /* Título do estado vazio */
+    margin-bottom: 12px; /* Espaço até a descrição */
+    font-size: 26px; /* Tamanho do título */
+} /* Fim do título vazio */
+
+.estado-vazio .botao-loja { /* Ação do estado vazio */
+    margin-top: 24px; /* Separa da descrição */
+} /* Fim da ação vazia */
+
+.pedido-abertura { /* Introdução do carrinho */
+    padding: 32px 0; /* Espaçamento vertical */
+} /* Fim da introdução */
+
+.pedido-abertura .loja-introducao { /* Texto do pedido */
+    color: #76665F; /* Cor secundária */
+} /* Fim do texto do pedido */
+
+.area-pedido { /* Lista e resumo do carrinho */
+    display: grid; /* Organiza as duas áreas */
+    grid-template-columns: minmax(0, 1fr) 320px; /* Lista e coluna do total */
+    align-items: start; /* Alinha pelo topo */
+    gap: 28px; /* Separa as áreas */
+} /* Fim das áreas do pedido */
+
+.item-pedido { /* Cada item do carrinho */
+    display: grid; /* Organiza foto, nome e quantidade */
+    grid-template-columns: 88px minmax(0, 1fr) auto; /* Larguras dos elementos */
+    align-items: center; /* Centraliza na vertical */
+    gap: 20px; /* Separa os elementos */
+    margin-bottom: 16px; /* Espaço entre os itens */
+    padding: 20px; /* Espaçamento do item */
+    box-sizing: border-box; /* Inclui o espaçamento */
+    border: 1px solid #EADBD0; /* Borda do item */
+    border-radius: 16px; /* Arredonda os cantos */
+    background: white; /* Fundo do item */
+} /* Fim do item */
+
+.item-pedido-imagem { /* Foto do item */
+    width: 88px; /* Largura da foto */
+    height: 88px; /* Altura da foto */
+    object-fit: contain; /* Mantém a arte inteira */
+    border-radius: 10px; /* Arredonda os cantos */
+    background: #FBECDD; /* Fundo da foto */
+} /* Fim da foto do item */
+
+.item-pedido-informacoes { /* Dados do item */
+    min-width: 0; /* Permite quebrar os textos */
+} /* Fim dos dados */
+
+.item-pedido-nome { /* Nome no carrinho */
+    margin-bottom: 8px; /* Separa do valor */
+    font-size: 18px; /* Tamanho do nome */
+    line-height: 1.35; /* Espaço entre as linhas */
+} /* Fim do nome no carrinho */
+
+.item-pedido-unitario { /* Valor de uma unidade */
+    color: #76665F; /* Cor secundária */
+    font-size: 13px; /* Tamanho do valor */
+    line-height: 1.5; /* Altura da linha */
+} /* Fim do valor unitário */
+
+.item-pedido-subtotal { /* Total do item */
+    display: block; /* Coloca em outra linha */
+    margin-top: 8px; /* Separa do valor unitário */
+    color: #AD281B; /* Destaca o subtotal */
+    font-size: 18px; /* Tamanho do subtotal */
+} /* Fim do subtotal */
+
+.controle-quantidade { /* Controles da quantidade */
+    display: flex; /* Organiza os controles em linha */
+    align-items: center; /* Alinha na vertical */
+    gap: 4px; /* Espaço entre os controles */
+    border: 1px solid #EADBD0; /* Borda do controle */
+    border-radius: 10px; /* Arredonda os cantos */
+} /* Fim da quantidade */
+
+.controle-quantidade button { /* Aumentar e diminuir */
+    width: 44px; /* Área para toque */
+    height: 44px; /* Altura para toque */
+    border: 0; /* Remove a borda */
+    border-radius: 8px; /* Arredonda o botão */
+    background: #FFF8F0; /* Fundo claro */
+    color: #AD281B; /* Cor do símbolo */
+    font-size: 24px; /* Tamanho do símbolo */
+} /* Fim dos controles */
+
+.controle-quantidade button:disabled { /* Limite de quantidade */
+    opacity: 0.45; /* Indica o limite */
+    cursor: default; /* Retira o cursor de clique */
+} /* Fim do limite */
+
+.quantidade-atual { /* Número de unidades */
+    min-width: 24px; /* Reserva espaço para o número */
+    text-align: center; /* Centraliza a quantidade */
+    font-weight: 700; /* Destaca o número */
+} /* Fim das unidades */
+
+.resumo-pedido { /* Cartão do total */
+    padding: 28px; /* Espaçamento do resumo */
+    border: 1px solid #EADBD0; /* Borda do resumo */
+    border-radius: 18px; /* Arredonda os cantos */
+    background: white; /* Fundo do resumo */
+} /* Fim do resumo */
+
+.resumo-pedido h2 { /* Título do resumo */
+    margin-bottom: 24px; /* Separa dos valores */
+    font-size: 22px; /* Tamanho do título */
+} /* Fim do título do resumo */
+
+.resumo-linha { /* Linha de valores */
+    display: flex; /* Coloca os valores em linha */
+    justify-content: space-between; /* Distribui o espaço */
+    gap: 12px; /* Separa os valores */
+    margin-bottom: 20px; /* Espaço entre as linhas */
+    font-size: 15px; /* Tamanho dos textos */
+} /* Fim da linha de valores */
+
+.resumo-total { /* Valor total */
+    padding-top: 20px; /* Separa do restante */
+    border-top: 1px solid #EADBD0; /* Linha de separação */
+    color: #AD281B; /* Cor do total */
+    font-size: 22px; /* Tamanho do total */
+    font-weight: 700; /* Destaca o total */
+} /* Fim do total */
+
+.resumo-pedido .botao-loja { /* Retorno ao cardápio */
+    width: 100%; /* Ocupa o resumo */
+    margin: 8px 0 20px; /* Espaço ao redor do botão */
+} /* Fim do retorno */
+
+.aviso-pedido { /* Confirmação de inclusão */
+    position: fixed; /* Acompanha a tela */
+    right: 24px; /* Margem à direita */
+    bottom: 24px; /* Margem inferior */
+    z-index: 20; /* Fica acima dos cards */
+    max-width: min(420px, calc(100% - 48px)); /* Limita à tela */
+    padding: 16px 20px; /* Espaçamento da mensagem */
+    box-sizing: border-box; /* Inclui o espaçamento */
+    border-radius: 12px; /* Arredonda os cantos */
+    background: #261B17; /* Fundo escuro */
+    color: white; /* Texto claro */
+    font-size: 14px; /* Tamanho da mensagem */
+    line-height: 1.5; /* Espaço entre as linhas */
+    box-shadow: 0 8px 24px rgb(38 27 23 / 18%); /* Destaca a mensagem */
+} /* Fim da confirmação */
+
+.pagina-inicial .aviso-pedido[hidden] { /* Aviso fechado na página inicial */
+    display: none; /* Esconde a mensagem */
+} /* Fim do aviso fechado */
+
+.barra-pedido { /* Resumo do celular */
+    display: none; /* Oculta nas telas grandes */
+} /* Fim do resumo móvel */
+
+.detalhes-produto { /* Janela dos detalhes */
+    width: min(860px, calc(100% - 32px)); /* Ajusta à tela */
+    max-height: calc(100dvh - 48px); /* Limita à altura visível */
+    margin: auto; /* Centraliza a janela */
+    padding: 0; /* Remove o espaço padrão */
+    overflow-y: auto; /* Permite rolar o conteúdo */
+    border: 0; /* Remove a borda padrão */
+    border-radius: 20px; /* Arredonda a janela */
+    background: #FFF8F0; /* Fundo dos detalhes */
+    color: #261B17; /* Cor do texto */
+} /* Fim da janela */
+
+.detalhes-produto::backdrop { /* Fundo atrás da janela */
+    background: rgb(0 0 0 / 65%); /* Escurece a página */
+} /* Fim do fundo da janela */
+
+.detalhes-layout { /* Conteúdo dos detalhes */
+    display: grid; /* Organiza imagem e texto */
+    grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
+} /* Fim do conteúdo */
+
+#detalhe-imagem { /* Foto dos detalhes */
+    width: 100%; /* Ocupa a coluna */
+    height: 100%; /* Acompanha o conteúdo */
+    min-height: 300px; /* Altura mínima da foto */
+    max-height: 470px; /* Limita a altura */
+    object-fit: contain; /* Preserva a imagem completa */
+    background: white; /* Fundo da foto */
+} /* Fim da foto dos detalhes */
+
+.detalhes-conteudo { /* Textos dos detalhes */
+    display: flex; /* Organiza os textos */
+    flex-direction: column; /* Coloca em coluna */
+    gap: 20px; /* Espaço entre as informações */
+    padding: 56px 28px 28px; /* Espaçamento dos detalhes */
+} /* Fim dos textos dos detalhes */
+
+#detalhe-nome { /* Nome nos detalhes */
+    font-size: 28px; /* Tamanho do título */
+    line-height: 1.2; /* Espaço entre as linhas */
+} /* Fim do nome nos detalhes */
+
+.fechar-detalhes { /* Botão de fechar */
+    position: absolute; /* Posiciona no canto */
+    z-index: 1; /* Mantém o botão acima do conteúdo */
+    top: 8px; /* Distância do topo */
+    right: 8px; /* Distância da borda */
+    width: 44px; /* Área para toque */
+    height: 44px; /* Altura para toque */
+    border: 0; /* Remove a borda */
+    border-radius: 50%; /* Forma um círculo */
+    background: white; /* Fundo claro */
+    color: #AD281B; /* Cor do símbolo */
+    font-size: 28px; /* Tamanho do símbolo */
+} /* Fim do botão de fechar */
+
+@media (max-width: 1100px) { /* Telas médias */
+    .lista-produtos { /* Grade dos produtos */
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* Dois produtos por linha */
+    } /* Fim da grade média */
+    .loja-container { /* Margens do conteúdo */
+        width: calc(100% - 48px); /* Reserva 24px por lado */
+    } /* Fim das margens */
+} /* Fim das telas médias */
+
+@media (max-width: 850px) { /* Telas com menos espaço */
+    .area-pedido { /* Lista e resumo */
+        grid-template-columns: minmax(0, 1fr); /* Coloca o resumo abaixo */
+    } /* Fim das áreas */
+} /* Fim das telas menores */
+
+@media (max-width: 640px) { /* Celulares */
+    .loja-container { /* Conteúdo do celular */
+        width: calc(100% - 32px); /* Reserva 16px por lado */
+    } /* Fim do conteúdo */
+    .cardapio-abertura { /* Banner no celular */
+        padding: 24px 0 36px; /* Espaçamento do banner */
+        background-position: 65% center; /* Enquadra o hambúrguer */
+    } /* Fim do banner móvel */
+    .cardapio-abertura .loja-titulo { /* Título no banner */
+        max-width: 11ch; /* Mantém linhas legíveis */
+    } /* Fim do título móvel */
+    .trilha-pagina { /* Caminho no celular */
+        margin-bottom: 24px; /* Espaço abaixo do caminho */
+    } /* Fim do caminho móvel */
+    .cardapio-conteudo { /* Produtos no celular */
+        padding-top: 24px; /* Espaço abaixo do banner */
+    } /* Fim da área móvel */
+    .lista-produtos { /* Grade no celular */
+        grid-template-columns: minmax(0, 1fr); /* Um produto por linha */
+        gap: 20px; /* Espaço entre os produtos */
+    } /* Fim da grade móvel */
+    .produto-imagem { /* Imagem no celular */
+        max-height: 400px; /* Limita as imagens largas */
+    } /* Fim da imagem móvel */
+    .produto-corpo { /* Dados no celular */
+        padding: 20px; /* Espaçamento dos textos */
+    } /* Fim dos dados móveis */
+    .item-pedido { /* Item no celular */
+        grid-template-columns: 72px minmax(0, 1fr); /* Foto e informações */
+        gap: 12px; /* Espaço entre os dados */
+        padding: 16px; /* Espaçamento do item */
+    } /* Fim do item móvel */
+    .item-pedido-imagem { /* Foto no celular */
+        width: 72px; /* Largura da foto */
+        height: 72px; /* Altura da foto */
+    } /* Fim da foto móvel */
+    .controle-quantidade { /* Quantidade no celular */
+        grid-column: 2; /* Alinha abaixo dos textos */
+        justify-self: start; /* Mantém à esquerda */
+    } /* Fim da quantidade móvel */
+    .resumo-pedido { /* Total no celular */
+        padding: 24px; /* Espaçamento do resumo */
+    } /* Fim do resumo móvel */
+    .pagina-cardapio.pedido-com-itens { /* Página com itens no pedido */
+        padding-bottom: calc(88px + env(safe-area-inset-bottom)); /* Reserva espaço para a barra */
+    } /* Fim do espaço inferior */
+    .barra-pedido { /* Pedido fixo no celular */
+        position: fixed; /* Acompanha a tela */
+        inset: auto 0 0; /* Fica na parte inferior */
+        z-index: 10; /* Fica acima dos produtos */
+        display: flex; /* Coloca resumo e link em linha */
+        align-items: center; /* Centraliza na vertical */
+        justify-content: space-between; /* Distribui o espaço */
+        gap: 12px; /* Separa os elementos */
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); /* Espaçamento da barra */
+        border-top: 1px solid #EADBD0; /* Separa da página */
+        background: white; /* Fundo da barra */
+        box-shadow: 0 -4px 20px rgb(38 27 23 / 8%); /* Destaca o resumo */
+    } /* Fim da barra */
+    .barra-pedido strong { /* Total da barra */
+        display: block; /* Coloca em outra linha */
+        color: #AD281B; /* Destaca o total */
+        font-size: 18px; /* Tamanho do total */
+    } /* Fim do valor da barra */
+    .aviso-pedido { /* Mensagem no celular */
+        right: 16px; /* Margem lateral */
+        bottom: 16px; /* Distância da borda */
+        max-width: calc(100% - 32px); /* Mantém dentro da tela */
+    } /* Fim da mensagem móvel */
+    .pagina-cardapio.pedido-com-itens .aviso-pedido { /* Aviso acima do pedido */
+        bottom: calc(100px + env(safe-area-inset-bottom)); /* Evita cobrir a barra */
+    } /* Fim da posição do aviso */
+    .detalhes-layout { /* Detalhes no celular */
+        grid-template-columns: minmax(0, 1fr); /* Uma coluna */
+    } /* Fim dos detalhes móveis */
+    #detalhe-imagem { /* Imagem dos detalhes */
+        height: 240px; /* Altura da imagem */
+        min-height: 0; /* Permite diminuir */
+    } /* Fim da imagem dos detalhes */
+} /* Fim dos celulares */

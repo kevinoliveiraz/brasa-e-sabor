@@ -9,11 +9,13 @@
     <title>Brasa & Sabor</title> <!-- Define o nome que aparece na aba do navegador -->
     <link rel="stylesheet" href="index.css?v=cd2eb52864ba"> <!-- Carrega o CSS atualizado -->
     <script src="menu.js?v=e6cb607a9255" defer></script> <!-- Controla o menu do celular -->
+    <link rel="stylesheet" href="cardapio.css?v=669b8cf87e80"> <!-- Estilos do cardápio e pedido -->
+    <script src="cardapio.js?v=883831ccedae" defer></script> <!-- Controla produtos e carrinho -->
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <!-- Define o ícone que aparece na aba do navegador -->
 </head>
 
-<body> <!-- Inicia todo o conteúdo visível da página -->
+<body class="pagina-inicial"> <!-- Conteúdo da página inicial -->
 
     <header id="inicio"> <!-- Inicia o cabeçalho e identifica o início da página -->
 
@@ -34,7 +36,7 @@
                 </li> <!-- Fim do item -->
 
                 <li> <!-- Item do menu -->
-                    <a href="#cardapio">Cardápio</a> <!-- Vai para o cardápio -->
+                    <a href="cardapio.html">Cardápio</a> <!-- Abre a página do cardápio -->
                 </li> <!-- Fim do item -->
 
                 <li> <!-- Item do menu -->
@@ -59,14 +61,16 @@
             </ul> <!-- Fim da lista -->
         </nav> <!-- Fim da navegação -->
 
-        <form> <!-- Cria o formulário da barra de pesquisa -->
+        <form action="cardapio.html" method="get" role="search"> <!-- Pesquisa no cardápio -->
 
-            <input type="search" placeholder="Pesquisar"><!-- Cria o campo onde o usuário pode digitar uma pesquisa -->
+            <input type="search" name="busca" placeholder="Pesquisar" aria-label="Pesquisar no cardápio"> <!-- Termo da pesquisa -->
 
-            <img class="lupa" src="assets/Search.png" alt="Ícone de pesquisa"> <!-- Lupa da pesquisa -->
+            <button class="botao-pesquisa" type="submit" aria-label="Pesquisar"> <!-- Envia a pesquisa -->
+                <img class="lupa" src="assets/Search.png" alt=""> <!-- Ícone da pesquisa -->
+            </button> <!-- Fim do botão da pesquisa -->
         </form> <!-- Fim da pesquisa -->
 
-        <a id="meu-pedido" href="https://youtu.be/Tk9TM7-eTmw?si=E-C-ctOI5o2lWUD2">Meu pedido</a> <!-- Botão de acesso ao pedido -->
+        <a id="meu-pedido" href="meu-pedido.html">Meu pedido <span class="contador-pedido" data-total-itens>0</span></a> <!-- Abre o carrinho e mostra a quantidade -->
 
     </header> <!-- Fim do cabeçalho -->
 
@@ -180,7 +184,7 @@
 
         <div class="card-rodape"> <!-- Agrupa o preço e o botão -->
             <p class="preco">R$ 6,00</p> <!-- Exibe o preço do produto -->
-            <button class="adicionar" type="button" aria-label="Adicionar Hambúrguer Especial ao pedido">+</button> <!-- Cria o botão de adicionar -->
+            <button class="adicionar" type="button" data-adicionar="hamburguer-especial" aria-label="Adicionar Hambúrguer Especial ao pedido">+</button> <!-- Adiciona o combo ao carrinho -->
         </div>
     </div>
 
@@ -190,7 +194,7 @@
 
         <div class="card-rodape"> <!-- Agrupa o preço e o botão -->
             <p class="preco">R$ 18,00</p> <!-- Exibe o preço do produto -->
-            <button class="adicionar" type="button" aria-label="Adicionar combo Bateu a Fome ao pedido">+</button> <!-- Cria o botão de adicionar -->
+            <button class="adicionar" type="button" data-adicionar="bateu-a-fome" aria-label="Adicionar combo Bateu a Fome ao pedido">+</button> <!-- Adiciona o combo ao carrinho -->
         </div>
     </div>
 
@@ -200,7 +204,7 @@
 
         <div class="card-rodape"> <!-- Agrupa o preço e o botão -->
             <p class="preco">R$ 15,00</p> <!-- Exibe o preço do produto -->
-            <button class="adicionar" type="button" aria-label="Adicionar combo Para Você ao pedido">+</button> <!-- Cria o botão de adicionar -->
+            <button class="adicionar" type="button" data-adicionar="para-voce" aria-label="Adicionar combo Para Você ao pedido">+</button> <!-- Adiciona o combo ao carrinho -->
         </div>
     </div>
 
@@ -312,7 +316,7 @@
 
         <div class="rodape-chamada-conteudo"> <!-- Alinha o texto e o link da faixa -->
             <p class="rodape-chamada-texto">BATEU A FOME? ESCOLHA O SEU PEDIDO AGORA.</p> <!-- Exibe a chamada para escolher um pedido -->
-            <a class="rodape-botao" href="#cardapio">VER CARDÁPIO</a> <!-- Leva o visitante até os produtos da página -->
+            <a class="rodape-botao" href="cardapio.html">VER CARDÁPIO</a> <!-- Abre o cardápio completo -->
         </div> <!-- Encerra o conteúdo da faixa de chamada -->
 
     </div> <!-- Encerra a faixa de chamada -->
@@ -335,7 +339,7 @@
 
                         <div class="rodape-linha"> <!-- Agrupa a primeira linha de links -->
                             <a href="#inicio">Início</a> <!-- Leva ao início da página -->
-                            <a href="#cardapio">Cardápio</a> <!-- Leva à apresentação dos produtos -->
+                            <a href="cardapio.html">Cardápio</a> <!-- Abre o cardápio completo -->
                             <a href="#banner-pizza">Promoções</a> <!-- Leva ao banner de promoção -->
                         </div> <!-- Encerra a primeira linha de links -->
 
@@ -370,6 +374,8 @@
     </div> <!-- Encerra a área escura do rodapé -->
 
 </footer> <!-- Encerra o rodapé da página -->
+
+<p class="aviso-pedido" role="status" data-status-pedido hidden></p> <!-- Confirma as mudanças no pedido -->
 
 </body>
 

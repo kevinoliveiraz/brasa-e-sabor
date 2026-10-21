@@ -1,0 +1,193 @@
+<!DOCTYPE html> <!-- Documento HTML5 -->
+<html lang="pt-br"> <!-- Idioma da página -->
+<head> <!-- Configurações da página -->
+    <meta charset="UTF-8"> <!-- Permite acentos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta à tela -->
+    <title>Cardápio | Brasa &amp; Sabor</title> <!-- Nome da aba -->
+    <link rel="icon" href="assets/favicon.png"> <!-- Ícone da aba -->
+    <link rel="stylesheet" href="index.css?v=cd2eb52864ba"> <!-- Estilos da identidade visual -->
+    <link rel="stylesheet" href="cardapio.css?v=669b8cf87e80"> <!-- Estilos do cardápio e pedido -->
+    <script src="menu.js?v=e6cb607a9255" defer></script> <!-- Menu do celular -->
+    <script src="cardapio.js?v=883831ccedae" defer></script> <!-- Produtos e carrinho -->
+</head> <!-- Fim das configurações -->
+<body class="pagina-loja pagina-cardapio"> <!-- Conteúdo da loja -->
+    <header id="inicio"> <!-- Inicia o cabeçalho e identifica o início da página -->
+
+        <img id="logo" src="logo.png" alt="Logo Brasa & Sabor"> <!-- Exibe a logo do site -->
+
+        <button class="botao-menu" id="botao-menu" type="button" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu" hidden> <!-- Abre o menu no celular -->
+            <span aria-hidden="true"></span> <!-- Primeira barra do ícone -->
+            <span aria-hidden="true"></span> <!-- Segunda barra do ícone -->
+            <span aria-hidden="true"></span> <!-- Terceira barra do ícone -->
+        </button> <!-- Fim do botão do menu -->
+
+        <nav id="menu-principal" aria-label="Menu principal"> <!-- Links de navegação -->
+
+            <ul><!-- Lista dos links do menu -->
+
+                <li> <!-- Item da lista -->
+                    <a href="index.html#inicio">Início</a> <!-- Vai para o início -->
+                </li> <!-- Fim do item -->
+
+                <li> <!-- Item do menu -->
+                    <a href="cardapio.html" aria-current="page">Cardápio</a> <!-- Abre a página do cardápio -->
+                </li> <!-- Fim do item -->
+
+                <li> <!-- Item do menu -->
+                    <a href="index.html#combos">Combos</a> <!-- Vai para os combos -->
+                </li> <!-- Fim do item -->
+
+                <li> <!-- Item do menu -->
+                    <a href="index.html#banner-pizza">Promoções</a> <!-- Vai para as promoções -->
+                </li> <!-- Fim do item -->
+
+                <li> <!-- Item do menu -->
+                    <a href="index.html#sobre">Sobre</a> <!-- Vai para a apresentação -->
+                </li> <!-- Fim do item -->
+
+                <li> <!-- Item do menu -->
+                    <a href="index.html#contato">Contato</a> <!-- Vai para o contato -->
+                </li> <!-- Fim do item -->
+
+                <li id="pedido-menu" hidden> <!-- Espaço para o pedido no celular -->
+                </li> <!-- Fim do espaço do pedido -->
+
+            </ul> <!-- Fim da lista -->
+        </nav> <!-- Fim da navegação -->
+
+        <form action="cardapio.html" method="get" role="search"> <!-- Pesquisa no cardápio -->
+
+            <input type="search" name="busca" placeholder="Pesquisar" aria-label="Pesquisar no cardápio"> <!-- Termo da pesquisa -->
+
+            <button class="botao-pesquisa" type="submit" aria-label="Pesquisar"> <!-- Envia a pesquisa -->
+                <img class="lupa" src="assets/Search.png" alt=""> <!-- Ícone da pesquisa -->
+            </button> <!-- Fim do botão da pesquisa -->
+        </form> <!-- Fim da pesquisa -->
+
+        <a id="meu-pedido" href="meu-pedido.html">Meu pedido <span class="contador-pedido" data-total-itens>0</span></a> <!-- Abre o carrinho e mostra a quantidade -->
+
+    </header> <!-- Fim do cabeçalho -->
+<main> <!-- Conteúdo do cardápio -->
+    <section class="cardapio-abertura" aria-labelledby="titulo-cardapio"> <!-- Apresentação do cardápio -->
+        <div class="loja-container"> <!-- Alinha o conteúdo -->
+            <nav class="trilha-pagina" aria-label="Caminho da página"> <!-- Navegação de retorno -->
+                <a href="index.html">Início</a> <!-- Volta à página inicial -->
+                <span aria-hidden="true">/</span> <!-- Separador visual -->
+                <span aria-current="page">Cardápio</span> <!-- Página atual -->
+            </nav> <!-- Fim do caminho -->
+            <p class="loja-legenda">FEITO PARA MATAR SUA FOME</p> <!-- Legenda do banner -->
+            <h1 class="loja-titulo" id="titulo-cardapio">Seu próximo favorito está aqui.</h1> <!-- Título da página -->
+            <p class="loja-introducao">Do hambúrguer à sobremesa, escolha os sabores que vão fazer parte do seu pedido.</p> <!-- Apresenta as opções -->
+        </div> <!-- Fim do conteúdo do banner -->
+    </section> <!-- Fim da apresentação -->
+    <section class="loja-container cardapio-conteudo" aria-labelledby="titulo-catalogo"> <!-- Produtos do cardápio -->
+        <div class="categorias-cardapio" role="group" aria-label="Filtrar por categoria"> <!-- Filtros do cardápio -->
+                <button class="categoria-botao" type="button" data-categoria="todos" aria-pressed="true">Todos</button> <!-- Filtra os produtos da categoria -->
+                <button class="categoria-botao" type="button" data-categoria="hamburgueres" aria-pressed="false">Hambúrgueres</button> <!-- Filtra os produtos da categoria -->
+                <button class="categoria-botao" type="button" data-categoria="pizzas" aria-pressed="false">Pizzas</button> <!-- Filtra os produtos da categoria -->
+                <button class="categoria-botao" type="button" data-categoria="combos" aria-pressed="false">Combos</button> <!-- Filtra os produtos da categoria -->
+                <button class="categoria-botao" type="button" data-categoria="acais" aria-pressed="false">Açaís</button> <!-- Filtra os produtos da categoria -->
+                <button class="categoria-botao" type="button" data-categoria="sobremesas" aria-pressed="false">Sobremesas</button> <!-- Filtra os produtos da categoria -->
+                <button class="categoria-botao" type="button" data-categoria="bebidas" aria-pressed="false">Bebidas</button> <!-- Filtra os produtos da categoria -->
+        </div> <!-- Fim das categorias -->
+        <div class="catalogo-cabecalho"> <!-- Título e quantidade de resultados -->
+            <h2 id="titulo-catalogo">O que vai ser hoje?</h2> <!-- Título dos produtos -->
+            <p id="resultado-produtos" role="status"></p> <!-- Quantidade encontrada -->
+        </div> <!-- Fim do cabeçalho dos produtos -->
+        <div class="lista-produtos" id="lista-produtos"></div> <!-- Recebe os produtos do cardápio -->
+        <div class="estado-vazio" id="busca-vazia" hidden> <!-- Busca sem resultados -->
+            <h2>Nenhum sabor por aqui ainda.</h2> <!-- Título da busca vazia -->
+            <p class="texto-suave">Tente outro nome ou escolha uma categoria diferente.</p> <!-- Orienta a pesquisa -->
+            <button class="botao-loja" id="limpar-filtros" type="button">Limpar filtros</button> <!-- Mostra todos os produtos -->
+        </div> <!-- Fim da busca vazia -->
+        <noscript><p class="texto-suave">Ative o JavaScript para ver os produtos e montar seu pedido.</p></noscript> <!-- Orientação sem o script -->
+    </section> <!-- Fim dos produtos -->
+</main> <!-- Fim do cardápio -->
+<footer class="rodape"> <!-- Inicia o rodapé da página -->
+
+    <div class="rodape-chamada"> <!-- Cria a faixa de chamada acima das informações finais -->
+
+        <div class="rodape-chamada-conteudo"> <!-- Alinha o texto e o link da faixa -->
+            <p class="rodape-chamada-texto">BATEU A FOME? ESCOLHA O SEU PEDIDO AGORA.</p> <!-- Exibe a chamada para escolher um pedido -->
+            <a class="rodape-botao" href="cardapio.html">VER CARDÁPIO</a> <!-- Abre o cardápio completo -->
+        </div> <!-- Encerra o conteúdo da faixa de chamada -->
+
+    </div> <!-- Encerra a faixa de chamada -->
+
+    <div class="rodape-corpo"> <!-- Cria a área escura das informações finais -->
+
+        <div class="rodape-conteudo"> <!-- Limita e centraliza o conteúdo do rodapé -->
+
+            <div class="rodape-colunas"> <!-- Agrupa a marca, a navegação e o atendimento -->
+
+                <div class="rodape-marca"> <!-- Agrupa o nome e o slogan da marca -->
+                    <h2 class="rodape-nome">BRASA &amp; SABOR</h2> <!-- Exibe o nome da marca -->
+                    <p class="rodape-slogan">Mais que comida, bons momentos.</p> <!-- Exibe o slogan da marca -->
+                </div> <!-- Encerra as informações da marca -->
+
+                <nav class="rodape-navegacao" aria-labelledby="titulo-navegacao"> <!-- Identifica os links de navegação do rodapé -->
+                    <h3 class="rodape-subtitulo" id="titulo-navegacao">NAVEGAÇÃO</h3> <!-- Exibe o título da navegação -->
+
+                    <div class="rodape-links"> <!-- Agrupa as duas linhas de links -->
+
+                        <div class="rodape-linha"> <!-- Agrupa a primeira linha de links -->
+                            <a href="index.html#inicio">Início</a> <!-- Leva ao início da página -->
+                            <a href="cardapio.html">Cardápio</a> <!-- Abre o cardápio completo -->
+                            <a href="index.html#banner-pizza">Promoções</a> <!-- Leva ao banner de promoção -->
+                        </div> <!-- Encerra a primeira linha de links -->
+
+                        <div class="rodape-linha"> <!-- Agrupa a segunda linha de links -->
+                            <a href="index.html#combos">Combos</a> <!-- Leva à seção de combos -->
+                            <a href="index.html#sobre">Sobre</a> <!-- Leva à apresentação da marca -->
+                            <a href="index.html#contato">Contato</a> <!-- Leva às informações de atendimento -->
+                        </div> <!-- Encerra a segunda linha de links -->
+
+                    </div> <!-- Encerra o grupo de links -->
+
+                </nav> <!-- Encerra a navegação do rodapé -->
+
+                <section class="rodape-atendimento" id="contato" aria-labelledby="titulo-atendimento"> <!-- Agrupa e identifica as informações de atendimento -->
+                    <h3 class="rodape-subtitulo" id="titulo-atendimento">ATENDIMENTO</h3> <!-- Exibe o título do atendimento -->
+
+                    <p class="rodape-dados"> <!-- Inicia as informações de contato -->
+                        WhatsApp: (00) 00000-0000<br> <!-- Exibe o telefone e quebra a linha -->
+                        Horários e endereço a definir <!-- Exibe a situação dos dados de atendimento -->
+                    </p> <!-- Encerra as informações de contato -->
+
+                </section> <!-- Encerra a área de atendimento -->
+
+            </div> <!-- Encerra as três colunas do rodapé -->
+
+            <p class="rodape-social">Siga a marca: @brasaesabor</p> <!-- Exibe o nome da marca nas redes sociais -->
+            <hr class="rodape-divisor"> <!-- Separa as informações dos créditos finais -->
+            <p class="rodape-creditos">© 2026 Brasa &amp; Sabor · Projeto conceitual de UI/UX</p> <!-- Exibe o ano, a marca e a identificação do projeto -->
+
+        </div> <!-- Encerra o conteúdo centralizado do rodapé -->
+
+    </div> <!-- Encerra a área escura do rodapé -->
+
+</footer> <!-- Encerra o rodapé da página -->
+<dialog class="detalhes-produto" id="detalhes-produto" aria-labelledby="detalhe-nome" aria-describedby="detalhe-descricao"> <!-- Detalhes do produto -->
+    <button class="fechar-detalhes" id="fechar-detalhes" type="button" aria-label="Fechar detalhes" autofocus>×</button> <!-- Fecha a janela -->
+    <div class="detalhes-layout"> <!-- Organiza imagem e informações -->
+        <img id="detalhe-imagem" src="assets/favoritos/img/hamburguer.png" alt="Hambúrguer"> <!-- Foto do produto -->
+        <div class="detalhes-conteudo"> <!-- Informações do produto -->
+            <p class="loja-legenda">BRASA &amp; SABOR</p> <!-- Nome da marca -->
+            <h2 id="detalhe-nome">Hambúrguer</h2> <!-- Nome do produto escolhido -->
+            <p class="texto-suave" id="detalhe-descricao"></p> <!-- Descrição do produto -->
+            <strong class="produto-preco" id="detalhe-preco"></strong> <!-- Preço do produto -->
+            <button class="botao-loja" id="detalhe-adicionar" type="button" data-adicionar="hamburguer">Adicionar ao pedido</button> <!-- Inclui o produto no carrinho -->
+            <p class="texto-suave" id="detalhe-status" role="status" data-status-pedido hidden></p> <!-- Confirma a inclusão -->
+        </div> <!-- Fim das informações -->
+    </div> <!-- Fim do conteúdo dos detalhes -->
+</dialog> <!-- Fim da janela -->
+<div class="barra-pedido" id="barra-pedido" hidden> <!-- Resumo fixo do celular -->
+    <div> <!-- Quantidade e total -->
+        <p class="texto-suave"><span data-total-itens>0</span> itens no pedido</p> <!-- Quantidade escolhida -->
+        <strong data-total-pedido>R$ 0,00</strong> <!-- Total dos itens -->
+    </div> <!-- Fim dos valores -->
+    <a class="botao-loja" href="meu-pedido.html">Ver meu pedido</a> <!-- Abre o carrinho -->
+</div> <!-- Fim do resumo fixo -->
+<p class="aviso-pedido" role="status" data-status-pedido hidden></p> <!-- Confirma as mudanças no pedido -->
+</body> <!-- Fim do conteúdo -->
+</html> <!-- Fim do documento -->
